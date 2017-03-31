@@ -32,6 +32,7 @@
 		C04FCA051E8A82F100E9361B /* SqitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FC9EE1E8A82F100E9361B /* SqitView.swift */; };
 		C04FCA061E8A82F100E9361B /* TextImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FC9EF1E8A82F100E9361B /* TextImageView.swift */; };
 		C04FCA071E8A82F100E9361B /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FC9F01E8A82F100E9361B /* TitleButton.swift */; };
+		C07669B31E8E78E600BEEA76 /* MGTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07669B11E8E78E600BEEA76 /* MGTableViewController.swift */; };
 		C0827EA01E8147FC008A30D7 /* MGDocumentInteractionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0827E9F1E8147FC008A30D7 /* MGDocumentInteractionVC.swift */; };
 		C0827EA31E814D4B008A30D7 /* Swift_Apprentice_v2.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C0827EA21E814D4B008A30D7 /* Swift_Apprentice_v2.0.pdf */; };
 		C0827EAA1E824DF7008A30D7 /* MGCustomActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0827EA91E824DF7008A30D7 /* MGCustomActivity.swift */; };
@@ -113,6 +114,7 @@
 		C04FC9EE1E8A82F100E9361B /* SqitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqitView.swift; sourceTree = "<group>"; };
 		C04FC9EF1E8A82F100E9361B /* TextImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextImageView.swift; sourceTree = "<group>"; };
 		C04FC9F01E8A82F100E9361B /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
+		C07669B11E8E78E600BEEA76 /* MGTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTableViewController.swift; sourceTree = "<group>"; };
 		C0827E9F1E8147FC008A30D7 /* MGDocumentInteractionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGDocumentInteractionVC.swift; sourceTree = "<group>"; };
 		C0827EA21E814D4B008A30D7 /* Swift_Apprentice_v2.0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Swift_Apprentice_v2.0.pdf; sourceTree = "<group>"; };
 		C0827EA91E824DF7008A30D7 /* MGCustomActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGCustomActivity.swift; sourceTree = "<group>"; };
@@ -249,6 +251,30 @@
 				C04FC9F01E8A82F100E9361B /* TitleButton.swift */,
 			);
 			path = "Inherit(继承)";
+			sourceTree = "<group>";
+		};
+		C07669AF1E8E78E600BEEA76 /* TableView视觉差 */ = {
+			isa = PBXGroup;
+			children = (
+				C07669B01E8E78E600BEEA76 /* Controller */,
+				C07669B21E8E78E600BEEA76 /* View */,
+			);
+			path = "TableView视觉差";
+			sourceTree = "<group>";
+		};
+		C07669B01E8E78E600BEEA76 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C07669B11E8E78E600BEEA76 /* MGTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C07669B21E8E78E600BEEA76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C0827E9D1E8147A9008A30D7 /* 预览和分享 */ = {
@@ -416,6 +442,7 @@
 				C0D550911E7BAE2100FFEECC /* Runtime */,
 				C0827E9D1E8147A9008A30D7 /* 预览和分享 */,
 				C04FC9C51E8A7A2400E9361B /* TableView的头部展开与折叠 */,
+				C07669AF1E8E78E600BEEA76 /* TableView视觉差 */,
 				C0F98EC01E7679A500FCA839 /* AppDelegate.swift */,
 				C0F98EC41E7679A500FCA839 /* Main.storyboard */,
 				C0F98EC71E7679A500FCA839 /* Assets.xcassets */,
@@ -603,6 +630,7 @@
 				C04FC9D81E8A7A8B00E9361B /* XJLHeaderFooterView.swift in Sources */,
 				C04FCA031E8A82F100E9361B /* MoreButton.swift in Sources */,
 				C04FC9F31E8A82F100E9361B /* Array+Extension.swift in Sources */,
+				C07669B31E8E78E600BEEA76 /* MGTableViewController.swift in Sources */,
 				C04FCA001E8A82F100E9361B /* Constant.swift in Sources */,
 				C04FC9FD1E8A82F100E9361B /* UINavigationBar+Extension.swift in Sources */,
 				C0D550971E7FAD4300FFEECC /* AESViewController.swift in Sources */,
