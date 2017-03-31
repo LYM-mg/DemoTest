@@ -25,14 +25,19 @@ class MGTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.layoutMargins = UIEdgeInsets.zero
-        tableView.separatorInset = UIEdgeInsets.zero
+//        tableView.separatorInset = UIEdgeInsets.zero
         tableView.separatorStyle = .none
         tableView.rowHeight = 300
+        tableView.backgroundColor = UIColor.brown
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.star()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.reset()
     }
 }
 
@@ -68,5 +73,8 @@ extension MGTableViewController: UITableViewDelegate{
             }
             imageV?.frame.origin.y = y
         }
+        
+        // 导航栏颜色的渐变
+        self.navigationController?.navigationBar.change(UIColor.orange, with: scrollView, andValue: 128)
     }
 }
