@@ -18,7 +18,7 @@ let MGWillDisplayHeaderViewNotification = "MGWillDisplayHeaderViewNotification"
 /** 通知：头部完全消失的的通知 */
 let MGDidEndDisplayingHeaderViewNotification = "MGDidEndDisplayingHeaderViewNotification"
 
-class ViewController: UIViewController {
+class IndexViewController: UIViewController {
     fileprivate lazy var dataArr = [MGCarGroup]()
     // MARK: - 懒加载属性
     public lazy var tableView: UITableView = { [unowned self] in
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - 数据源
-extension ViewController: UITableViewDataSource {
+extension IndexViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return dataArr.count
     }
@@ -138,7 +138,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 // MARK: - 数据源和代理
-extension ViewController: UITableViewDelegate{
+extension IndexViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 25
     }
@@ -150,7 +150,7 @@ extension ViewController: UITableViewDelegate{
 }
 
 // MARK: - MGIndexViewDelegate
-extension ViewController: MGIndexViewDelegate {
+extension IndexViewController: MGIndexViewDelegate {
     func indexView(_ indexView: MGIndexView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         tableView.scrollToRow(at: IndexPath(row: 0, section: index), at: .top, animated: true)
         // 弹出首字母提示

@@ -33,6 +33,7 @@
 		C04FCA061E8A82F100E9361B /* TextImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FC9EF1E8A82F100E9361B /* TextImageView.swift */; };
 		C04FCA071E8A82F100E9361B /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FC9F01E8A82F100E9361B /* TitleButton.swift */; };
 		C07669B31E8E78E600BEEA76 /* MGTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07669B11E8E78E600BEEA76 /* MGTableViewController.swift */; };
+		C07669B61E8E84B400BEEA76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07669B51E8E84B400BEEA76 /* ViewController.swift */; };
 		C0827EA01E8147FC008A30D7 /* MGDocumentInteractionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0827E9F1E8147FC008A30D7 /* MGDocumentInteractionVC.swift */; };
 		C0827EA31E814D4B008A30D7 /* Swift_Apprentice_v2.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C0827EA21E814D4B008A30D7 /* Swift_Apprentice_v2.0.pdf */; };
 		C0827EAA1E824DF7008A30D7 /* MGCustomActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0827EA91E824DF7008A30D7 /* MGCustomActivity.swift */; };
@@ -50,7 +51,7 @@
 		C0D5508D1E7A8BDD00FFEECC /* MGIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D550861E7A8BDD00FFEECC /* MGIndexView.swift */; };
 		C0D5508E1E7A8BDD00FFEECC /* MGCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D550881E7A8BDD00FFEECC /* MGCar.swift */; };
 		C0D5508F1E7A8BDD00FFEECC /* MGCarGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D550891E7A8BDD00FFEECC /* MGCarGroup.swift */; };
-		C0D550901E7A8BDD00FFEECC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5508B1E7A8BDD00FFEECC /* ViewController.swift */; };
+		C0D550901E7A8BDD00FFEECC /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5508B1E7A8BDD00FFEECC /* IndexViewController.swift */; };
 		C0D550931E7BAE4000FFEECC /* RunTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D550921E7BAE4000FFEECC /* RunTimeViewController.swift */; };
 		C0D550971E7FAD4300FFEECC /* AESViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D550961E7FAD4300FFEECC /* AESViewController.swift */; };
 		C0D550991E80D47200FFEECC /* NSData+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D550981E80D47200FFEECC /* NSData+Extension.swift */; };
@@ -115,6 +116,7 @@
 		C04FC9EF1E8A82F100E9361B /* TextImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextImageView.swift; sourceTree = "<group>"; };
 		C04FC9F01E8A82F100E9361B /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		C07669B11E8E78E600BEEA76 /* MGTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTableViewController.swift; sourceTree = "<group>"; };
+		C07669B51E8E84B400BEEA76 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C0827E9F1E8147FC008A30D7 /* MGDocumentInteractionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGDocumentInteractionVC.swift; sourceTree = "<group>"; };
 		C0827EA21E814D4B008A30D7 /* Swift_Apprentice_v2.0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Swift_Apprentice_v2.0.pdf; sourceTree = "<group>"; };
 		C0827EA91E824DF7008A30D7 /* MGCustomActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGCustomActivity.swift; sourceTree = "<group>"; };
@@ -134,7 +136,7 @@
 		C0D550861E7A8BDD00FFEECC /* MGIndexView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGIndexView.swift; sourceTree = "<group>"; };
 		C0D550881E7A8BDD00FFEECC /* MGCar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGCar.swift; sourceTree = "<group>"; };
 		C0D550891E7A8BDD00FFEECC /* MGCarGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGCarGroup.swift; sourceTree = "<group>"; };
-		C0D5508B1E7A8BDD00FFEECC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C0D5508B1E7A8BDD00FFEECC /* IndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		C0D550921E7BAE4000FFEECC /* RunTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunTimeViewController.swift; sourceTree = "<group>"; };
 		C0D550961E7FAD4300FFEECC /* AESViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AESViewController.swift; sourceTree = "<group>"; };
 		C0D550981E80D47200FFEECC /* NSData+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Extension.swift"; sourceTree = "<group>"; };
@@ -277,6 +279,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C07669B41E8E84AE00BEEA76 /* 音视频采集 */ = {
+			isa = PBXGroup;
+			children = (
+				C07669B51E8E84B400BEEA76 /* ViewController.swift */,
+			);
+			path = "音视频采集";
+			sourceTree = "<group>";
+		};
 		C0827E9D1E8147A9008A30D7 /* 预览和分享 */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,7 +410,7 @@
 		C0D5508A1E7A8BDD00FFEECC /* 控制器 */ = {
 			isa = PBXGroup;
 			children = (
-				C0D5508B1E7A8BDD00FFEECC /* ViewController.swift */,
+				C0D5508B1E7A8BDD00FFEECC /* IndexViewController.swift */,
 			);
 			path = "控制器";
 			sourceTree = "<group>";
@@ -443,6 +453,7 @@
 				C0827E9D1E8147A9008A30D7 /* 预览和分享 */,
 				C04FC9C51E8A7A2400E9361B /* TableView的头部展开与折叠 */,
 				C07669AF1E8E78E600BEEA76 /* TableView视觉差 */,
+				C07669B41E8E84AE00BEEA76 /* 音视频采集 */,
 				C0F98EC01E7679A500FCA839 /* AppDelegate.swift */,
 				C0F98EC41E7679A500FCA839 /* Main.storyboard */,
 				C0F98EC71E7679A500FCA839 /* Assets.xcassets */,
@@ -640,6 +651,7 @@
 				C04FCA011E8A82F100E9361B /* CornersLabel.swift in Sources */,
 				C0827EB11E826B22008A30D7 /* WechatSessionActivity.swift in Sources */,
 				C04FC9F61E8A82F100E9361B /* String+Extension.swift in Sources */,
+				C07669B61E8E84B400BEEA76 /* ViewController.swift in Sources */,
 				C0D550991E80D47200FFEECC /* NSData+Extension.swift in Sources */,
 				C0827EA01E8147FC008A30D7 /* MGDocumentInteractionVC.swift in Sources */,
 				C0D550931E7BAE4000FFEECC /* RunTimeViewController.swift in Sources */,
@@ -652,7 +664,7 @@
 				C04FC9D61E8A7A8B00E9361B /* XJLGroupModel.swift in Sources */,
 				C04FCA071E8A82F100E9361B /* TitleButton.swift in Sources */,
 				C04FC9F71E8A82F100E9361B /* UIAlertView+Extension.swift in Sources */,
-				C0D550901E7A8BDD00FFEECC /* ViewController.swift in Sources */,
+				C0D550901E7A8BDD00FFEECC /* IndexViewController.swift in Sources */,
 				C04FC9D71E8A7A8B00E9361B /* XJLModel.swift in Sources */,
 				C04FCA021E8A82F100E9361B /* MGButton.swift in Sources */,
 				C0827EB01E826B22008A30D7 /* CopyLinkActivity.swift in Sources */,
