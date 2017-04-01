@@ -53,9 +53,9 @@ class ViewController: UIViewController {
         // 3.设置音频输入输出
         setupAudioSource(session: session!)
         
-        #if TARGET_IPHONE_SIMULATOR//模拟器
+        #if TARGET_IPHONE_SIMULATOR  //模拟器
             self.showInfo(info: "需要真机测试,模拟器没有摄像头")
-        #elseif TARGET_OS_IPHONE//真机
+        #elseif TARGET_OS_IPHONE  //真机
             // 4.添加预览图层
             setupPreviewLayer(session: session!)
         

@@ -28,7 +28,8 @@ class XJLOccupationViewController: UITableViewController {
     
     
     func loadData() {
-        Alamofire.request("http://api-test.shikee.tv/common/Occupation/index").responseJSON { (response) in
+        // http://api.shikee.tv/common/Occupation/index
+        Alamofire.request("http://api.shikee.tv/common/Occupation/index").responseJSON { (response) in
             guard let dict = response.result.value as? [String: Any] else { return }
             guard let dictArr = dict["data"] as? [[String: Any]] else { return }
             
