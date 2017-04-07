@@ -1,0 +1,31 @@
+//
+//  PrefixHeader.pch
+//  OC版--TbaleView索引高仿
+//
+//  Created by i-Techsys.com on 17/4/6.
+//  Copyright © 2017年 i-Techsys. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#pragma mark - define
+#define MGScreenBounds [UIScreen mainScreen].bounds
+#define MGScreenSize [UIScreen mainScreen].bounds.size
+#define MGScreenW [UIScreen mainScreen].bounds.size.width
+#define MGScreenH [UIScreen mainScreen].bounds.size.height
+
+// MARK:- 通知
+/** 通知中心 */
+#define MGNotificationCenter [NSNotificationCenter defaultCenter]
+/** 通知：头部即将消失的的通知 */
+#define MGWillDisplayHeaderViewNotification  @"MGWillDisplayHeaderViewNotification"
+/** 通知：头部完全消失的的通知 */
+#define MGDidEndDisplayingHeaderViewNotification  @"MGDidEndDisplayingHeaderViewNotification"
+
+
+
+#pragma mark - 分类
+#import "UIView+LYMExtension.h"
+
+#endif /* PrefixHeader_pch */

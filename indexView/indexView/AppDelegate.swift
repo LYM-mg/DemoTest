@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             setUp3Dtouch(application)
         }
         
+        
         return true
     }
 

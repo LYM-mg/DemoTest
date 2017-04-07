@@ -60,6 +60,8 @@ class IndexViewController: UIViewController {
         view.bringSubview(toFront: indexView)
         
         scrollViewDidScroll(tableView)
+//        
+//        UIApplication.shared.setStatusBarHidden(true, with: .none)
     }
     
     fileprivate func loadData() {
@@ -72,12 +74,11 @@ class IndexViewController: UIViewController {
         
         // 3.将dictArray里面的所有字典转成模型对象,放到新的数组中
         for dict in arr {
-            dataArr.append(MGCarGroup(dict: dict))
-        }
-        
-        for group in dataArr {
+            let group = MGCarGroup(dict: dict)
+            dataArr.append(group)
             letters.append(group.title)
         }
+        
         tableView.reloadData()
     }
 
