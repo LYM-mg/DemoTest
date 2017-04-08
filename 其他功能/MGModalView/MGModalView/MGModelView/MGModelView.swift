@@ -22,9 +22,9 @@ class MGModelView: UIView {
         let contentView = UIView(frame: CGRect(x: 0, y: self.frame.size.height, width: self.frame.size.width, height: self.frame.size.height))
         contentView.backgroundColor = UIColor.white
         return contentView
-        }()
+    }()
     
-    // MARK: - LAZY
+    // MARK: - Lazy 懒加载
     fileprivate lazy var maskImageView: UIImageView = {
         let maskImageView = UIImageView(frame: CGRect(origin: .zero,size: self.frame.size))
         return maskImageView
