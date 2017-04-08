@@ -40,5 +40,9 @@
     [MGKeychainTool deleteKeychainValue:@"password"];
 }
 
+- (IBAction)update:(id)sender {
+    [MGKeychainTool updateData:@"许同志" key:@"userName"];
+    [MGKeychainTool updateData:@"副会长" key:@"password"];
+}
 
 @end

@@ -47,6 +47,6 @@
  *
  *  @return 返回更新新成功
  */
-+ (BOOL)updateData:(id)data forService:(NSString *)sKey;
++ (BOOL)updateData:(id)data key:(NSString *)sKey;
 
 @end
