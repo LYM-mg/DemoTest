@@ -14,7 +14,7 @@ class XJLOccupationViewController: UITableViewController {
     fileprivate lazy var occupationDict = [XJLGroupModel]()
     
     fileprivate lazy var hearderSection: Int = 0
-//    private lazy var hearderView: XJLHeaderFooterView = XJLHeaderFooterView()
+    private lazy var hearderView: XJLHeaderFooterView = XJLHeaderFooterView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +25,10 @@ class XJLOccupationViewController: UITableViewController {
         
         loadData()
     }
-    
+
     
     func loadData() {
-        // http://api.shikee.tv/common/Occupation/index
+//        // http://api.shikee.tv/common/Occupation/index
         Alamofire.request("http://api.shikee.tv/common/Occupation/index").responseJSON { (response) in
             guard let dict = response.result.value as? [String: Any] else { return }
             guard let dictArr = dict["data"] as? [[String: Any]] else { return }

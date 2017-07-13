@@ -26,6 +26,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+// MARK: - Action
 - (IBAction)read:(id)sender {
     self.userName.text = [NSString stringWithFormat:@"读取到用户名:%@",[MGKeychainTool readKeychainValue:@"userName"]];
     self.password.text = [NSString stringWithFormat:@"读取到用户密码:%@",[MGKeychainTool readKeychainValue:@"password"]];
@@ -35,6 +36,7 @@
     [MGKeychainTool saveKeychainValue:self.userName.text key:@"userName"];
     [MGKeychainTool saveKeychainValue:self.password.text key:@"password"];
 }
+
 - (IBAction)delete:(id)sender {
     [MGKeychainTool deleteKeychainValue:@"userName"];
     [MGKeychainTool deleteKeychainValue:@"password"];

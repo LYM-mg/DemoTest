@@ -28,6 +28,7 @@ class MGDocumentInteractionVC: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let urlStr = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1044917946&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"
         guard let url = URL(string: urlStr) else { return }
+        
         if UIApplication.shared.canOpenURL(url){
             if #available(iOS 10.0, *) {
                 let options = [UIApplicationOpenURLOptionUniversalLinksOnly : true]
