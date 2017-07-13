@@ -1,6 +1,6 @@
 # DemoTest
 集合业余功能，值得一看
-Demo: 之前写的一个MGDemo是OC写的，现在写一个Swift3.x语法版本的。目前只涉及TableView索引和TableView头部的展开与折叠、AES加密、系统分享、RunTime之黑魔法、也把自己积累写的扩展全部写在了这里。iOS10跳转到设置界面各种操作
+Demo: 之前写的一个MGDemo是OC写的，现在写一个Swift3.x语法版本的。目前只涉及TableView索引和TableView头部的展开与折叠、AES加密、系统分享、RunTime之黑魔法、也把自己积累写的扩展全部写在了这里。iOS10跳转到设置界面各种操作。。。。。
 ***
 
 # GIF介绍：
