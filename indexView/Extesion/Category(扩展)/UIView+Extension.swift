@@ -217,6 +217,14 @@ extension UIView {
         return Bundle.main.loadNibNamed(NSStringFromClass(self.classForCoder()), owner: nil, options: nil)?.last! as! UIView
     }
 }
+
+extension UIView {
+    class func loadViewFromXib1<T>() -> T {
+        let fullViewName: String = NSStringFromClass(self.classForCoder())
+        let viewName: String = fullViewName.components(separatedBy: ".").last!
+        return Bundle.main.loadNibNamed(viewName, owner: nil, options: nil)?.last! as! T
+    }
+}
 // MARK: - 版本判断
 // _url	NSURL	"app-settings:"	0x7bafc010
 //        if #available(iOS 10.0, *) { // UIApplicationOpenURLOptionsKey

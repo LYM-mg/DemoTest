@@ -434,7 +434,7 @@
         <!--Table View Controller-->
         <scene sceneID="bCH-ZN-M0w">
             <objects>
-                <viewController id="ZQg-5g-lA9" customClass="MGTableViewController" customModule="indexView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TableViewCellID" id="ZQg-5g-lA9" customClass="MGTableViewController" customModule="indexView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EVY-V9-Yn5"/>
                         <viewControllerLayoutGuide type="bottom" id="Ep2-pL-tnK"/>

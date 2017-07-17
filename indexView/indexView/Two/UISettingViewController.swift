@@ -12,7 +12,16 @@ class UISettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "加载XIB", style: .plain, target: self, action: #selector(LoadXib))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "SB", style: .done, target: self, action: #selector(LoadSB))
+    }
+    
+    func LoadXib() {
+        self.show(XibViewController(), sender: nil)
+    }
+    func LoadSB() {
+        self.show(SBTools.loadControllerFromSBWithID("Main", "TableViewCellID"), sender: nil)
     }
 
     override func didReceiveMemoryWarning() {
