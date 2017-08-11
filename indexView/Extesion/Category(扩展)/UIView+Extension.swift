@@ -213,12 +213,6 @@ extension UIView {
 
 // MARK: - 快速从XIB创建一个View (仅限于XIB中只有一个View的时候)
 extension UIView {
-    class func loadViewFromXib() -> UIView {
-        return Bundle.main.loadNibNamed(NSStringFromClass(self.classForCoder()), owner: nil, options: nil)?.last! as! UIView
-    }
-}
-
-extension UIView {
     class func loadViewFromXib1<T>() -> T {
         let fullViewName: String = NSStringFromClass(self.classForCoder())
         let viewName: String = fullViewName.components(separatedBy: ".").last!
