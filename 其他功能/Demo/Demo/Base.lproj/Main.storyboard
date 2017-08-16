@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,14 +27,26 @@
                                     <segue destination="xar-Vs-w9f" kind="show" id="Psv-aj-0Ko"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择地址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pGf-Bd-kiE">
+                                <rect key="frame" x="20" y="166" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="pGf-Bd-kiE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="52O-xl-jnL"/>
+                            <constraint firstAttribute="trailing" secondItem="pGf-Bd-kiE" secondAttribute="trailing" constant="20" id="BKM-uK-Fb6"/>
                             <constraint firstItem="BHC-7c-jYA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aqB-9t-Paq"/>
+                            <constraint firstItem="pGf-Bd-kiE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="102" id="f6B-R4-ldA"/>
                             <constraint firstItem="BHC-7c-jYA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hvP-16-qcA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="v4R-A8-0d1"/>
+                    <connections>
+                        <outlet property="cityField" destination="pGf-Bd-kiE" id="bvx-ig-yT6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

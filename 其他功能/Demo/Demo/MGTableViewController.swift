@@ -11,14 +11,12 @@ import UIKit
 class MGTableViewController: UITableViewController,UIGestureRecognizerDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
-    
+    var str: Void?
     deinit {
         defer {
         }
-        do {
+        
             removeObserver(self, forKeyPath: NSStringFromSelector(#selector(setter: self.pad_state)), context: nil)
-        } catch _ {
-        } 
     }
     
     override func viewDidLoad() {

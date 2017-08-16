@@ -21,7 +21,6 @@
 		C04C9D791F17556000888518 /* NSData+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04C9D511F17556000888518 /* NSData+Extension.swift */; };
 		C04C9D7A1F17556000888518 /* NSData+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04C9D511F17556000888518 /* NSData+Extension.swift */; };
 		C04C9D7B1F17556000888518 /* SymmetricCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04C9D521F17556000888518 /* SymmetricCryptor.swift */; };
-		C04C9D7C1F17556000888518 /* SymmetricCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04C9D521F17556000888518 /* SymmetricCryptor.swift */; };
 		C04C9D7D1F17556000888518 /* AESViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04C9D541F17556000888518 /* AESViewController.swift */; };
 		C04C9D7E1F17556000888518 /* AESViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04C9D541F17556000888518 /* AESViewController.swift */; };
 		C04C9D7F1F17556000888518 /* EncryptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04C9D551F17556000888518 /* EncryptViewController.swift */; };
@@ -54,6 +53,7 @@
 		C04C9D9A1F17556000888518 /* MGDocumentInteractionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04C9D6B1F17556000888518 /* MGDocumentInteractionVC.swift */; };
 		C04C9D9C1F17559000888518 /* UISettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04C9D9B1F17559000888518 /* UISettingViewController.swift */; };
 		C04C9D9D1F17559000888518 /* UISettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04C9D9B1F17559000888518 /* UISettingViewController.swift */; };
+		C04DC0831F42F0870093DA00 /* SymmetricCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04C9D521F17556000888518 /* SymmetricCryptor.swift */; };
 		C04FC9F31E8A82F100E9361B /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FC9DB1E8A82F100E9361B /* Array+Extension.swift */; };
 		C04FC9F41E8A82F100E9361B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FC9DC1E8A82F100E9361B /* Date+Extension.swift */; };
 		C04FC9F51E8A82F100E9361B /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04FC9DD1E8A82F100E9361B /* NSObject+Extension.swift */; };
@@ -677,6 +677,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C04DC0831F42F0870093DA00 /* SymmetricCryptor.swift in Sources */,
 				C04C9D781F17556000888518 /* MGTableViewController.swift in Sources */,
 				C04C9D741F17556000888518 /* XJLModel.swift in Sources */,
 				C04C9D761F17556000888518 /* XJLHeaderFooterView.swift in Sources */,
@@ -686,7 +687,6 @@
 				C04C9D721F17556000888518 /* XJLGroupModel.swift in Sources */,
 				C04C9D881F17556000888518 /* MGCarGroup.swift in Sources */,
 				C04C9D9D1F17559000888518 /* UISettingViewController.swift in Sources */,
-				C04C9D7C1F17556000888518 /* SymmetricCryptor.swift in Sources */,
 				C04C9D861F17556000888518 /* MGCar.swift in Sources */,
 				C04C9D961F17556000888518 /* WechatTimelineActivity.swift in Sources */,
 				C04C9D7E1F17556000888518 /* AESViewController.swift in Sources */,

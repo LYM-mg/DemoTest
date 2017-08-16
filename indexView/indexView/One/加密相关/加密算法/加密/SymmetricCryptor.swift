@@ -182,7 +182,6 @@ class SymmetricCryptor: NSObject {
     }
     
     // MARK: - Random methods
-    
     class func randomDataOfLength(_ length: Int) -> Data? {
         var mutableData = Data(count: length)
         let bytes = mutableData.withUnsafeMutableBytes { (bytes: UnsafeMutablePointer<UInt8>) -> UnsafeMutablePointer<UInt8> in
