@@ -1,26 +1,23 @@
 //
 //  AppDelegate.swift
-//  Demo
+//  MGBookViews
 //
-//  Created by i-Techsys.com on 2017/8/11.
+//  Created by i-Techsys.com on 2017/8/19.
 //  Copyright © 2017年 i-Techsys. All rights reserved.
 //
 
 import UIKit
-import CoreMotion
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    lazy var shareMotionManager: CMMotionManager = {
-        let shareMotionManager = CMMotionManager()
-        return  shareMotionManager
-    }()
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = MGTabBarController()
+        self.window?.makeKeyAndVisible()
         return true
     }
 
@@ -45,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+
 
 }
 
