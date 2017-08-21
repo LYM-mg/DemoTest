@@ -10,7 +10,6 @@ import UIKit
 class MGProfileViewController: UIViewController,UIScrollViewDelegate,UITableViewDelegate {
 
     weak var scrollView: MGScrollView?
-    weak var showTableView: MGTableView?
     weak var dynamicTableView: MGTableView?
     weak var articleTableView: MGTableView?
     weak var moreTableView: MGTableView?
@@ -52,34 +51,28 @@ class MGProfileViewController: UIViewController,UIScrollViewDelegate,UITableView
 //        tableHeaderView.alpha = 0.0
         tableHeaderView.frame = CGRect(x: 0, y: 0, width: MGScreenW, height: MGHeadViewHeight + MGTitleHeight)
         
-        let dynamicTableView: MGTableView = {
-            let dynamicTableView = MGTableView(type: .dynamic)
-            scrollView.addSubview(dynamicTableView)
-            dynamicTableView.delegate = self
-            dynamicTableView.separatorStyle = .none
-            dynamicTableView.tableHeaderView = tableHeaderView
-            dynamicTableView.snp.makeConstraints({ (make) in
-                make.left.equalToSuperview().offset(MGScreenW)
-                make.width.equalTo(MGScreenW)
-                make.top.bottom.equalTo(view)
-            })
-            return dynamicTableView
-        }()
+        let dynamicTableView: MGTableView = MGTableView(type: .dynamic)
+        scrollView.addSubview(dynamicTableView)
+        dynamicTableView.delegate = self
+        dynamicTableView.separatorStyle = .none
+        dynamicTableView.tableHeaderView = tableHeaderView
+        dynamicTableView.snp.makeConstraints({ (make) in
+            make.left.equalToSuperview()
+            make.width.equalTo(MGScreenW)
+            make.top.bottom.equalTo(view)
+        })
         self.dynamicTableView = dynamicTableView
         
-        let articleTableView: MGTableView = {
-            let articleTableView = MGTableView(type: .art)
-            scrollView.addSubview(articleTableView)
-            articleTableView.delegate = self
-            articleTableView.separatorStyle = .none
-            articleTableView.tableHeaderView = tableHeaderView
-            articleTableView.snp.makeConstraints({ (make) in
-                make.left.equalToSuperview().offset(2*MGScreenW)
-                make.width.equalTo(MGScreenW)
-                make.top.bottom.equalTo(view)
-            })
-            return articleTableView
-        }()
+        let articleTableView: MGTableView =  MGTableView(type: .art)
+        scrollView.addSubview(articleTableView)
+        articleTableView.delegate = self
+        articleTableView.separatorStyle = .none
+        articleTableView.tableHeaderView = tableHeaderView
+        articleTableView.snp.makeConstraints({ (make) in
+            make.left.equalToSuperview().offset(MGScreenW)
+            make.width.equalTo(MGScreenW)
+            make.top.bottom.equalTo(view)
+        })
         self.articleTableView = articleTableView
         
         
@@ -90,14 +83,13 @@ class MGProfileViewController: UIViewController,UIScrollViewDelegate,UITableView
             moreTableView.separatorStyle = .none
             moreTableView.tableHeaderView = tableHeaderView
             moreTableView.snp.makeConstraints({ (make) in
-                make.left.equalToSuperview()
+                make.left.equalToSuperview().offset(2*MGScreenW)
                 make.width.equalTo(MGScreenW)
                 make.top.bottom.equalTo(view)
             })
             return moreTableView
         }()
         self.moreTableView = moreTableView
-        self.showing(index: 0)
     }
     
     func setupHeaderView() {
@@ -118,7 +110,6 @@ class MGProfileViewController: UIViewController,UIScrollViewDelegate,UITableView
         titleView.selectedIndex = 0
         titleView.buttonSelected = {(_ index: Int) -> Void in
             weakSelf?.scrollView!.setContentOffset(CGPoint(x: MGScreenW * CGFloat(index), y: 0), animated: true)
-            weakSelf?.showing(index: index)
         }
     }
 }
@@ -129,20 +120,8 @@ extension MGProfileViewController {
             let contentOffsetX: CGFloat = scrollView.contentOffset.x
             let pageNum: Int = Int(contentOffsetX / MGScreenW + 0.5)
             titleView?.setSelectedIndex(selectedIndex: pageNum)
-            self.showing(index: pageNum)
         }
     }
-    
-    func showing(index: Int) {
-        if index == 0 {
-            showTableView = dynamicTableView
-        }else if index == 1 {
-            showTableView = articleTableView
-        }else if index == 2 {
-            showTableView = moreTableView
-        }
-    }
-    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == self.scrollView  || (scrollView.window == nil){
@@ -175,40 +154,20 @@ extension MGProfileViewController {
                 }
             }
         }
-
-        let offset = CGPoint(x: 0, y: otherOffsetY)
-        if otherOffsetY >= MGHeadViewHeight { return }
-        for i in 0..<self.titleView!.titles.count {
-            if i != self.titleView?.selectedIndex {
-                let contentView = scrollView.subviews[i]
-                if contentView !== self.showTableView {
-                    if (contentView is UITableView) {
-                        let contentView = contentView as! UITableView
-                        if contentView.contentOffset.y < MGHeadViewHeight {
-                            contentView.setContentOffset(offset, animated: false)
-                            self.scrollView!.offset = offset
-                        }
-                    }
+        
+        for (i,contentView) in self.scrollView!.subviews.enumerated() {
+            let offset = CGPoint(x: 0, y: otherOffsetY)
+            if contentView is UITableView {
+                let contentView = contentView as! UITableView
+                if contentView.contentOffset.y < MGHeadViewHeight || offset.y < MGHeadViewHeight {
+                    contentView.setContentOffset(offset, animated: false)
+                    UIView.animate(withDuration: 0.25, animations: {
+                        self.scrollView?.offset = offset
+//                        print("最后距离：\(originY)")
+                    })
                 }
+
             }
         }
-        
-        
-//        for (i,contentView) in self.scrollView!.subviews.enumerated() {
-//            if i == self.titleView!.selectedIndex {
-//                continue }
-//            let offset = CGPoint(x: 0, y: otherOffsetY)
-//            if contentView is UITableView {
-//                let contentView = contentView as! UITableView
-//                if contentView.contentOffset.y < MGHeadViewHeight || offset.y < MGHeadViewHeight {
-//                    contentView.setContentOffset(offset, animated: false)
-////                    UIView.animate(withDuration: 0.25, animations: {
-////                        self.scrollView?.offset = CGPoint(x: 0, y: originY)
-////                        print("最后距离：\(originY)")
-////                    })
-//                }
-//
-//            }
-//        }
     }
 }

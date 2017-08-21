@@ -8,11 +8,13 @@
 import UIKit
 
 enum TableViewType: Int {
-    case dynamic = 0,art = 1,more = 2
+    case dynamic = 0
+    case art = 1
+    case more = 2
 }
 
 
-class MGTableView: UITableView {
+class MGTableView: UITableView,UITableViewDataSource {
 
     lazy var type: TableViewType = .dynamic
     override init(frame: CGRect, style: UITableViewStyle) {
@@ -29,10 +31,10 @@ class MGTableView: UITableView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func didMoveToWindow() {
-        super.didMoveToWindow()
-        self.reloadData()
-    }
+//    override func didMoveToWindow() {
+//        super.didMoveToWindow()
+//        self.reloadData()
+//    }
     
 //    override var contentOffset: CGPoint {
 //        get {
@@ -49,7 +51,7 @@ class MGTableView: UITableView {
 }
 
 
-extension MGTableView: UITableViewDataSource {
+extension MGTableView {
     override var numberOfSections: Int {
         return 1
     }
