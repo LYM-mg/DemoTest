@@ -42,7 +42,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
+// 封装的日志输出功能（T表示不指定日志信息参数类型）
+func MGLog<T>(_ message:T..., file:String = #file, function:String = #function,
+           line:Int = #line) {
+    #if DEBUG
+        //获取文件名
+        let fileName = (file as NSString).lastPathComponent
+        //打印日志内容
+        print("\(fileName):\(line) 方法：\(function) 信息：\(message)")
+    #endif
+}
 
+// 封装的日志输出功能（message：Any...表示不指定日志信息参数类型和可以使用无数个参数）
+func MGLog(_ message:Any..., file:String = #file, function:String = #function,
+           line:Int = #line) {
+    #if DEBUG
+        //获取文件名
+        let fileName = (file as NSString).lastPathComponent
+        //打印日志内容
+        print("\(fileName):\(line) 方法：\(function) 信息：\(message)")
+    #endif
 }
 

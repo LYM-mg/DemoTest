@@ -31,6 +31,8 @@ class MGProfileViewController: UIViewController,UIScrollViewDelegate,UITableView
     
     deinit {
         print(#file, #function)
+        MGLog(#file,#function,"\(#line)")
+        MGLog("dsa")
     }
     
     func setupContentView() {
@@ -146,9 +148,11 @@ extension MGProfileViewController {
             originY      = -MGHeadViewHeight
             otherOffsetY = MGHeadViewHeight
         }
+        
+        // 滚动时头部做相应变化
         self.headerView?.frame = CGRect(x: 0, y: originY, width: MGScreenW, height: MGHeadViewHeight + MGTitleHeight)
         
-        
+        // 其他不在窗口的2个tableView做相应的滚动
         for (i,contentView) in self.scrollView!.subviews.enumerated() {
             if (i != self.titleView!.selectedIndex) {
                 let offset = CGPoint(x: 0, y: otherOffsetY)
@@ -157,7 +161,7 @@ extension MGProfileViewController {
                     if contentView.contentOffset.y < MGHeadViewHeight || offset.y < MGHeadViewHeight {
                         contentView.setContentOffset(offset, animated: false)
 //                        self.scrollView?.offset = offset
-//                        print("最后距离：\(originY)")
+                        print("最后距离：\(originY)")
                     }
                     
                 }
