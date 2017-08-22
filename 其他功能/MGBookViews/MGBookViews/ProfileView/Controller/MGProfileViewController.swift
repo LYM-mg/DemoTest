@@ -29,6 +29,10 @@ class MGProfileViewController: UIViewController,UIScrollViewDelegate,UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    deinit {
+        print(#file, #function)
+    }
+    
     func setupContentView() {
         let scrollView: MGScrollView = {
             let scrollView = MGScrollView(frame: self.view.frame)
@@ -144,29 +148,19 @@ extension MGProfileViewController {
         }
         self.headerView?.frame = CGRect(x: 0, y: originY, width: MGScreenW, height: MGHeadViewHeight + MGTitleHeight)
         
-       
-        if  otherOffsetY < MGHeadViewHeight {
-            let offset = CGPoint(x: 0, y: otherOffsetY)
-            for contentView in self.scrollView!.subviews {
-                if contentView is UITableView {
-                    let contentView = contentView as! UITableView
-                    contentView.setContentOffset(offset, animated: false)
-                }
-            }
-        }
         
         for (i,contentView) in self.scrollView!.subviews.enumerated() {
-            let offset = CGPoint(x: 0, y: otherOffsetY)
-            if contentView is UITableView {
-                let contentView = contentView as! UITableView
-                if contentView.contentOffset.y < MGHeadViewHeight || offset.y < MGHeadViewHeight {
-                    contentView.setContentOffset(offset, animated: false)
-                    UIView.animate(withDuration: 0.25, animations: {
-                        self.scrollView?.offset = offset
+            if (i != self.titleView!.selectedIndex) {
+                let offset = CGPoint(x: 0, y: otherOffsetY)
+                if contentView is UITableView {
+                    let contentView = contentView as! UITableView
+                    if contentView.contentOffset.y < MGHeadViewHeight || offset.y < MGHeadViewHeight {
+                        contentView.setContentOffset(offset, animated: false)
+//                        self.scrollView?.offset = offset
 //                        print("最后距离：\(originY)")
-                    })
+                    }
+                    
                 }
-
             }
         }
     }
