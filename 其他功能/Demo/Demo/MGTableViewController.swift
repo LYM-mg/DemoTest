@@ -21,7 +21,7 @@ class MGTableViewController: UITableViewController,UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
          self.pad_motionManager = (UIApplication.shared.delegate as? AppDelegate)?.shareMotionManager
         
         addObserver(self, forKeyPath: NSStringFromSelector(#selector(setter: self.pad_state)), options: .new, context: nil)

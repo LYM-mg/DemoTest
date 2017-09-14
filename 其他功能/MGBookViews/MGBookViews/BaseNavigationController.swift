@@ -49,9 +49,9 @@ extension BaseNavigationController {
 }
 
 // MARK: - 全局拖拽手势
-extension BaseNavigationController: UIGestureRecognizerDelegate {
+extension UINavigationController: UIGestureRecognizerDelegate {
     /// 全局拖拽手势
-    fileprivate func setUpGlobalPan() {
+    public func setUpGlobalPan() {
         // 1.创建Pan手势
         let target = interactivePopGestureRecognizer?.delegate
         let globalPan = UIPanGestureRecognizer(target: target, action: Selector(("handleNavigationTransition:")))
@@ -62,9 +62,36 @@ extension BaseNavigationController: UIGestureRecognizerDelegate {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
+    /// 移除全局手势
+    public func removeGlobalPanGes() {
+        for case let ges as UIPanGestureRecognizer in self.view.gestureRecognizers! {
+            let i = self.view.gestureRecognizers?.index(of: ges)
+            self.view.gestureRecognizers?.remove(at: i!)
+            print(ges)
+        }
+    }
+    
     /// 什么时候支持全屏手势
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return self.childViewControllers.count != 1
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if self.childViewControllers.count != 1 {
+            if (gestureRecognizer is UIPanGestureRecognizer) {
+                if (self.topViewController != nil) && (self.view.gestureRecognizers!.contains(gestureRecognizer)) {
+                    let tPoint: CGPoint = ((gestureRecognizer as? UIPanGestureRecognizer)?.translation(in: gestureRecognizer.view))!
+                    if tPoint.x >= 0 {
+                        let y: CGFloat = fabs(tPoint.y)
+                        let x: CGFloat = fabs(tPoint.x)
+                        let af: CGFloat = 30.0 / 180.0 * .pi  // tanf(Float(af))
+                        let tf: CGFloat = tan(af)
+                        return (y / x) <= tf
+                    } else {
+                        return false
+                    }
+                }
+            }
+            return true
+        } else {
+            return false
+        }
     }
 }
 

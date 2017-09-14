@@ -51,7 +51,7 @@ func MGLog<T>(_ message:T..., file:String = #file, function:String = #function,
         //获取文件名
         let fileName = (file as NSString).lastPathComponent
         //打印日志内容
-        print("\(fileName):\(line) 方法：\(function) 信息：\(message)")
+        print("\(fileName):\(line) \(function) 信息：\(message)")
     #endif
 }
 
@@ -62,7 +62,7 @@ func MGLog(_ message:Any..., file:String = #file, function:String = #function,
         //获取文件名
         let fileName = (file as NSString).lastPathComponent
         //打印日志内容
-        print("\(fileName):\(line) 方法：\(function) 信息：\(message)")
+        print("\(fileName):\(line) \(function) 信息：\(message)")
     #endif
 }
 

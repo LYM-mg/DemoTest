@@ -7,5 +7,9 @@ target 'Demo' do
 
   # Pods for Demo
   pod  ‘MGIndexView’, '~> 0.0.1'
+    pod 'SwiftyJSON'
+    pod 'SVProgressHUD'
+    # Swift
+    pod 'Alamofire', '~> 4.2.0'           # 网络请求
 
 end

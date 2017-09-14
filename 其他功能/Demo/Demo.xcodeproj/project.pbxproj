@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		7EC4D13A1EFEDAC75FEB2F73 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 739F66E18E0F40884EDAD0B4 /* Pods_Demo.framework */; };
+		C039B0571F600A1600758A69 /* MGDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039B0561F600A1600758A69 /* MGDateViewController.swift */; };
+		C039B0621F63993D00758A69 /* MGAPIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039B0591F63993D00758A69 /* MGAPIConfig.swift */; };
+		C039B0631F63993D00758A69 /* MGHelpTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039B05A1F63993D00758A69 /* MGHelpTools.swift */; };
+		C039B0661F63993D00758A69 /* SaveTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039B05E1F63993D00758A69 /* SaveTools.swift */; };
+		C039B0671F63993D00758A69 /* SBTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039B05F1F63993D00758A69 /* SBTools.swift */; };
+		C039B0691F63993D00758A69 /* SysNetWorkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039B0611F63993D00758A69 /* SysNetWorkTools.swift */; };
+		C039B06B1F639A9600758A69 /* NetWorkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039B06A1F639A9600758A69 /* NetWorkTools.swift */; };
+		C039B06D1F68D7C900758A69 /* MGProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039B06C1F68D7C900758A69 /* MGProgressView.swift */; };
 		C075B34D1F441D2300F6181B /* LoadDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C075B34C1F441D2300F6181B /* LoadDataTool.swift */; };
 		C075B34F1F441D9900F6181B /* area.json in Resources */ = {isa = PBXBuildFile; fileRef = C075B34E1F441D9900F6181B /* area.json */; };
 		C0A476451F3D8B1100FF9E32 /* MGTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A476441F3D8B1100FF9E32 /* MGTableViewController.swift */; };
@@ -30,6 +38,15 @@
 		483C1C4D7FC1DBBB54D1D032 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		739F66E18E0F40884EDAD0B4 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96748A1804BC21BBDDCEAB8E /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		C039B0521F6008BE00758A69 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		C039B0561F600A1600758A69 /* MGDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGDateViewController.swift; sourceTree = "<group>"; };
+		C039B0591F63993D00758A69 /* MGAPIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGAPIConfig.swift; sourceTree = "<group>"; };
+		C039B05A1F63993D00758A69 /* MGHelpTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGHelpTools.swift; sourceTree = "<group>"; };
+		C039B05E1F63993D00758A69 /* SaveTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveTools.swift; sourceTree = "<group>"; };
+		C039B05F1F63993D00758A69 /* SBTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBTools.swift; sourceTree = "<group>"; };
+		C039B0611F63993D00758A69 /* SysNetWorkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SysNetWorkTools.swift; sourceTree = "<group>"; };
+		C039B06A1F639A9600758A69 /* NetWorkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkTools.swift; sourceTree = "<group>"; };
+		C039B06C1F68D7C900758A69 /* MGProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGProgressView.swift; sourceTree = "<group>"; };
 		C075B34C1F441D2300F6181B /* LoadDataTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadDataTool.swift; sourceTree = "<group>"; };
 		C075B34E1F441D9900F6181B /* area.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = area.json; sourceTree = "<group>"; };
 		C0A476441F3D8B1100FF9E32 /* MGTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTableViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +106,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C039B0581F63993D00758A69 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				C039B06A1F639A9600758A69 /* NetWorkTools.swift */,
+				C039B0591F63993D00758A69 /* MGAPIConfig.swift */,
+				C039B05A1F63993D00758A69 /* MGHelpTools.swift */,
+				C039B05E1F63993D00758A69 /* SaveTools.swift */,
+				C039B05F1F63993D00758A69 /* SBTools.swift */,
+				C039B0611F63993D00758A69 /* SysNetWorkTools.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		C0A476461F3D8B3D00FF9E32 /* PADTiltViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,14 +167,18 @@
 				C0EB97AC1F3D4F5900A69169 /* UIGestureRecognizer+Extension.swift */,
 				C0EB97981F3D4F4000A69169 /* AppDelegate.swift */,
 				C0EB979A1F3D4F4000A69169 /* ViewController.swift */,
+				C039B0561F600A1600758A69 /* MGDateViewController.swift */,
+				C0A476441F3D8B1100FF9E32 /* MGTableViewController.swift */,
 				C075B34C1F441D2300F6181B /* LoadDataTool.swift */,
 				C075B34E1F441D9900F6181B /* area.json */,
-				C0A476441F3D8B1100FF9E32 /* MGTableViewController.swift */,
 				C0EB979C1F3D4F4000A69169 /* Main.storyboard */,
+				C039B06C1F68D7C900758A69 /* MGProgressView.swift */,
 				C0EB979F1F3D4F4000A69169 /* Assets.xcassets */,
 				C0EB97A11F3D4F4000A69169 /* LaunchScreen.storyboard */,
 				C0EB97A41F3D4F4000A69169 /* Info.plist */,
+				C039B0581F63993D00758A69 /* Tools */,
 				C0A4765C1F3D8B5E00FF9E32 /* BridgeHeader.h */,
+				C039B0521F6008BE00758A69 /* MyPlayground.playground */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -228,9 +262,18 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MGIndexView/MGIndexView.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGIndexView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -258,13 +301,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Demo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -274,18 +320,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C039B06B1F639A9600758A69 /* NetWorkTools.swift in Sources */,
 				C0A476561F3D8B3D00FF9E32 /* CMAttitude+PADTiltAdditions.m in Sources */,
+				C039B0631F63993D00758A69 /* MGHelpTools.swift in Sources */,
+				C039B06D1F68D7C900758A69 /* MGProgressView.swift in Sources */,
+				C039B0671F63993D00758A69 /* SBTools.swift in Sources */,
 				C0A4765B1F3D8B3D00FF9E32 /* UIViewController+PADTiltAdditions.m in Sources */,
 				C0EB979B1F3D4F4000A69169 /* ViewController.swift in Sources */,
 				C0EB97991F3D4F4000A69169 /* AppDelegate.swift in Sources */,
+				C039B0621F63993D00758A69 /* MGAPIConfig.swift in Sources */,
 				C0A476581F3D8B3D00FF9E32 /* PADTiltCollectionViewController.m in Sources */,
 				C0EB97AB1F3D4F5100A69169 /* UIButton+Extension.swift in Sources */,
 				C0A476571F3D8B3D00FF9E32 /* NSObject+AssociatedObjects.m in Sources */,
+				C039B0661F63993D00758A69 /* SaveTools.swift in Sources */,
+				C039B0691F63993D00758A69 /* SysNetWorkTools.swift in Sources */,
 				C0A476451F3D8B1100FF9E32 /* MGTableViewController.swift in Sources */,
 				C0A476591F3D8B3D00FF9E32 /* PADTiltScrollViewController.m in Sources */,
 				C075B34D1F441D2300F6181B /* LoadDataTool.swift in Sources */,
 				C0A4765A1F3D8B3D00FF9E32 /* PADTiltTableViewController.m in Sources */,
 				C0EB97AD1F3D4F5900A69169 /* UIGestureRecognizer+Extension.swift in Sources */,
+				C039B0571F600A1600758A69 /* MGDateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

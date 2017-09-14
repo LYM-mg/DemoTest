@@ -31,10 +31,9 @@ class MGTableView: UITableView,UITableViewDataSource {
         fatalError("init(coder:) has not been implemented")
     }
 
-//    override func didMoveToWindow() {
-//        super.didMoveToWindow()
-//        self.reloadData()
-//    }
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+    }
     
 //    override var contentOffset: CGPoint {
 //        get {

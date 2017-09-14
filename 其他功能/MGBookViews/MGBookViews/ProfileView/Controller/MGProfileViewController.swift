@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MGProfileViewController: UIViewController,UIScrollViewDelegate,UITableViewDelegate {
+class MGProfileViewController: UIViewController,UITableViewDelegate {
 
     weak var scrollView: MGScrollView?
     weak var dynamicTableView: MGTableView?
@@ -22,17 +22,25 @@ class MGProfileViewController: UIViewController,UIScrollViewDelegate,UITableView
         edgesForExtendedLayout = []
         setupContentView()
         setupHeaderView()
+        self.navigationController!.removeGlobalPanGes()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController!.setUpGlobalPan()
+    }
     
     deinit {
         print(#file, #function)
         MGLog(#file,#function,"\(#line)")
         MGLog("dsa")
+        debugPrint(self, separator: "***", terminator: "大笨蛋")
+        print("print----\(self)被释放了")
+        MGLog("MGLog----\(self)被释放了")
+        MGLog(self.scrollView)
     }
     
     func setupContentView() {
@@ -128,6 +136,7 @@ extension MGProfileViewController {
             titleView?.setSelectedIndex(selectedIndex: pageNum)
         }
     }
+    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == self.scrollView  || (scrollView.window == nil){
