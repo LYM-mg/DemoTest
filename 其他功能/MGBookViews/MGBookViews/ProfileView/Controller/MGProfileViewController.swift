@@ -35,6 +35,8 @@ class MGProfileViewController: UIViewController,UITableViewDelegate,UICollection
     }
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController!.setUpGlobalPan()
+        self.scrollView?.isHidden = true
+        self.view.removeFromSuperview()
     }
     
     deinit {
