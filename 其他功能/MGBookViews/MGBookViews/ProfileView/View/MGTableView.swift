@@ -11,6 +11,7 @@ enum TableViewType: Int {
     case dynamic = 0
     case art = 1
     case more = 2
+    case layout = 3
 }
 
 
@@ -19,6 +20,7 @@ class MGTableView: UITableView,UITableViewDataSource {
     lazy var type: TableViewType = .dynamic
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
+        self.backgroundColor = UIColor.white
         self.dataSource = self
     }
     
@@ -56,7 +58,16 @@ extension MGTableView {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        if type == .dynamic {
+             return 50
+        }else if type == .art{
+             return 50
+        }else if type == .more {
+             return 20
+        }else if type == .layout{
+            return 0
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

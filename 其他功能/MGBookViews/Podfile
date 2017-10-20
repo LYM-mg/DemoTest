@@ -7,5 +7,6 @@ target 'MGBookViews' do
 
   # Pods for MGBookViews
   pod 'SnapKit', '~> 3.2.0'
+  pod 'MJRefresh', '~> 3.1.12'
 
 end

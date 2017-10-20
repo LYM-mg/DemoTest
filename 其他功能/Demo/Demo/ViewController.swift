@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     fileprivate lazy var titleLabel: UILabel = UILabel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = String(describing: ViewController.self)
+        
         self.view.addSubview(titleLabel)
         titleLabel.frame = CGRect(x: 120, y: 380, width: 200, height: 100)
         titleLabel.textColor = UIColor.gray
@@ -42,6 +44,7 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

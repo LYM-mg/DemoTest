@@ -6,13 +6,16 @@
 // http://www.jianshu.com/u/57b58a39b70e
 
 import UIKit
+import MJRefresh
 
-class MGProfileViewController: UIViewController,UITableViewDelegate {
+class MGProfileViewController: UIViewController,UITableViewDelegate,UICollectionViewDelegate {
 
     weak var scrollView: MGScrollView?
     weak var dynamicTableView: MGTableView?
     weak var articleTableView: MGTableView?
     weak var moreTableView: MGTableView?
+    weak var layoutTableView: MGTableView?
+    weak var collectionView: UICollectionView?
     weak var headerView:UIView?             // 头部
     weak var titleView:MGProfileTitlesView? // 头部下的titleView
     
@@ -20,6 +23,7 @@ class MGProfileViewController: UIViewController,UITableViewDelegate {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         edgesForExtendedLayout = []
+        automaticallyAdjustsScrollViewInsets = false
         setupContentView()
         setupHeaderView()
         self.navigationController!.removeGlobalPanGes()
@@ -34,13 +38,13 @@ class MGProfileViewController: UIViewController,UITableViewDelegate {
     }
     
     deinit {
-        print(#file, #function)
-        MGLog(#file,#function,"\(#line)")
-        MGLog("dsa")
-        debugPrint(self, separator: "***", terminator: "大笨蛋")
-        print("print----\(self)被释放了")
+//        print(#file, #function)
+//        MGLog(#file,#function,"\(#line)")
+//        MGLog("dsa")
+//        debugPrint(self, separator: "***", terminator: "大笨蛋")
+//        print("print----\(self)被释放了")
         MGLog("MGLog----\(self)被释放了")
-        MGLog(self.scrollView)
+//        MGLog(self.scrollView)
     }
     
     func setupContentView() {
@@ -49,10 +53,11 @@ class MGProfileViewController: UIViewController,UITableViewDelegate {
             scrollView.delaysContentTouches = false
             view.addSubview(scrollView)
             scrollView.isPagingEnabled = true
+            scrollView.bounces = false
             scrollView.showsVerticalScrollIndicator = false
             scrollView.showsHorizontalScrollIndicator = false
             scrollView.delegate = self
-            scrollView.contentSize = CGSize(width: MGScreenW * 3, height: 0)
+            scrollView.contentSize = CGSize(width: MGScreenW * 4, height: 0)
             scrollView.backgroundColor = UIColor.red
             let _ = scrollView.subviews.map {
                 $0.removeFromSuperview()
@@ -77,6 +82,7 @@ class MGProfileViewController: UIViewController,UITableViewDelegate {
         })
         self.dynamicTableView = dynamicTableView
         
+        
         let articleTableView: MGTableView =  MGTableView(type: .art)
         scrollView.addSubview(articleTableView)
         articleTableView.delegate = self
@@ -87,6 +93,7 @@ class MGProfileViewController: UIViewController,UITableViewDelegate {
             make.width.equalTo(MGScreenW)
             make.top.bottom.equalTo(view)
         })
+
         self.articleTableView = articleTableView
         
         
@@ -104,6 +111,76 @@ class MGProfileViewController: UIViewController,UITableViewDelegate {
             return moreTableView
         }()
         self.moreTableView = moreTableView
+        
+        
+        let layoutTableView: MGTableView = {
+            let layoutTableView = MGTableView(type: .layout)
+            scrollView.addSubview(layoutTableView)
+            layoutTableView.delegate = self
+            layoutTableView.separatorStyle = .none
+            layoutTableView.tableHeaderView = tableHeaderView
+            layoutTableView.snp.makeConstraints({ (make) in
+                make.left.equalToSuperview().offset(3*MGScreenW)
+                make.width.equalTo(MGScreenW)
+                make.top.bottom.equalTo(view)
+            })
+            return layoutTableView
+        }()
+        self.layoutTableView = layoutTableView
+        
+        let collectionView: UICollectionView = {
+            let layout = UICollectionViewFlowLayout();
+            layout.itemSize = CGSize(width: (MGScreenW-50)/3, height: (MGScreenW-50)/3)
+            layout.minimumInteritemSpacing = 10
+            layout.minimumLineSpacing = 10
+            let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+            collectionView.dataSource = self
+            collectionView.delegate = self
+            collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right:10)
+            collectionView.isScrollEnabled = false
+            collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewID")
+            collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//            collectionView.snp.makeConstraints({ (make) in
+//                make.left.width.equalTo(layoutTableView)
+//                make.top.bottom.equalTo(view)
+//            })
+
+            return collectionView
+        }()
+        self.collectionView = collectionView
+        layoutTableView.tableFooterView = collectionView
+        
+        
+        setUpRefresh(tableView: dynamicTableView)
+        setUpRefresh(tableView: articleTableView)
+        setUpRefresh(tableView: moreTableView)
+        setUpRefresh(tableView: layoutTableView)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        layoutTableView?.tableFooterView = collectionView
+        // collectionView刷新表格
+        self.collectionView?.reloadData()
+        self.collectionView?.frame.size.height = (self.collectionView?.contentSize.height)!;
+        layoutTableView?.reloadData()
+
+    }
+    
+    func setUpRefresh(tableView: UITableView) {
+        tableView.mj_header = MJRefreshGifHeader(refreshingBlock: {
+            DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
+                tableView.mj_header.endRefreshing()
+            })
+        })
+        tableView.mj_footer = MJRefreshAutoGifFooter(refreshingBlock: {
+            DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
+                tableView.mj_footer.endRefreshing()
+            })
+        })
     }
     
     func setupHeaderView() {
@@ -120,11 +197,23 @@ class MGProfileViewController: UIViewController,UITableViewDelegate {
         }
        
         weak var weakSelf = self
-        titleView.titles = ["动态", "文章", "更多"]
+        titleView.titles = ["动态", "文章", "更多","布局"]
         titleView.selectedIndex = 0
         titleView.buttonSelected = {(_ index: Int) -> Void in
             weakSelf?.scrollView!.setContentOffset(CGPoint(x: MGScreenW * CGFloat(index), y: 0), animated: true)
         }
+    }
+}
+
+extension MGProfileViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 100
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewID", for: indexPath)
+        cell.contentView.backgroundColor = UIColor.mg_randomColor()
+        return cell
     }
 }
 
@@ -146,6 +235,7 @@ extension MGProfileViewController {
         let offsetY: CGFloat = scrollView.contentOffset.y
         var originY: CGFloat = 0
         var otherOffsetY: CGFloat = 0
+        // 滚动时头部做相应变化
         if offsetY <= MGHeadViewHeight {
             originY = -offsetY
             if offsetY < 0 {
@@ -157,8 +247,7 @@ extension MGProfileViewController {
             originY      = -MGHeadViewHeight
             otherOffsetY = MGHeadViewHeight
         }
-        
-        // 滚动时头部做相应变化
+
         self.headerView?.frame = CGRect(x: 0, y: originY, width: MGScreenW, height: MGHeadViewHeight + MGTitleHeight)
         
         // 其他不在窗口的2个tableView做相应的滚动
@@ -166,13 +255,12 @@ extension MGProfileViewController {
             if (i != self.titleView!.selectedIndex) {
                 let offset = CGPoint(x: 0, y: otherOffsetY)
                 if contentView is UITableView {
-                    let contentView = contentView as! UITableView
+                    let contentView = contentView as! UIScrollView
                     if contentView.contentOffset.y < MGHeadViewHeight || offset.y < MGHeadViewHeight {
                         contentView.setContentOffset(offset, animated: false)
 //                        self.scrollView?.offset = offset
                         print("最后距离：\(originY)")
                     }
-                    
                 }
             }
         }

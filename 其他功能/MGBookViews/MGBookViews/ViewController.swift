@@ -42,7 +42,7 @@ class ViewController: UIViewController {
 
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.show(MGProfileViewController(), sender: nil)
+        self.show(MGProfileViewController(), sender: nil)
         
 //        let _ = Timer.new(after: 5.0.minutes) {
 //            print("5秒后执行定时器")
@@ -57,29 +57,29 @@ class ViewController: UIViewController {
 //            }
 //        }
         
-        Timer.every(1.0) { [unowned self](timer: Timer) in
-            self.number1 -= 1
-            MGLog(self.number1)
-            if self.number1 == 0 {
-                timer.invalidate()
-                print("定时器销毁")
-            }
-        }
-
-        
-        let num: Int64 = 1111144411111
-        print(String(format: "%014ld", num))
-        
-        let heihie = 111
-        print(String(format: "%014ld", heihie))
-        
-        let num2 = 222
-        print(String(format: "%08ld", num2))
-        
-        let heihie2 = 99
-        print(String(format: "%08ld", heihie2))
-        
-        imageView.image = UIImage(named: "80")
+//        Timer.every(1.0) { [unowned self](timer: Timer) in
+//            self.number1 -= 1
+//            MGLog(self.number1)
+//            if self.number1 == 0 {
+//                timer.invalidate()
+//                print("定时器销毁")
+//            }
+//        }
+//
+//        
+//        let num: Int64 = 1111144411111
+//        print(String(format: "%014ld", num))
+//        
+//        let heihie = 111
+//        print(String(format: "%014ld", heihie))
+//        
+//        let num2 = 222
+//        print(String(format: "%08ld", num2))
+//        
+//        let heihie2 = 99
+//        print(String(format: "%08ld", heihie2))
+//        
+//        imageView.image = UIImage(named: "80")
     }
 }
 
