@@ -22,6 +22,9 @@
 		C010F8E61F483555003FEE62 /* MGScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C010F8E51F483555003FEE62 /* MGScrollView.swift */; };
 		C010F8E81F483F5C003FEE62 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C010F8E71F483F5C003FEE62 /* UIColor+Extension.swift */; };
 		C010F8EA1F4A7F1C003FEE62 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C010F8E91F4A7F1C003FEE62 /* BaseNavigationController.swift */; };
+		C08551DF1FBA75F400655360 /* TimeCountDownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08551DD1FBA75F300655360 /* TimeCountDownManager.swift */; };
+		C08551E01FBA75F400655360 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08551DE1FBA75F300655360 /* TestViewController.swift */; };
+		C08551E21FBA8A8100655360 /* SBTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08551E11FBA8A8100655360 /* SBTools.swift */; };
 		C0D763EB1F4EB3ED00E029D9 /* 80@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D763E91F4EB3ED00E029D9 /* 80@3x.png */; };
 		C0D763EC1F4EB3ED00E029D9 /* 80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D763EA1F4EB3ED00E029D9 /* 80@2x.png */; };
 		C0D763F31F4FC45F00E029D9 /* Timer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D763F21F4FC45F00E029D9 /* Timer+Extension.swift */; };
@@ -46,7 +49,10 @@
 		C010F8E51F483555003FEE62 /* MGScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGScrollView.swift; sourceTree = "<group>"; };
 		C010F8E71F483F5C003FEE62 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		C010F8E91F4A7F1C003FEE62 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
-		C010F8ED1F4C109B003FEE62 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		C010F8ED1F4C109B003FEE62 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C08551DD1FBA75F300655360 /* TimeCountDownManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCountDownManager.swift; sourceTree = "<group>"; };
+		C08551DE1FBA75F300655360 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		C08551E11FBA8A8100655360 /* SBTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBTools.swift; sourceTree = "<group>"; };
 		C0D763E91F4EB3ED00E029D9 /* 80@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "80@3x.png"; sourceTree = "<group>"; };
 		C0D763EA1F4EB3ED00E029D9 /* 80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "80@2x.png"; sourceTree = "<group>"; };
 		C0D763F21F4FC45F00E029D9 /* Timer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timer+Extension.swift"; sourceTree = "<group>"; };
@@ -96,14 +102,15 @@
 		C010F8C31F48175E003FEE62 /* MGBookViews */ = {
 			isa = PBXGroup;
 			children = (
+				C08551E31FBAC10B00655360 /* 可控定时器 */,
 				C0D763F21F4FC45F00E029D9 /* Timer+Extension.swift */,
 				C010F8D61F4817A6003FEE62 /* MGTabBarController.swift */,
 				C010F8E91F4A7F1C003FEE62 /* BaseNavigationController.swift */,
 				C010F8C41F48175E003FEE62 /* AppDelegate.swift */,
 				C010F8C61F48175E003FEE62 /* ViewController.swift */,
 				C010F8E71F483F5C003FEE62 /* UIColor+Extension.swift */,
+				C08551E11FBA8A8100655360 /* SBTools.swift */,
 				C010F8D81F4817F5003FEE62 /* ProfileView */,
-				C010F8C81F48175E003FEE62 /* Main.storyboard */,
 				C010F8CB1F48175E003FEE62 /* Assets.xcassets */,
 				C010F8CD1F48175E003FEE62 /* LaunchScreen.storyboard */,
 				C010F8D01F48175E003FEE62 /* Info.plist */,
@@ -140,6 +147,16 @@
 				C010F8E51F483555003FEE62 /* MGScrollView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C08551E31FBAC10B00655360 /* 可控定时器 */ = {
+			isa = PBXGroup;
+			children = (
+				C010F8C81F48175E003FEE62 /* Main.storyboard */,
+				C08551DE1FBA75F300655360 /* TestViewController.swift */,
+				C08551DD1FBA75F300655360 /* TimeCountDownManager.swift */,
+			);
+			path = "可控定时器";
 			sourceTree = "<group>";
 		};
 		F1D42B038EE08381AE045FF8 /* Frameworks */ = {
@@ -285,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C08551E01FBA75F400655360 /* TestViewController.swift in Sources */,
 				C010F8DC1F481825003FEE62 /* MGProfileViewController.swift in Sources */,
 				C010F8C71F48175E003FEE62 /* ViewController.swift in Sources */,
 				C010F8DE1F4819AF003FEE62 /* MGTableView.swift in Sources */,
@@ -296,6 +314,8 @@
 				C010F8EA1F4A7F1C003FEE62 /* BaseNavigationController.swift in Sources */,
 				C010F8D71F4817A6003FEE62 /* MGTabBarController.swift in Sources */,
 				C010F8E61F483555003FEE62 /* MGScrollView.swift in Sources */,
+				C08551DF1FBA75F400655360 /* TimeCountDownManager.swift in Sources */,
+				C08551E21FBA8A8100655360 /* SBTools.swift in Sources */,
 				C010F8E81F483F5C003FEE62 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
