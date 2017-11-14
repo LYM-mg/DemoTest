@@ -82,9 +82,10 @@ class TimeCountDownManager: NSObject {
     /// - Returns: 有这个任务返回true；否则，返回false
     func pauseOneTask(key: String)  -> Bool {
         for (_, obj)  in pool.operations.enumerated() {
-            let temptask = obj as! TimeCountDownTask
-            if temptask.name == key {
-                temptask.isSuppend = true
+            let task = obj as! TimeCountDownTask
+            let taskName = task.name ?? ""
+            if taskName == key {
+                task.isSuppend = true
                 return true
             }
         }
@@ -97,9 +98,10 @@ class TimeCountDownManager: NSObject {
     /// - Returns: 有这个任务返回true；否则，返回false
     func suspendOneTask(key: String) -> Bool {
         for (_, obj)  in pool.operations.enumerated() {
-            let temptask = obj as! TimeCountDownTask
-            if temptask.name == key {
-                temptask.isSuppend = false
+            let task = obj as! TimeCountDownTask
+            let taskName = task.name ?? ""
+            if taskName == key {
+                task.isSuppend = false
                 return true
             }
         }
