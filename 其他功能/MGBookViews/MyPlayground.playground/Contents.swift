@@ -4,7 +4,6 @@ import UIKit
 
 var str = "Hello, playground"
 
-
 //let num: Int64 = 111114441111
 //String(format: "%014ld", num)
 //
@@ -262,45 +261,160 @@ DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
     print("打印后")
 }
 
-func has(list: [Int], condition: (Int)->Bool) -> Bool {
-    for item in list {
-        if condition(item) {
-            print("true")
-            return true
+//func has(list: [Int], condition: (Int)->Bool) -> Bool {
+//    for item in list {
+//        if condition(item) {
+//            print("true")
+//            return true
+//        }
+//    }
+//    print("false")
+//    return false
+//}
+//
+//func lessThan(n: Int) -> Bool {
+//    return n < 10
+//}
+//var numbes = [23,21,32,21]
+//has(list: numbes, condition: lessThan)
+//
+//
+//
+//
+//func addOne(n: Int) -> Int{
+//    return n + 1
+//}
+//
+//func addTo(n: Int) -> (Int) -> Int{
+//    return {
+//        num in
+//        return num + n
+//    }
+//}
+//
+//addTo(n: 1)(2)
+
+//var n: Int = 0
+//let num: Int = 100
+//var sum = 0
+//while (n<=num) {
+//    sum += n
+//    n+=1
+//}
+//print(sum)
+
+
+// 链表
+/**
+     数组样例：
+     a = [1,2,7,8,9]
+ 
+     数组的优点：
+     查询快速
+     要查询数组的第三个元素
+     a[2] 很快就找到了7
+ 
+     缺点：
+     增删耗时间
+     如果我要在2和7之间增添一个5
+     那么我需要将后面的7，8，9都向后移动一位
+     因为数组的元素是连续存放的
+ */
+
+//链表刚好相反，它查询耗费时间，但是添加删除却是非常快的。
+
+// 定义节点
+class Node {
+    var value: String!
+    var previous: Node?
+    var next: Node?
+}
+
+// 定义链表
+class Link {
+    private var top: Node?
+    var current: Node?
+    
+    func getCount() -> Int{
+        if (top == nil) {
+            return 0
+        }else {
+            var count = 1
+            var item = top
+            while item!.next != nil {
+                count += 1
+                item = item?.next
+            }
+            return count
         }
     }
-    print("false")
-    return false
-}
-
-func lessThan(n: Int) -> Bool {
-    return n < 10
-}
-var numbes = [23,21,32,21]
-has(list: numbes, condition: lessThan)
-
-
-
-
-func addOne(n: Int) -> Int{
-    return n + 1
-}
-
-func addTo(n: Int) -> (Int) -> Int{
-    return {
-        num in
-        return num + n
+    //加一个节点
+    func append(value: String) {
+        if (top == nil) { // 第一个节点
+            top = Node()
+            current = top
+        }else {
+            let node = Node()
+            node.value = value
+            current!.next = node
+            node.previous = current
+            current = node
+        }
+    }
+    
+    /// 删除指定节点
+    ///
+    /// - Parameter index: 索引位置
+    func delete(index: Int) {
+        let count = getCount();
+        if index >= count {
+            print("索引越界")
+            return;
+        }
+        
+        if count == 1 {
+            top = nil
+            current = nil
+        }
+        var item = top
+        for _ in 0..<index {
+            item = item!.next // 找到要删除的表
+        }
+        item?.previous?.next?.next = item?.next
+        item?.next?.previous = item?.previous
+        
+        if item === current {
+            current = item?.previous
+        }
+        
+        if top === item {
+            top = item?.next
+        }
+    }
+    
+    func showLog() {
+        guard top != nil else {
+            print("该表还没有任何数据")
+            return
+        }
+        var item = top
+        while item != nil {
+            print(item!.value, separator: "\n", terminator: "-->")
+            item = item!.next
+        }
     }
 }
 
-addTo(n: 1)(2)
+let link = Link()
+link.append(value: "小傻瓜")
+link.append(value: "小笨蛋")
+link.append(value: "小可爱")
+link.append(value: "小女子")
+link.append(value: "小女孩")
 
-var n: Int = 0
-let num: Int = 100
-var sum = 0
-while (n<=num) {
-    sum += n
-    n+=1
-}
-print(sum)
+link.showLog()
+link.delete(index: 0)
+link.showLog()
+link.delete(index: 10)
+
 
