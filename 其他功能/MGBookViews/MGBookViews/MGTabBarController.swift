@@ -39,8 +39,8 @@ class MGTabBarController: UITabBarController {
         let circleVC: TestViewController = SBTools.loadControllerFromSB("Main")
         setUpNavRootViewCOntrollers(vc: circleVC, title: "定时器", imageName: normalImages[1], selImage: selectedImages[1])
         
-        let garageVC = UIViewController()
-        setUpNavRootViewCOntrollers(vc: garageVC, title: "关注", imageName: normalImages[2], selImage: selectedImages[2])
+        let garageVC = MGGridViewController()
+        setUpNavRootViewCOntrollers(vc: garageVC, title: "表格", imageName: normalImages[2], selImage: selectedImages[2])
         
         let profileVC = ViewController()
         setUpNavRootViewCOntrollers(vc: profileVC, title: "我的", imageName: normalImages[3], selImage: selectedImages[3])

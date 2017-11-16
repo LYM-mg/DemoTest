@@ -25,6 +25,12 @@
 		C08551DF1FBA75F400655360 /* TimeCountDownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08551DD1FBA75F300655360 /* TimeCountDownManager.swift */; };
 		C08551E01FBA75F400655360 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08551DE1FBA75F300655360 /* TestViewController.swift */; };
 		C08551E21FBA8A8100655360 /* SBTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08551E11FBA8A8100655360 /* SBTools.swift */; };
+		C0CE13321FBC0EAE00C2F965 /* UICollectionGridViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE13311FBC0EAE00C2F965 /* UICollectionGridViewLayout.swift */; };
+		C0CE13341FBC0EE000C2F965 /* UICollectionGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE13331FBC0EE000C2F965 /* UICollectionGridViewController.swift */; };
+		C0CE13361FBC0F3B00C2F965 /* UICollectionGridViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE13351FBC0F3B00C2F965 /* UICollectionGridViewCellCollectionViewCell.swift */; };
+		C0CE13381FBC0FBF00C2F965 /* MGGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE13371FBC0FBF00C2F965 /* MGGridViewController.swift */; };
+		C0CE133A1FBC107E00C2F965 /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE13391FBC107E00C2F965 /* FAIcon.swift */; };
+		C0CE133C1FBC10AE00C2F965 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0CE133B1FBC10AE00C2F965 /* FontAwesome.ttf */; };
 		C0D763EB1F4EB3ED00E029D9 /* 80@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D763E91F4EB3ED00E029D9 /* 80@3x.png */; };
 		C0D763EC1F4EB3ED00E029D9 /* 80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D763EA1F4EB3ED00E029D9 /* 80@2x.png */; };
 		C0D763F31F4FC45F00E029D9 /* Timer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D763F21F4FC45F00E029D9 /* Timer+Extension.swift */; };
@@ -53,6 +59,12 @@
 		C08551DD1FBA75F300655360 /* TimeCountDownManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCountDownManager.swift; sourceTree = "<group>"; };
 		C08551DE1FBA75F300655360 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		C08551E11FBA8A8100655360 /* SBTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBTools.swift; sourceTree = "<group>"; };
+		C0CE13311FBC0EAE00C2F965 /* UICollectionGridViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionGridViewLayout.swift; sourceTree = "<group>"; };
+		C0CE13331FBC0EE000C2F965 /* UICollectionGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionGridViewController.swift; sourceTree = "<group>"; };
+		C0CE13351FBC0F3B00C2F965 /* UICollectionGridViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionGridViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		C0CE13371FBC0FBF00C2F965 /* MGGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGGridViewController.swift; sourceTree = "<group>"; };
+		C0CE13391FBC107E00C2F965 /* FAIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
+		C0CE133B1FBC10AE00C2F965 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		C0D763E91F4EB3ED00E029D9 /* 80@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "80@3x.png"; sourceTree = "<group>"; };
 		C0D763EA1F4EB3ED00E029D9 /* 80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "80@2x.png"; sourceTree = "<group>"; };
 		C0D763F21F4FC45F00E029D9 /* Timer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timer+Extension.swift"; sourceTree = "<group>"; };
@@ -102,6 +114,7 @@
 		C010F8C31F48175E003FEE62 /* MGBookViews */ = {
 			isa = PBXGroup;
 			children = (
+				C0CE13301FBC0E9400C2F965 /* 表格 */,
 				C08551E31FBAC10B00655360 /* 可控定时器 */,
 				C0D763F21F4FC45F00E029D9 /* Timer+Extension.swift */,
 				C010F8D61F4817A6003FEE62 /* MGTabBarController.swift */,
@@ -157,6 +170,19 @@
 				C08551DD1FBA75F300655360 /* TimeCountDownManager.swift */,
 			);
 			path = "可控定时器";
+			sourceTree = "<group>";
+		};
+		C0CE13301FBC0E9400C2F965 /* 表格 */ = {
+			isa = PBXGroup;
+			children = (
+				C0CE133B1FBC10AE00C2F965 /* FontAwesome.ttf */,
+				C0CE13391FBC107E00C2F965 /* FAIcon.swift */,
+				C0CE13311FBC0EAE00C2F965 /* UICollectionGridViewLayout.swift */,
+				C0CE13331FBC0EE000C2F965 /* UICollectionGridViewController.swift */,
+				C0CE13351FBC0F3B00C2F965 /* UICollectionGridViewCellCollectionViewCell.swift */,
+				C0CE13371FBC0FBF00C2F965 /* MGGridViewController.swift */,
+			);
+			path = "表格";
 			sourceTree = "<group>";
 		};
 		F1D42B038EE08381AE045FF8 /* Frameworks */ = {
@@ -236,6 +262,7 @@
 				C010F8CA1F48175E003FEE62 /* Main.storyboard in Resources */,
 				C0D763EB1F4EB3ED00E029D9 /* 80@3x.png in Resources */,
 				C0D763EC1F4EB3ED00E029D9 /* 80@2x.png in Resources */,
+				C0CE133C1FBC10AE00C2F965 /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,18 +332,23 @@
 				C08551E01FBA75F400655360 /* TestViewController.swift in Sources */,
 				C010F8DC1F481825003FEE62 /* MGProfileViewController.swift in Sources */,
 				C010F8C71F48175E003FEE62 /* ViewController.swift in Sources */,
+				C0CE13341FBC0EE000C2F965 /* UICollectionGridViewController.swift in Sources */,
+				C0CE13381FBC0FBF00C2F965 /* MGGridViewController.swift in Sources */,
 				C010F8DE1F4819AF003FEE62 /* MGTableView.swift in Sources */,
 				C010F8E01F481B51003FEE62 /* MGProfileHeaderView.swift in Sources */,
 				C010F8E21F481F47003FEE62 /* MGProfileTitlesView.swift in Sources */,
 				C0D763F31F4FC45F00E029D9 /* Timer+Extension.swift in Sources */,
 				C010F8E41F4826E2003FEE62 /* MGContant.swift in Sources */,
+				C0CE13321FBC0EAE00C2F965 /* UICollectionGridViewLayout.swift in Sources */,
 				C010F8C51F48175E003FEE62 /* AppDelegate.swift in Sources */,
 				C010F8EA1F4A7F1C003FEE62 /* BaseNavigationController.swift in Sources */,
 				C010F8D71F4817A6003FEE62 /* MGTabBarController.swift in Sources */,
 				C010F8E61F483555003FEE62 /* MGScrollView.swift in Sources */,
 				C08551DF1FBA75F400655360 /* TimeCountDownManager.swift in Sources */,
+				C0CE13361FBC0F3B00C2F965 /* UICollectionGridViewCellCollectionViewCell.swift in Sources */,
 				C08551E21FBA8A8100655360 /* SBTools.swift in Sources */,
 				C010F8E81F483F5C003FEE62 /* UIColor+Extension.swift in Sources */,
+				C0CE133A1FBC107E00C2F965 /* FAIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     }
 
     func click() {
-        let vc = UIViewController()
+        let vc = MGGridViewController()
         vc.view.backgroundColor = UIColor.mg_randomColor()
         self.show(vc, sender: nil)
     }
