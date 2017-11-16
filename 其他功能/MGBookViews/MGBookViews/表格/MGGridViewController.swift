@@ -63,7 +63,7 @@ class MGGridViewController: UIViewController, UICollectionGridViewSortDelegate {
     
     override func viewDidLayoutSubviews() {
         let y: CGFloat = (self.navigationController != nil) ? (MGScreenH==812.0 ? 88:64):0
-        let tabBarH: CGFloat = (self.tabBarController?.hidesBottomBarWhenPushed != true) ? (MGScreenH==812.0 ? 83:49):0
+        let tabBarH: CGFloat = (self.hidesBottomBarWhenPushed != true) ? (MGScreenH==812.0 ? 83:49):0
         gridViewController.view.frame = CGRect(x:0, y:y, width:view.frame.width,
                                                height:view.frame.height-y-tabBarH)
     }
