@@ -75,11 +75,35 @@ extension LineVisible{
         
         
         // 使用框架布局
-//        lineView.snp.makeConstraints { (make) in
-//            make.left.equalTo(view).offset(lineEdge.left)
-//            make.right.equalTo(view).offset(lineEdge.right)
-//            make.bottom.equalTo(view).offset(lineEdge.bottom)
-//            make.height.equalTo(lineHeight)
+//        switch position {
+//            case .bottom:
+//                lineView.snp.makeConstraints { (make) in
+//                    make.left.equalTo(view).offset(lineEdge.left)
+//                    make.right.equalTo(view).offset(lineEdge.right)
+//                    make.bottom.equalTo(view).offset(lineEdge.bottom)
+//                    make.height.equalTo(lineHeight)
+//                }
+//            case .top:
+//                lineView.snp.makeConstraints { (make) in
+//                    make.left.equalTo(view).offset(lineEdge.left)
+//                    make.right.equalTo(view).offset(lineEdge.right)
+//                    make.top.equalTo(view).offset(lineEdge.top)
+//                    make.height.equalTo(lineHeight)
+//                }
+//            case .left:
+//                lineView.snp.makeConstraints { (make) in
+//                    make.left.equalTo(view).offset(lineEdge.left)
+//                    make.bottom.equalTo(view).offset(lineEdge.bottom)
+//                    make.top.equalTo(view).offset(lineEdge.top)
+//                    make.width.equalTo(lineWidth)
+//                }
+//            case .right:
+//                lineView.snp.makeConstraints { (make) in
+//                    make.right.equalTo(view).offset(lineEdge.right)
+//                    make.bottom.equalTo(view).offset(lineEdge.bottom)
+//                    make.top.equalTo(view).offset(lineEdge.top)
+//                    make.width.equalTo(lineWidth)
+//                }
 //        }
     }
     
