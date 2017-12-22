@@ -33,8 +33,8 @@ class MGTabBarController: UITabBarController {
         let selectedImages = ["tabbar_home_highlighted","tabbar_discover_highlighted","tabbar_message_center_highlighted","tabbar_profile_highlighted"]
 
         
-        let newsVC = UIViewController()
-        setUpNavRootViewCOntrollers(vc: newsVC, title: "首页", imageName: normalImages[0], selImage: selectedImages[0])
+        let lineVC = MGLineViewController()
+        setUpNavRootViewCOntrollers(vc: lineVC, title: "首页", imageName: normalImages[0], selImage: selectedImages[0])
         
         let circleVC: TestViewController = SBTools.loadControllerFromSB("Main")
         setUpNavRootViewCOntrollers(vc: circleVC, title: "定时器", imageName: normalImages[1], selImage: selectedImages[1])
