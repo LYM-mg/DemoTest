@@ -36,6 +36,10 @@
 		C0D763F31F4FC45F00E029D9 /* Timer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D763F21F4FC45F00E029D9 /* Timer+Extension.swift */; };
 		F40212731FEC9A74006B282F /* LineVisible.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40212721FEC9A74006B282F /* LineVisible.swift */; };
 		F40212761FEC9B01006B282F /* MGLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40212751FEC9B01006B282F /* MGLineViewController.swift */; };
+		F402127A1FECD36D006B282F /* HWDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F40212781FECD36C006B282F /* HWDropdownMenu.m */; };
+		F402127D1FECD3B4006B282F /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F402127B1FECD3B4006B282F /* UIView+Extension.m */; };
+		F402127F1FECD51B006B282F /* MGTitleMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F402127E1FECD51B006B282F /* MGTitleMenuViewController.swift */; };
+		F40212811FECD746006B282F /* UIView+ViewFrameGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40212801FECD746006B282F /* UIView+ViewFrameGeometry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +76,13 @@
 		C0D763F21F4FC45F00E029D9 /* Timer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timer+Extension.swift"; sourceTree = "<group>"; };
 		F40212721FEC9A74006B282F /* LineVisible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineVisible.swift; sourceTree = "<group>"; };
 		F40212751FEC9B01006B282F /* MGLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLineViewController.swift; sourceTree = "<group>"; };
+		F40212771FECD36B006B282F /* MGBookViews-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MGBookViews-Bridging-Header.h"; sourceTree = "<group>"; };
+		F40212781FECD36C006B282F /* HWDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDropdownMenu.m; sourceTree = "<group>"; };
+		F40212791FECD36D006B282F /* HWDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWDropdownMenu.h; sourceTree = "<group>"; };
+		F402127B1FECD3B4006B282F /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		F402127C1FECD3B4006B282F /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		F402127E1FECD51B006B282F /* MGTitleMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTitleMenuViewController.swift; sourceTree = "<group>"; };
+		F40212801FECD746006B282F /* UIView+ViewFrameGeometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ViewFrameGeometry.swift"; sourceTree = "<group>"; };
 		F764537F780CF5ECA7FC905C /* Pods-MGBookViews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGBookViews.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGBookViews/Pods-MGBookViews.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +214,13 @@
 			isa = PBXGroup;
 			children = (
 				F40212751FEC9B01006B282F /* MGLineViewController.swift */,
+				F402127E1FECD51B006B282F /* MGTitleMenuViewController.swift */,
+				F40212801FECD746006B282F /* UIView+ViewFrameGeometry.swift */,
+				F40212791FECD36D006B282F /* HWDropdownMenu.h */,
+				F40212781FECD36C006B282F /* HWDropdownMenu.m */,
+				F402127C1FECD3B4006B282F /* UIView+Extension.h */,
+				F402127B1FECD3B4006B282F /* UIView+Extension.m */,
+				F40212771FECD36B006B282F /* MGBookViews-Bridging-Header.h */,
 			);
 			path = "下划线";
 			sourceTree = "<group>";
@@ -244,6 +262,7 @@
 					C010F8C01F48175E003FEE62 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = H54L47S422;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -346,11 +365,14 @@
 				C08551E01FBA75F400655360 /* TestViewController.swift in Sources */,
 				C010F8DC1F481825003FEE62 /* MGProfileViewController.swift in Sources */,
 				C010F8C71F48175E003FEE62 /* ViewController.swift in Sources */,
+				F402127A1FECD36D006B282F /* HWDropdownMenu.m in Sources */,
 				C0CE13341FBC0EE000C2F965 /* UICollectionGridViewController.swift in Sources */,
 				C0CE13381FBC0FBF00C2F965 /* MGGridViewController.swift in Sources */,
+				F402127D1FECD3B4006B282F /* UIView+Extension.m in Sources */,
 				F40212731FEC9A74006B282F /* LineVisible.swift in Sources */,
 				C010F8DE1F4819AF003FEE62 /* MGTableView.swift in Sources */,
 				C010F8E01F481B51003FEE62 /* MGProfileHeaderView.swift in Sources */,
+				F402127F1FECD51B006B282F /* MGTitleMenuViewController.swift in Sources */,
 				C010F8E21F481F47003FEE62 /* MGProfileTitlesView.swift in Sources */,
 				C0D763F31F4FC45F00E029D9 /* Timer+Extension.swift in Sources */,
 				C010F8E41F4826E2003FEE62 /* MGContant.swift in Sources */,
@@ -361,6 +383,7 @@
 				C010F8E61F483555003FEE62 /* MGScrollView.swift in Sources */,
 				C08551DF1FBA75F400655360 /* TimeCountDownManager.swift in Sources */,
 				C0CE13361FBC0F3B00C2F965 /* UICollectionGridViewCellCollectionViewCell.swift in Sources */,
+				F40212811FECD746006B282F /* UIView+ViewFrameGeometry.swift in Sources */,
 				F40212761FEC9B01006B282F /* MGLineViewController.swift in Sources */,
 				C08551E21FBA8A8100655360 /* SBTools.swift in Sources */,
 				C010F8E81F483F5C003FEE62 /* UIColor+Extension.swift in Sources */,
@@ -488,12 +511,15 @@
 			baseConfigurationReference = B0C6A32A02E2723252C509BB /* Pods-MGBookViews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = H54L47S422;
 				INFOPLIST_FILE = MGBookViews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "i-Techsys.com.MGBookViews";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MGBookViews/下划线/MGBookViews-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -503,12 +529,14 @@
 			baseConfigurationReference = F764537F780CF5ECA7FC905C /* Pods-MGBookViews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = H54L47S422;
 				INFOPLIST_FILE = MGBookViews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "i-Techsys.com.MGBookViews";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MGBookViews/下划线/MGBookViews-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

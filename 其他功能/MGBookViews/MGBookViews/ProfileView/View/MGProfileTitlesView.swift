@@ -121,23 +121,23 @@ class MGProfileTitlesView: UIView {
 
 
 extension UIView {
-    var bottom: CGFloat {
-        get {
-           return self.frame.origin.y + self.frame.size.height
-        }set {
-            var newframe = self.frame;
-            newframe.origin.y = newValue - self.frame.size.height;
-            self.frame = newframe;
-        }
-    }
-    
-    var top: CGFloat {
-        get {
-            return self.frame.origin.y
-        }set {
-            var newframe = self.frame;
-            newframe.origin.y = newValue
-            self.frame = newframe;
-        }
-    }
+//    var bottom: CGFloat {
+//        get {
+//           return self.frame.origin.y + self.frame.size.height
+//        }set {
+//            var newframe = self.frame;
+//            newframe.origin.y = newValue - self.frame.size.height;
+//            self.frame = newframe;
+//        }
+//    }
+//    
+//    var top: CGFloat {
+//        get {
+//            return self.frame.origin.y
+//        }set {
+//            var newframe = self.frame;
+//            newframe.origin.y = newValue
+//            self.frame = newframe;
+//        }
+//    }
 }
