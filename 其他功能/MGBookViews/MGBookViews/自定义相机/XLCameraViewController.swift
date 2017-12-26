@@ -417,6 +417,10 @@ extension XLCameraViewController: UIGestureRecognizerDelegate{
 
 extension XLCameraViewController: CameraToolBarViewDelegate {
     func cancel(_ toolBarView: CameraToolBarView, _ cancelBtn: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func retake(_ toolBarView: CameraToolBarView, _ retakeBtn: UIButton) {
         cancelAction()
     }
     

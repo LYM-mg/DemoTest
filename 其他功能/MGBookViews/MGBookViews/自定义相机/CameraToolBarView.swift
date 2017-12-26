@@ -10,6 +10,7 @@ import UIKit
 
 @objc protocol CameraToolBarViewDelegate: NSObjectProtocol {
     @objc optional func cancel(_ toolBarView: CameraToolBarView,_ cancelBtn: UIButton)
+    @objc optional func retake(_ toolBarView: CameraToolBarView,_ retakeBtn: UIButton)
     @objc optional func takePhoto(_ toolBarView: CameraToolBarView,_ takePhotoBtn: UIButton)
     @objc optional func flash(_ toolBarView: CameraToolBarView,_ flashBtn: UIButton)
     @objc optional func save(_ toolBarView: CameraToolBarView,_ savelBtn: UIButton)
@@ -53,7 +54,7 @@ class CameraToolBarView: UIView {
         self.addSubview(photoBtn)
         
         self.saveBtn = UIButton(type: .custom)
-        saveBtn.setTitle("取消", for: .normal)
+        saveBtn.setTitle("确定", for: .normal)
         saveBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         saveBtn.addTarget(self, action: #selector(self.saveAction), for: .touchUpInside)
         saveBtn.sizeToFit()
@@ -84,12 +85,19 @@ class CameraToolBarView: UIView {
     }
     
     
-    //取消按钮／重拍
+    //取消按钮 ／重拍
     func cancelAction(){
-         saveBtn.isHidden = true
-        if delegate != nil,(delegate?.responds(to: #selector(CameraToolBarViewDelegate.cancel(_:_:))))! {
-            delegate!.cancel!(self, cancelBtn)
+        if saveBtn.isHidden {
+            if delegate != nil,(delegate?.responds(to: #selector(CameraToolBarViewDelegate.cancel(_:_:))))! {
+                delegate!.cancel!(self, cancelBtn)
+            }
+        }else {
+            cancelBtn.setTitle("取消", for: .normal)
+            if delegate != nil,(delegate?.responds(to: #selector(CameraToolBarViewDelegate.retake(_:_:))))! {
+                delegate!.retake!(self, cancelBtn)
+            }
         }
+        saveBtn.isHidden = true
     }
     
     //保存按钮-保存到相册,使用照片
@@ -102,12 +110,13 @@ class CameraToolBarView: UIView {
     //照相按钮
     func takePhotoAction() {
         saveBtn.isHidden = false
+        cancelBtn.setTitle("重拍", for: .normal)
         if delegate != nil,(delegate?.responds(to: #selector(CameraToolBarViewDelegate.takePhoto(_:_:))))! {
             delegate!.takePhoto!(self, photoBtn)
         }
     }
     
-    //照相按钮
+    //闪光灯按钮
     func flashButtonClick() {
         if delegate != nil,(delegate?.responds(to: #selector(CameraToolBarViewDelegate.flash(_:_:))))! {
 //            delegate!.flash(self, flash)
