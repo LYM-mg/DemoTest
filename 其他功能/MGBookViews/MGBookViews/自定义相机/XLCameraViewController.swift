@@ -21,26 +21,19 @@ class XLCameraViewController: UIViewController {
     let captureSession = AVCaptureSession()
     
     // 后置摄像头
-    
     var backFacingCamera: AVCaptureDevice?
     
     // 前置摄像头
-    
     var frontFacingCamera: AVCaptureDevice?
     
     // 当前正在使用的设备
-    
     var currentDevice: AVCaptureDevice?
     
     // 静止图像输出端
     var stillImageOutput: AVCaptureStillImageOutput?
     
     // 相机预览图层
-    
     var cameraPreviewLayer:AVCaptureVideoPreviewLayer?
-    
-    //切换手势
-    var toggleCameraGestureRecognizer = UISwipeGestureRecognizer()
     
     /**
      *  记录开始的缩放比例
@@ -53,13 +46,23 @@ class XLCameraViewController: UIViewController {
     var effectiveScale: CGFloat = 1.0
     
     var toolView = CameraToolBarView()
+    var timer: Timer?
+    /** 焦点view */
+    fileprivate lazy var focusView: UIView = {
+        let focusView = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+        focusView.layer.borderWidth = 1.0
+        focusView.layer.borderColor = UIColor.green.cgColor
+        focusView.backgroundColor = UIColor.clear
+        focusView.isHidden = true
+        return focusView
+    }()
     
     //照片拍摄后预览视图
-    fileprivate lazy var photoImageview: UIImageView = { [unowned self] in
-        let photoImageV = UIImageView.init(frame: .zero)
-        photoImageV.isHidden = true
-        return photoImageV
+    fileprivate lazy var clipView: PhotoClipView  = {
+        let clipView = PhotoClipView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
+        return clipView
     }()
+
     
     override func viewDidLoad() {
         
@@ -74,10 +77,12 @@ class XLCameraViewController: UIViewController {
         //给当前view创建手势
         self.setUpGesture()
         
-        self.view.addSubview(photoImageview)
-        photoImageview.snp.makeConstraints { (make) in
-            make.left.top.right.equalToSuperview()
-            make.bottom.equalTo(toolView.snp.top)
+    
+        self.view.addSubview(focusView)
+        setupFocusPointManual()
+        
+        timer = Timer.every(2.0) { [unowned self] in
+            self.setupFocusPointManual()
         }
     }
     
@@ -90,15 +95,26 @@ class XLCameraViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
+        if timer != nil {
+            timer?.invalidate()
+        }
         if captureSession.isRunning {
             captureSession.stopRunning()
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first
-        if let point: CGPoint? = touch?.location(in: view) {
-            focus(at: point!)
+    func setupFocusPointManual(isAuto: Bool = true) {
+        let point = CGPoint(x: MGScreenW / 2.0, y: 35 + (cameraPreviewLayer?.bounds.size.height)! / 2.0)
+        focus(at: point,isAuto: isAuto)
+    }
+
+    
+    @objc fileprivate func focusGesture(_ gesture: UITapGestureRecognizer) {
+        let point: CGPoint = gesture.location(in: gesture.view)
+        let frame: CGRect = cameraPreviewLayer!.frame
+        //去除预览区以外的点
+        if (point.x >= frame.origin.x && point.x <= frame.origin.x + frame.size.width) && (point.y >= frame.origin.y && point.y <= frame.origin.y + frame.size.height) {
+            focus(at: point,isAuto: false)
         }
     }
     
@@ -106,13 +122,37 @@ class XLCameraViewController: UIViewController {
         return AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)?.isFocusPointOfInterestSupported ?? false
     }
     
-    func focus(at point: CGPoint) {
-        let device: AVCaptureDevice? = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-        if cameraSupportsTapToFocus() && (device?.isFocusModeSupported(.autoFocus))! {
-            if try! device?.lockForConfiguration() != nil {
-                device?.focusPointOfInterest = point
-                device?.focusMode = .autoFocus
-                device?.unlockForConfiguration()
+    func focus(at point: CGPoint,isAuto: Bool = true) {
+        guard let device: AVCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else { return }
+        let size: CGSize = view.bounds.size
+        let focusPoint = CGPoint(x: point.y / size.height, y: 1 - point.x / size.width)
+        if try! device.lockForConfiguration() != nil {
+            if device.isFocusPointOfInterestSupported {
+                if device.isFocusModeSupported(.autoFocus) {
+                    device.focusPointOfInterest = focusPoint
+                    device.focusMode = .autoFocus
+                }
+            }
+            
+            if device.isExposurePointOfInterestSupported {
+                if device.isExposureModeSupported(.autoExpose) {
+                    device.exposurePointOfInterest = focusPoint
+                    device.exposureMode = .autoExpose
+                }
+            }
+            device.unlockForConfiguration()
+            if isAuto == false {
+                focusView.center = point
+                focusView.isHidden = false
+                UIView.animate(withDuration: 0.3, animations: {() -> Void in
+                    self.focusView.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
+                }, completion: {(_ finished: Bool) -> Void in
+                    UIView.animate(withDuration: 0.5, animations: {() -> Void in
+                        self.focusView.transform = .identity
+                    }, completion: {(_ finished: Bool) -> Void in
+                        self.focusView.isHidden = true
+                    })
+                })
             }
         }
     }
@@ -124,26 +164,18 @@ class XLCameraViewController: UIViewController {
         self.captureSession.sessionPreset = AVCaptureSessionPreset1280x720
         
         // 获取设备
-        
         let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) as! [AVCaptureDevice]
         
         for device in devices {
-            
             if device.position == AVCaptureDevicePosition.back {
-                
                 self.backFacingCamera = device
-                
-            }
-                
-            else if device.position == AVCaptureDevicePosition.front {
-                
+            }else if device.position == AVCaptureDevicePosition.front {
                 self.frontFacingCamera = device
-                
             }
         }
         
         //设置当前设备为前置摄像头
-        self.currentDevice = self.frontFacingCamera
+        self.currentDevice = self.backFacingCamera
         
         do {
             // 当前设备输入端
@@ -170,75 +202,25 @@ class XLCameraViewController: UIViewController {
        
         // 启动音视频采集的会话
         self.captureSession.startRunning()
-        let _ = resetFocusAndExposureModes()
-    }
-    
-    // 自动聚焦、曝光
-    func resetFocusAndExposureModes() -> Bool{
-        if let device: AVCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) {
-            let exposureMode = AVCaptureExposureMode.autoExpose
-            let canResetExposure = device.isExposurePointOfInterestSupported && device.isExposureModeSupported(exposureMode)
-            
-            
-            let focusMode = AVCaptureFocusMode.autoFocus
-            let canResetFocus = device.isFocusPointOfInterestSupported && device.isFocusModeSupported(focusMode)
-
-            let centerPoint = CGPoint(x: 0.5, y: 0.5)
-            do  {
-                try device.lockForConfiguration()
-                if canResetFocus {
-                    device.focusMode = focusMode
-                    device.focusPointOfInterest = centerPoint
-                }
-                if canResetExposure {
-                    device.exposureMode = exposureMode
-                    device.exposurePointOfInterest = centerPoint
-                }
-                device.unlockForConfiguration()
-                return true
-            }catch {
-                print("\(error)")
-                return false
-            }
-        }
-        return false
+        
+        view.bringSubview(toFront: toolView)
     }
     
     //MARK: - 创建手势
     fileprivate func setUpGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.focusGesture(_:)))
+        view.addGestureRecognizer(tapGesture)
         
-        // 上滑手势控制前置和后置摄像头的转换
-        self.toggleCameraGestureRecognizer.direction = .up
-        self.toggleCameraGestureRecognizer.addTarget(self, action: #selector(self.toggleCamera))
-        self.view.addGestureRecognizer(toggleCameraGestureRecognizer)
-
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(self.handlePinchGesture))
         pinch.delegate = self
         view.addGestureRecognizer(pinch)
     }
     
     func createCameraTooBar(){
-//        //
-//
-//        self.cancel = UIButton.init(frame: CGRect.init(x: 50, y: HEIGHT - 100, width: 100, height: 80))
-//        self.cancel.setTitle("重拍", for: .normal)
-//        self.cancel.setTitleColor(UIColor.red, for: .normal)
-//        self.photoImageview.addSubview(self.cancel)
-//        self.cancel.addTarget(self, action: #selector(self.cancelAction), for: .touchUpInside)
-//
-//        self.save = UIButton.init(frame: CGRect.init(x:WIDTH - 150, y: HEIGHT - 100, width: 100, height: 80))
-//        self.save.setTitle("保存", for: .normal)
-//        self.save.setTitleColor(UIColor.red, for: .normal)
-//        self.photoImageview.addSubview(self.save)
-//        self.photoImageview.isUserInteractionEnabled = true
-//        self.save.addTarget(self, action: #selector(self.saveAction), for: .touchUpInside)
-//        self.photoBtn.addTarget(self, action: #selector(self.takePhotoAction), for: .touchUpInside)
-        
         toolView.backgroundColor = UIColor.black
         toolView.delegate = self
         toolView.alpha = 0.8
         view.addSubview(toolView)
-        view.bringSubview(toFront: toolView)
         
         toolView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalToSuperview()
@@ -250,23 +232,42 @@ class XLCameraViewController: UIViewController {
     //照相按钮
     func takePhotoAction(){
         // 获得音视频采集设备的连接
-        let videoConnection = stillImageOutput?.connection(withMediaType: AVMediaTypeVideo)
+        guard let videoConnection = stillImageOutput?.connection(withMediaType: AVMediaTypeVideo) else {
+            debugPrint("拍照失败，请重试")
+            return
+        }
         let curDeviceOrientation: UIDeviceOrientation = UIDevice.current.orientation
         let avcaptureOrientation: AVCaptureVideoOrientation = avOrientation(for: curDeviceOrientation)
-        videoConnection?.videoOrientation = avcaptureOrientation
-        videoConnection?.videoScaleAndCropFactor = self.effectiveScale
+        videoConnection.videoOrientation = avcaptureOrientation
+        videoConnection.videoScaleAndCropFactor = self.effectiveScale
         
         // 输出端以异步方式采集静态图像
-        stillImageOutput?.captureStillImageAsynchronously(from: videoConnection, completionHandler: { (imageDataSampleBuffer, error) -> Void in
+        stillImageOutput?.captureStillImageAsynchronously(from: videoConnection, completionHandler: {[unowned self] (imageDataSampleBuffer, error) -> Void in
+            if imageDataSampleBuffer == nil {
+                return
+            }
             
             // 获得采样缓冲区中的数据
             let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
             
             // 将数据转换成UIImage
             if let stillImage = UIImage(data: imageData!) {
-                //显示当前拍摄照片
-                self.photoImageview.isHidden = false
-                self.photoImageview.image = stillImage
+                self.view.addSubview(self.clipView)
+                self.clipView.image = stillImage
+                //重新拍照
+                self.clipView.remakeBlock = {() -> Void in
+                    self.clipView.removeFromSuperview()
+                    self.captureSession.startRunning()
+                }
+                //使用图片
+                self.clipView.sureUseBlock = {(_ clipImage: UIImage) -> Void in
+                    UIImageWriteToSavedPhotosAlbum(clipImage, nil, nil, nil)
+                    self.dismiss(animated: true, completion: {() -> Void in
+//                        if self.takePhotoBlock {
+//                            self.takePhotoBlock(clipImage)
+//                        }
+                    })
+                }
             }
         })
     }
@@ -283,15 +284,23 @@ class XLCameraViewController: UIViewController {
         return result!
     }
 
+    func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeMutableRawPointer) {
+        var msg: String? = nil
+        if error != nil {
+            msg = "保存图片失败"
+        }
+        else {
+            msg = "保存图片成功"
+        }
+        print("\(String(describing: msg))")
+    }
     
-    //取消按钮／重拍
+    // 重拍
     func cancelAction(){
-        //隐藏Imageview
-        self.photoImageview.isHidden = true
+        captureSession.startRunning()
     }
     
     //保存按钮-保存到相册
-    
     func saveAction(){
         //保存照片到相册
 //        UIImageWriteToSavedPhotosAlbum(self.photoImageview.image!, nil, nil, nil)
@@ -329,8 +338,8 @@ extension XLCameraViewController: UIGestureRecognizerDelegate{
             CATransaction.setAnimationDuration(0.025)
             cameraPreviewLayer!.setAffineTransform(CGAffineTransform(scaleX: effectiveScale, y: effectiveScale))
             CATransaction.commit()
-            let _ = resetFocusAndExposureModes()
         }
+        setupFocusPointManual(isAuto: false)
     }
     
     //MARK: - 切换摄像头
@@ -364,20 +373,20 @@ extension XLCameraViewController: UIGestureRecognizerDelegate{
         }catch {
             print(error)
             return
-            
         }
         
         // 添加输入端
         if captureSession.canAddInput(cameraInput) {
             captureSession.addInput(cameraInput)
         }
-        
         currentDevice = newDevice
+        cameraPreviewLayer!.transform = CATransform3DIdentity
         
         // 提交配置
         captureSession.commitConfiguration()
-        let _ = resetFocusAndExposureModes()
-        
+        DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {() -> Void in
+            self.setupFocusPointManual(isAuto: false)
+        })
     }
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -417,14 +426,46 @@ extension XLCameraViewController: UIGestureRecognizerDelegate{
 
 extension XLCameraViewController: CameraToolBarViewDelegate {
     func cancel(_ toolBarView: CameraToolBarView, _ cancelBtn: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    func retake(_ toolBarView: CameraToolBarView, _ retakeBtn: UIButton) {
-        cancelAction()
+        self.dismiss(animated: true, completion: nil)
     }
     
     func takePhoto(_ toolBarView: CameraToolBarView, _ takePhotoBtn: UIButton) {
         takePhotoAction()
     }
+    
+    func switchCamera(_ toolBarView: CameraToolBarView, _ switchCameraBtn: UIButton) {
+        toggleCamera()
+    }
 }
+
+
+// 自动聚焦、曝光
+//    func resetFocusAndExposureModes() -> Bool{
+//        if let device: AVCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) {
+//            let exposureMode = AVCaptureExposureMode.autoExpose
+//            let canResetExposure = device.isExposurePointOfInterestSupported && device.isExposureModeSupported(exposureMode)
+//
+//
+//            let focusMode = AVCaptureFocusMode.autoFocus
+//            let canResetFocus = device.isFocusPointOfInterestSupported && device.isFocusModeSupported(focusMode)
+//
+//            let centerPoint = CGPoint(x: 0.5, y: 0.5)
+//            do  {
+//                try device.lockForConfiguration()
+//                if canResetFocus {
+//                    device.focusMode = focusMode
+//                    device.focusPointOfInterest = centerPoint
+//                }
+//                if canResetExposure {
+//                    device.exposureMode = exposureMode
+//                    device.exposurePointOfInterest = centerPoint
+//                }
+//                device.unlockForConfiguration()
+//                return true
+//            }catch {
+//                print("\(error)")
+//                return false
+//            }
+//        }
+//        return false
+//    }

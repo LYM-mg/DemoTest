@@ -42,6 +42,8 @@
 		F40212811FECD746006B282F /* UIView+ViewFrameGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40212801FECD746006B282F /* UIView+ViewFrameGeometry.swift */; };
 		F40212841FECEA6E006B282F /* XLCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40212831FECEA6E006B282F /* XLCameraViewController.swift */; };
 		F43443321FF0A89700700264 /* CameraToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43443311FF0A89600700264 /* CameraToolBarView.swift */; };
+		F45E888C1FF338C50063FD0D /* PhotoClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45E888B1FF338C50063FD0D /* PhotoClipView.swift */; };
+		F45E888E1FF33C4D0063FD0D /* PhotoClipCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45E888D1FF33C4D0063FD0D /* PhotoClipCoverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,8 @@
 		F40212801FECD746006B282F /* UIView+ViewFrameGeometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ViewFrameGeometry.swift"; sourceTree = "<group>"; };
 		F40212831FECEA6E006B282F /* XLCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLCameraViewController.swift; sourceTree = "<group>"; };
 		F43443311FF0A89600700264 /* CameraToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraToolBarView.swift; sourceTree = "<group>"; };
+		F45E888B1FF338C50063FD0D /* PhotoClipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoClipView.swift; sourceTree = "<group>"; };
+		F45E888D1FF33C4D0063FD0D /* PhotoClipCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoClipCoverView.swift; sourceTree = "<group>"; };
 		F764537F780CF5ECA7FC905C /* Pods-MGBookViews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGBookViews.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGBookViews/Pods-MGBookViews.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,6 +239,8 @@
 			children = (
 				F40212831FECEA6E006B282F /* XLCameraViewController.swift */,
 				F43443311FF0A89600700264 /* CameraToolBarView.swift */,
+				F45E888B1FF338C50063FD0D /* PhotoClipView.swift */,
+				F45E888D1FF33C4D0063FD0D /* PhotoClipCoverView.swift */,
 			);
 			path = "自定义相机";
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 				C08551E01FBA75F400655360 /* TestViewController.swift in Sources */,
 				F43443321FF0A89700700264 /* CameraToolBarView.swift in Sources */,
 				C010F8DC1F481825003FEE62 /* MGProfileViewController.swift in Sources */,
+				F45E888E1FF33C4D0063FD0D /* PhotoClipCoverView.swift in Sources */,
 				C010F8C71F48175E003FEE62 /* ViewController.swift in Sources */,
 				F402127A1FECD36D006B282F /* HWDropdownMenu.m in Sources */,
 				C0CE13341FBC0EE000C2F965 /* UICollectionGridViewController.swift in Sources */,
@@ -387,6 +394,7 @@
 				F40212731FEC9A74006B282F /* LineVisible.swift in Sources */,
 				C010F8DE1F4819AF003FEE62 /* MGTableView.swift in Sources */,
 				C010F8E01F481B51003FEE62 /* MGProfileHeaderView.swift in Sources */,
+				F45E888C1FF338C50063FD0D /* PhotoClipView.swift in Sources */,
 				F40212841FECEA6E006B282F /* XLCameraViewController.swift in Sources */,
 				F402127F1FECD51B006B282F /* MGTitleMenuViewController.swift in Sources */,
 				C010F8E21F481F47003FEE62 /* MGProfileTitlesView.swift in Sources */,

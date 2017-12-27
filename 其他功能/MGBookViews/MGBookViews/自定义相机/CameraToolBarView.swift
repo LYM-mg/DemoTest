@@ -13,7 +13,7 @@ import UIKit
     @objc optional func retake(_ toolBarView: CameraToolBarView,_ retakeBtn: UIButton)
     @objc optional func takePhoto(_ toolBarView: CameraToolBarView,_ takePhotoBtn: UIButton)
     @objc optional func flash(_ toolBarView: CameraToolBarView,_ flashBtn: UIButton)
-    @objc optional func save(_ toolBarView: CameraToolBarView,_ savelBtn: UIButton)
+    @objc optional func switchCamera(_ toolBarView: CameraToolBarView,_ switchCameraBtn: UIButton)
 }
 
 class CameraToolBarView: UIView {
@@ -22,7 +22,7 @@ class CameraToolBarView: UIView {
     //取消按钮/重拍
     var cancelBtn:UIButton!
     //保存按钮
-    var saveBtn:UIButton!
+    var switchCameraBtn:UIButton!
     
     var delegate: CameraToolBarViewDelegate?
 
@@ -53,13 +53,12 @@ class CameraToolBarView: UIView {
         //        photoBtn.setImage(UIImage(named: "cameraPhoto"), for: .normal)
         self.addSubview(photoBtn)
         
-        self.saveBtn = UIButton(type: .custom)
-        saveBtn.setTitle("确定", for: .normal)
-        saveBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        saveBtn.addTarget(self, action: #selector(self.saveAction), for: .touchUpInside)
-        saveBtn.sizeToFit()
-        saveBtn.isHidden = true
-        self.addSubview(saveBtn)
+        self.switchCameraBtn = UIButton(type: .custom)
+        switchCameraBtn.setTitle("切换", for: .normal)
+        switchCameraBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        switchCameraBtn.addTarget(self, action: #selector(self.saveAction), for: .touchUpInside)
+        switchCameraBtn.sizeToFit()
+        self.addSubview(switchCameraBtn)
         
         // 闪光灯
 //        let flashBtn = UIButton(type: .custom)
@@ -78,7 +77,7 @@ class CameraToolBarView: UIView {
             make.center.equalToSuperview()
             make.size.equalTo(CGSize(width: 50, height: 50))
         }
-        saveBtn.snp.makeConstraints { (make) in
+        switchCameraBtn.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-50)
             make.centerY.equalToSuperview()
         }
@@ -87,30 +86,20 @@ class CameraToolBarView: UIView {
     
     //取消按钮 ／重拍
     func cancelAction(){
-        if saveBtn.isHidden {
-            if delegate != nil,(delegate?.responds(to: #selector(CameraToolBarViewDelegate.cancel(_:_:))))! {
-                delegate!.cancel!(self, cancelBtn)
-            }
-        }else {
-            cancelBtn.setTitle("取消", for: .normal)
-            if delegate != nil,(delegate?.responds(to: #selector(CameraToolBarViewDelegate.retake(_:_:))))! {
-                delegate!.retake!(self, cancelBtn)
-            }
+        if delegate != nil,(delegate?.responds(to: #selector(CameraToolBarViewDelegate.cancel(_:_:))))! {
+            delegate!.cancel!(self, cancelBtn)
         }
-        saveBtn.isHidden = true
     }
     
     //保存按钮-保存到相册,使用照片
     func saveAction(){
-        if delegate != nil,(delegate?.responds(to: #selector(CameraToolBarViewDelegate.save(_:_:))))! {
-            delegate!.save!(self, saveBtn)
+        if delegate != nil,(delegate?.responds(to: #selector(CameraToolBarViewDelegate.switchCamera(_:_:))))! {
+            delegate!.switchCamera!(self, switchCameraBtn)
         }
     }
     
     //照相按钮
     func takePhotoAction() {
-        saveBtn.isHidden = false
-        cancelBtn.setTitle("重拍", for: .normal)
         if delegate != nil,(delegate?.responds(to: #selector(CameraToolBarViewDelegate.takePhoto(_:_:))))! {
             delegate!.takePhoto!(self, photoBtn)
         }

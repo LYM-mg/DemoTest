@@ -99,7 +99,7 @@ class MGLineViewController: UIViewController,LineVisible {
     }
 
     func click() {
-        self.navigationController?.pushViewController(XLCameraViewController(), animated: true)
+        self.present(XLCameraViewController(), animated: true, completion: nil)
     }
 
     func click1() {
