@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         
         view.backgroundColor = UIColor.orange
         
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "测试手势", style: .plain, target: self, action: #selector(click))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "加载图片", style: .plain, target: self, action: #selector(click1))
     }
@@ -43,7 +44,7 @@ class ViewController: UIViewController {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.show(MGProfileViewController(), sender: nil)
-        
+
 //        let _ = Timer.new(after: 5.0.minutes) {
 //            print("5秒后执行定时器")
 //        }

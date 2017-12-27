@@ -104,8 +104,10 @@ class XLCameraViewController: UIViewController {
     }
     
     func setupFocusPointManual(isAuto: Bool = true) {
-        let point = CGPoint(x: MGScreenW / 2.0, y: 35 + (cameraPreviewLayer?.bounds.size.height)! / 2.0)
-        focus(at: point,isAuto: isAuto)
+        if cameraPreviewLayer != nil {
+            let point = CGPoint(x: MGScreenW / 2.0, y: 35 + (cameraPreviewLayer?.bounds.size.height)! / 2.0)
+            focus(at: point,isAuto: isAuto)
+        }
     }
 
     
@@ -252,6 +254,7 @@ class XLCameraViewController: UIViewController {
             
             // 将数据转换成UIImage
             if let stillImage = UIImage(data: imageData!) {
+
                 self.view.addSubview(self.clipView)
                 self.clipView.image = stillImage
                 //重新拍照
