@@ -19,8 +19,7 @@ class MGProgressView: UIView {
     }
     /** 重绘 */
     override func draw(_ rect: CGRect) {
-        if progress >= 1.0 || progress < 0.0
-        {
+        if progress >= 1.0 || progress < 0.0 {
             return
         }
         

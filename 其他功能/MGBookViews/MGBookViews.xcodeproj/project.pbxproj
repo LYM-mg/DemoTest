@@ -40,10 +40,24 @@
 		F402127D1FECD3B4006B282F /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F402127B1FECD3B4006B282F /* UIView+Extension.m */; };
 		F402127F1FECD51B006B282F /* MGTitleMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F402127E1FECD51B006B282F /* MGTitleMenuViewController.swift */; };
 		F40212811FECD746006B282F /* UIView+ViewFrameGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40212801FECD746006B282F /* UIView+ViewFrameGeometry.swift */; };
-		F40212841FECEA6E006B282F /* XLCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40212831FECEA6E006B282F /* XLCameraViewController.swift */; };
-		F43443321FF0A89700700264 /* CameraToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43443311FF0A89600700264 /* CameraToolBarView.swift */; };
-		F45E888C1FF338C50063FD0D /* PhotoClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45E888B1FF338C50063FD0D /* PhotoClipView.swift */; };
-		F45E888E1FF33C4D0063FD0D /* PhotoClipCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45E888D1FF33C4D0063FD0D /* PhotoClipCoverView.swift */; };
+		F41F0B551FFB3140009DE62E /* UITextField+XLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F0B541FFB3140009DE62E /* UITextField+XLExtension.swift */; };
+		F420DB5A1FF4915D00AD8DC0 /* 虚线框@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F420DB581FF4915C00AD8DC0 /* 虚线框@2x.png */; };
+		F420DB5B1FF4915D00AD8DC0 /* 虚线框@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F420DB591FF4915C00AD8DC0 /* 虚线框@3x.png */; };
+		F420DB641FF4916A00AD8DC0 /* 角_右上@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F420DB5C1FF4916800AD8DC0 /* 角_右上@2x.png */; };
+		F420DB651FF4916A00AD8DC0 /* 角_左上@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F420DB5D1FF4916800AD8DC0 /* 角_左上@3x.png */; };
+		F420DB661FF4916A00AD8DC0 /* 角_左下@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F420DB5E1FF4916900AD8DC0 /* 角_左下@3x.png */; };
+		F420DB671FF4916A00AD8DC0 /* 角_右上@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F420DB5F1FF4916900AD8DC0 /* 角_右上@3x.png */; };
+		F420DB681FF4916A00AD8DC0 /* 角_左上@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F420DB601FF4916900AD8DC0 /* 角_左上@2x.png */; };
+		F420DB691FF4916A00AD8DC0 /* 角_右下@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F420DB611FF4916900AD8DC0 /* 角_右下@3x.png */; };
+		F420DB6A1FF4916A00AD8DC0 /* 角_右下@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F420DB621FF4916A00AD8DC0 /* 角_右下@2x.png */; };
+		F420DB6B1FF4916A00AD8DC0 /* 角_左下@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F420DB631FF4916A00AD8DC0 /* 角_左下@2x.png */; };
+		F420DB721FF4BDED00AD8DC0 /* MGNextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420DB711FF4BDED00AD8DC0 /* MGNextViewController.swift */; };
+		F420DB7C1FF4E49F00AD8DC0 /* CameraBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420DB761FF4E49F00AD8DC0 /* CameraBlurView.swift */; };
+		F420DB7D1FF4E49F00AD8DC0 /* CameraBlurView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F420DB771FF4E49F00AD8DC0 /* CameraBlurView.xib */; };
+		F420DB7E1FF4E49F00AD8DC0 /* CameraToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420DB781FF4E49F00AD8DC0 /* CameraToolBarView.swift */; };
+		F420DB7F1FF4E49F00AD8DC0 /* PhotoClipCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420DB791FF4E49F00AD8DC0 /* PhotoClipCoverView.swift */; };
+		F420DB801FF4E49F00AD8DC0 /* PhotoClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420DB7A1FF4E49F00AD8DC0 /* PhotoClipView.swift */; };
+		F420DB811FF4E49F00AD8DC0 /* XLCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420DB7B1FF4E49F00AD8DC0 /* XLCameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,10 +101,24 @@
 		F402127C1FECD3B4006B282F /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		F402127E1FECD51B006B282F /* MGTitleMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTitleMenuViewController.swift; sourceTree = "<group>"; };
 		F40212801FECD746006B282F /* UIView+ViewFrameGeometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ViewFrameGeometry.swift"; sourceTree = "<group>"; };
-		F40212831FECEA6E006B282F /* XLCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLCameraViewController.swift; sourceTree = "<group>"; };
-		F43443311FF0A89600700264 /* CameraToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraToolBarView.swift; sourceTree = "<group>"; };
-		F45E888B1FF338C50063FD0D /* PhotoClipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoClipView.swift; sourceTree = "<group>"; };
-		F45E888D1FF33C4D0063FD0D /* PhotoClipCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoClipCoverView.swift; sourceTree = "<group>"; };
+		F41F0B541FFB3140009DE62E /* UITextField+XLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+XLExtension.swift"; sourceTree = "<group>"; };
+		F420DB581FF4915C00AD8DC0 /* 虚线框@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "虚线框@2x.png"; sourceTree = "<group>"; };
+		F420DB591FF4915C00AD8DC0 /* 虚线框@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "虚线框@3x.png"; sourceTree = "<group>"; };
+		F420DB5C1FF4916800AD8DC0 /* 角_右上@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "角_右上@2x.png"; sourceTree = "<group>"; };
+		F420DB5D1FF4916800AD8DC0 /* 角_左上@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "角_左上@3x.png"; sourceTree = "<group>"; };
+		F420DB5E1FF4916900AD8DC0 /* 角_左下@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "角_左下@3x.png"; sourceTree = "<group>"; };
+		F420DB5F1FF4916900AD8DC0 /* 角_右上@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "角_右上@3x.png"; sourceTree = "<group>"; };
+		F420DB601FF4916900AD8DC0 /* 角_左上@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "角_左上@2x.png"; sourceTree = "<group>"; };
+		F420DB611FF4916900AD8DC0 /* 角_右下@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "角_右下@3x.png"; sourceTree = "<group>"; };
+		F420DB621FF4916A00AD8DC0 /* 角_右下@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "角_右下@2x.png"; sourceTree = "<group>"; };
+		F420DB631FF4916A00AD8DC0 /* 角_左下@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "角_左下@2x.png"; sourceTree = "<group>"; };
+		F420DB711FF4BDED00AD8DC0 /* MGNextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGNextViewController.swift; sourceTree = "<group>"; };
+		F420DB761FF4E49F00AD8DC0 /* CameraBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraBlurView.swift; sourceTree = "<group>"; };
+		F420DB771FF4E49F00AD8DC0 /* CameraBlurView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraBlurView.xib; sourceTree = "<group>"; };
+		F420DB781FF4E49F00AD8DC0 /* CameraToolBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraToolBarView.swift; sourceTree = "<group>"; };
+		F420DB791FF4E49F00AD8DC0 /* PhotoClipCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoClipCoverView.swift; sourceTree = "<group>"; };
+		F420DB7A1FF4E49F00AD8DC0 /* PhotoClipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoClipView.swift; sourceTree = "<group>"; };
+		F420DB7B1FF4E49F00AD8DC0 /* XLCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XLCameraViewController.swift; sourceTree = "<group>"; };
 		F764537F780CF5ECA7FC905C /* Pods-MGBookViews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGBookViews.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGBookViews/Pods-MGBookViews.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,7 +165,7 @@
 		C010F8C31F48175E003FEE62 /* MGBookViews */ = {
 			isa = PBXGroup;
 			children = (
-				F40212821FECE9F8006B282F /* 自定义相机 */,
+				F420DB751FF4E49F00AD8DC0 /* Camera */,
 				C0CE13301FBC0E9400C2F965 /* 表格 */,
 				C08551E31FBAC10B00655360 /* 可控定时器 */,
 				F40212741FEC9AEB006B282F /* 下划线 */,
@@ -147,10 +175,22 @@
 				C010F8E91F4A7F1C003FEE62 /* BaseNavigationController.swift */,
 				C010F8C41F48175E003FEE62 /* AppDelegate.swift */,
 				C010F8C61F48175E003FEE62 /* ViewController.swift */,
+				F420DB711FF4BDED00AD8DC0 /* MGNextViewController.swift */,
 				C010F8E71F483F5C003FEE62 /* UIColor+Extension.swift */,
+				F41F0B541FFB3140009DE62E /* UITextField+XLExtension.swift */,
 				C08551E11FBA8A8100655360 /* SBTools.swift */,
 				C010F8D81F4817F5003FEE62 /* ProfileView */,
 				C010F8CB1F48175E003FEE62 /* Assets.xcassets */,
+				F420DB581FF4915C00AD8DC0 /* 虚线框@2x.png */,
+				F420DB591FF4915C00AD8DC0 /* 虚线框@3x.png */,
+				F420DB5C1FF4916800AD8DC0 /* 角_右上@2x.png */,
+				F420DB5F1FF4916900AD8DC0 /* 角_右上@3x.png */,
+				F420DB621FF4916A00AD8DC0 /* 角_右下@2x.png */,
+				F420DB611FF4916900AD8DC0 /* 角_右下@3x.png */,
+				F420DB601FF4916900AD8DC0 /* 角_左上@2x.png */,
+				F420DB5D1FF4916800AD8DC0 /* 角_左上@3x.png */,
+				F420DB631FF4916A00AD8DC0 /* 角_左下@2x.png */,
+				F420DB5E1FF4916900AD8DC0 /* 角_左下@3x.png */,
 				C010F8CD1F48175E003FEE62 /* LaunchScreen.storyboard */,
 				C010F8D01F48175E003FEE62 /* Info.plist */,
 				C0D763E91F4EB3ED00E029D9 /* 80@3x.png */,
@@ -234,15 +274,17 @@
 			path = "下划线";
 			sourceTree = "<group>";
 		};
-		F40212821FECE9F8006B282F /* 自定义相机 */ = {
+		F420DB751FF4E49F00AD8DC0 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				F40212831FECEA6E006B282F /* XLCameraViewController.swift */,
-				F43443311FF0A89600700264 /* CameraToolBarView.swift */,
-				F45E888B1FF338C50063FD0D /* PhotoClipView.swift */,
-				F45E888D1FF33C4D0063FD0D /* PhotoClipCoverView.swift */,
+				F420DB761FF4E49F00AD8DC0 /* CameraBlurView.swift */,
+				F420DB771FF4E49F00AD8DC0 /* CameraBlurView.xib */,
+				F420DB781FF4E49F00AD8DC0 /* CameraToolBarView.swift */,
+				F420DB791FF4E49F00AD8DC0 /* PhotoClipCoverView.swift */,
+				F420DB7A1FF4E49F00AD8DC0 /* PhotoClipView.swift */,
+				F420DB7B1FF4E49F00AD8DC0 /* XLCameraViewController.swift */,
 			);
-			path = "自定义相机";
+			path = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,12 +352,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F420DB7D1FF4E49F00AD8DC0 /* CameraBlurView.xib in Resources */,
+				F420DB641FF4916A00AD8DC0 /* 角_右上@2x.png in Resources */,
+				F420DB681FF4916A00AD8DC0 /* 角_左上@2x.png in Resources */,
+				F420DB6A1FF4916A00AD8DC0 /* 角_右下@2x.png in Resources */,
 				C010F8CF1F48175E003FEE62 /* LaunchScreen.storyboard in Resources */,
+				F420DB661FF4916A00AD8DC0 /* 角_左下@3x.png in Resources */,
+				F420DB671FF4916A00AD8DC0 /* 角_右上@3x.png in Resources */,
 				C010F8CC1F48175E003FEE62 /* Assets.xcassets in Resources */,
+				F420DB5A1FF4915D00AD8DC0 /* 虚线框@2x.png in Resources */,
+				F420DB651FF4916A00AD8DC0 /* 角_左上@3x.png in Resources */,
 				C010F8CA1F48175E003FEE62 /* Main.storyboard in Resources */,
+				F420DB6B1FF4916A00AD8DC0 /* 角_左下@2x.png in Resources */,
 				C0D763EB1F4EB3ED00E029D9 /* 80@3x.png in Resources */,
+				F420DB691FF4916A00AD8DC0 /* 角_右下@3x.png in Resources */,
 				C0D763EC1F4EB3ED00E029D9 /* 80@2x.png in Resources */,
 				C0CE133C1FBC10AE00C2F965 /* FontAwesome.ttf in Resources */,
+				F420DB5B1FF4915D00AD8DC0 /* 虚线框@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,21 +435,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F420DB7C1FF4E49F00AD8DC0 /* CameraBlurView.swift in Sources */,
 				C08551E01FBA75F400655360 /* TestViewController.swift in Sources */,
-				F43443321FF0A89700700264 /* CameraToolBarView.swift in Sources */,
+				F420DB801FF4E49F00AD8DC0 /* PhotoClipView.swift in Sources */,
+				F41F0B551FFB3140009DE62E /* UITextField+XLExtension.swift in Sources */,
 				C010F8DC1F481825003FEE62 /* MGProfileViewController.swift in Sources */,
-				F45E888E1FF33C4D0063FD0D /* PhotoClipCoverView.swift in Sources */,
+				F420DB7E1FF4E49F00AD8DC0 /* CameraToolBarView.swift in Sources */,
 				C010F8C71F48175E003FEE62 /* ViewController.swift in Sources */,
 				F402127A1FECD36D006B282F /* HWDropdownMenu.m in Sources */,
+				F420DB7F1FF4E49F00AD8DC0 /* PhotoClipCoverView.swift in Sources */,
 				C0CE13341FBC0EE000C2F965 /* UICollectionGridViewController.swift in Sources */,
+				F420DB721FF4BDED00AD8DC0 /* MGNextViewController.swift in Sources */,
 				C0CE13381FBC0FBF00C2F965 /* MGGridViewController.swift in Sources */,
 				F402127D1FECD3B4006B282F /* UIView+Extension.m in Sources */,
 				F40212731FEC9A74006B282F /* LineVisible.swift in Sources */,
 				C010F8DE1F4819AF003FEE62 /* MGTableView.swift in Sources */,
 				C010F8E01F481B51003FEE62 /* MGProfileHeaderView.swift in Sources */,
-				F45E888C1FF338C50063FD0D /* PhotoClipView.swift in Sources */,
-				F40212841FECEA6E006B282F /* XLCameraViewController.swift in Sources */,
 				F402127F1FECD51B006B282F /* MGTitleMenuViewController.swift in Sources */,
+				F420DB811FF4E49F00AD8DC0 /* XLCameraViewController.swift in Sources */,
 				C010F8E21F481F47003FEE62 /* MGProfileTitlesView.swift in Sources */,
 				C0D763F31F4FC45F00E029D9 /* Timer+Extension.swift in Sources */,
 				C010F8E41F4826E2003FEE62 /* MGContant.swift in Sources */,

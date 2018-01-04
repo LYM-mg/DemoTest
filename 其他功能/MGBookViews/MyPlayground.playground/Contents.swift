@@ -417,4 +417,86 @@ link.delete(index: 0)
 link.showLog()
 link.delete(index: 10)
 
+//let url = URL(string: "http://baidu.com")
+//url?.scheme
+//
+let url1 = URL(string: "https://baidu:com")
+(url1! as NSURL).resourceSpecifier
+//url1?.relativePath
+//url1?.host
+//url1?.port
+//url1?.user
+//url1?.password
+//url1?.fragment
+//url1?.path
+//url1?.pathComponents
+//url1?.pathExtension
+url1?.lastPathComponent
+url1?.absoluteString
+url1?.baseURL
+url1?.relativeString
+//url1?.query
 
+var numbers = [1,2,3,4,5,6]
+print(numbers)  // [1,2,3,4,5,6]
+numbers.swapAt(2, 5)
+print(numbers)  // [1, 2, 6, 4, 5, 3]
+
+//: # 更智能安全的Key Value Coding
+class Weather: NSObject {
+    @objc var months = 12
+    @objc var season = "Spring"
+    @objc var seasones = ["Spring","Summer","Autumn;","winter"]
+}
+/// Swift4之前的写法
+let w = Weather()
+w[keyPath: \Weather.season]
+(w.season as NSString)
+
+//func returnString() -> String?{
+//    throw return nil
+//}
+
+print("大笨笨蛋  傻瓜".reversed())
+print(String( "大笨笨蛋  傻瓜".reversed()))
+
+class Person {
+    let name: String
+    lazy var reversedName: String = self.getReversedName()
+    init(name: String) {
+        self.name = name
+    }
+    private func getReversedName() -> String { // 字符串反转方法
+        return "\(name.uppercased()) backwords is \(String(name.uppercased().reversed()))"
+    }
+}
+let person = Person(name: "ming Swift")
+print(person.reversedName)
+
+
+//enum PasswordError: Error {
+//    case Empty  // 密码为空
+//    case Short(minChars: Int)  // 密码不能少于
+//    case Obvious(message: String) // 明显的错误
+//}
+//func encryptString(str: String, withPassword password: String) throws
+//    -> String {
+//        if password.isEmpty {
+//            throw PasswordError.Empty
+//        }
+//        if password == "12345" {
+//            throw PasswordError.Obvious(message: "I have the same number on my luggage")
+//        }
+//        if password.characters.count < 4 {
+//            throw PasswordError.Short(minChars: 4)
+//        }
+//        let encrypted = password + str + password
+//        return String(encrypted.characters.reversed())
+//}
+
+//let scores = ["Paul": 100, "Taylor": 95, "Adele": 90, "Michael": 85, "Justin": 60]
+//let goodScores = scores.filter { $1 > 85 }
+//print(goodScores)
+let f:CGFloat = 1.334453
+let str3333 = String(format: "%.2f%%", f*100)
+print(str3333)

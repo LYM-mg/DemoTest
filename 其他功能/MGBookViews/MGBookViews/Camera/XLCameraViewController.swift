@@ -49,7 +49,7 @@ class XLCameraViewController: UIViewController {
     var timer: Timer?
     /** 焦点view */
     fileprivate lazy var focusView: UIView = {
-        let focusView = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+        let focusView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         focusView.layer.borderWidth = 1.0
         focusView.layer.borderColor = UIColor.green.cgColor
         focusView.backgroundColor = UIColor.clear
@@ -195,6 +195,7 @@ class XLCameraViewController: UIViewController {
             return
         }
         
+        
         // 创建预览图层
         self.cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         self.view.layer.masksToBounds = true
@@ -204,6 +205,12 @@ class XLCameraViewController: UIViewController {
        
         // 启动音视频采集的会话
         self.captureSession.startRunning()
+        
+        let preview: CameraBlurView = Bundle.main.loadNibNamed("CameraBlurView", owner: nil, options: nil)?.first as! CameraBlurView
+        preview.frame = self.cameraPreviewLayer!.frame
+        preview.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.7)
+        preview.clipsToBounds = true
+        view.addSubview(preview)
         
         view.bringSubview(toFront: toolView)
     }

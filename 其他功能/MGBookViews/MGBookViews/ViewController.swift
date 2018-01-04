@@ -22,10 +22,25 @@ class ViewController: UIViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "测试手势", style: .plain, target: self, action: #selector(click))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "加载图片", style: .plain, target: self, action: #selector(click1))
+        
+        
+        let textF = UITextField(frame: CGRect(x: 10, y: 100, width: 200, height: 30))
+        textF.borderStyle = .roundedRect
+        textF.clearButtonMode = .whileEditing
+        textF.delegate = self
+        view.addSubview(textF)
+        
+        let textF1 = UITextField(frame: CGRect(x: 10, y: 150, width: 200, height: 30))
+        textF1.loadRightClearButton()
+        textF1.tag = 100
+        textF1.delegate = self
+        textF1.borderStyle = .roundedRect
+        textF1.clearButtonMode = .whileEditing
+        view.addSubview(textF1)
     }
 
     func click() {
-        let vc = MGGridViewController()
+        let vc = MGNextViewController()
         vc.view.backgroundColor = UIColor.mg_randomColor()
         self.show(vc, sender: nil)
     }
@@ -44,7 +59,6 @@ class ViewController: UIViewController {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.show(MGProfileViewController(), sender: nil)
-
 //        let _ = Timer.new(after: 5.0.minutes) {
 //            print("5秒后执行定时器")
 //        }
@@ -81,6 +95,49 @@ class ViewController: UIViewController {
 //        print(String(format: "%08ld", heihie2))
 //        
 //        imageView.image = UIImage(named: "80")
+    }
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        if range.length == 0 {
+//            if textField.tag == 100 {
+////                var regex = ""
+//                if range.location == 1 {
+//                    if textField.text == "0" {
+//                        let regex = "(^([.]\\d{0,1})?)$" // "(^(0|([1-9]{0,}))([.]\\d{0,1})?)$"
+//                        // 2.利用规则创建表达式对象
+//                        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+//                        print(predicate.evaluate(with: string))
+//                        return predicate.evaluate(with: string)
+//                    }
+//                }
+//                let regex = "(^(0|([1-9]{0,}))([.]\\d{0,1})?)$" // "(^(0|([1-9]{0,}))([.]\\d{0,1})?)$"
+//                // 2.利用规则创建表达式对象
+//                let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+//                textField.text = textField.text ?? "" + string
+//                print(predicate.evaluate(with: textField.text))
+//                return predicate.evaluate(with: textField.text)
+//            }else {
+//
+//            }
+//        }
+        let regex = "(^(0|([1-9]{0,}))([.]\\d{0,2})?)$"
+        // "^[0-9]*?((.)[0-9]{0,2})?$"
+        // "(^(0|([1-9]{0,}))([.]\\d{0,2})?)$"
+        // "(^[1-9]\\d{0,}(([.]\\d{0,2})?))?|(^[0]?(([.]\\d{0,2})?))?"
+        // "([1-9]\\d{0,}(([.]\\d{0,1})?))?|([0]?(([.]\\d{0,1})?))?"
+        // "([1-9]\\d{0,}(([.]\\d{0,1})?))?|([0]|(0[.]\\d{0,1}))" // |
+        // "^[0-9]+(.[0-9]{2})?$"  //"[0-9]+\\.?[0-9]{2}"  //"^\\d+(\\.\\d{2})?$" // "/^(0|[-][1-9]d{0,}).d{1,2}$/"   // "^(0|[1-9]\\d{0,})(([.]\\d{0,1})?)?$"
+        // 2.利用规则创建表达式对象
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+        let text = (textField.text ?? "") + string
+        if text.hasPrefix(".") {
+            textField.text = "0" + textField.text!
+        }
+        print(predicate.evaluate(with: text))
+        return predicate.evaluate(with: text)
+//        return true
     }
 }
 
