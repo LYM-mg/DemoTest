@@ -24,7 +24,8 @@ class MGNextViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let preview: CameraBlurView = Bundle.main.loadNibNamed("CameraBlurView", owner: nil, options: nil)?.first as! CameraBlurView
         preview.frame = self.view.frame
-        preview.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.7)
+//        preview.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.7)
+        preview.backgroundColor = UIColor(r: 0, g: 0, b: 0, a: 0.7)
         preview.clipsToBounds = true
         view.addSubview(preview)
     }

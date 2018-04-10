@@ -81,6 +81,9 @@ if "onev@onevcat.com" =~
 8>>2
 9>>2
 
+
+let sssss = "\\U5b89\\U5168\\U4fdd\\U969c1".utf8
+
 //let test = "helLo"
 //let interval = "a"..."z"
 //for c in test {
@@ -500,3 +503,89 @@ print(person.reversedName)
 let f:CGFloat = 1.334453
 let str3333 = String(format: "%.2f%%", f*100)
 print(str3333)
+
+//class Model1 {
+//    var name = "jiali"
+//    var age: Int = 12
+//}
+//var arr1 = [[Model1()],[1,2,3],["fsahkj"]]
+//var arr2 = arr1[0]
+//print((arr1[0][0] as! Model1).name)
+//print((arr2[0] as! Model1).name)
+//(arr1[0][0] as! Model1).name = "3"
+//print((arr1[0][0] as! Model1).name)
+//print((arr2[0] as! Model1).name)
+//
+//struct Model2 {
+//    var name: String = "jiali"
+//    var age: Int = 12
+//}
+//
+//var arr3 = [[Model2(name: "jiali", age: 12)],[1,2,3],["fsahkj"]]
+//var arr4 = arr3[0]
+//print((arr3[0][0] as! Model2).name)
+//print((arr4[0] as! Model2).name)
+//var model = (arr3[0][0] as! Model2)
+//model.name = "嘿嘿"
+//arr3[0][0] = Model2(name: "你妹", age: 18)
+//print((arr3[0][0] as! Model2).name)
+//print((arr4[0] as! Model2).name)
+
+
+/**
+ *  清除缓存首页数据(5天前的首页数据)
+ */
+func clearLocalData(){
+    // 1.获取3天前的时间 -24 * 60 * 60 * 5
+    print(Date())
+    let date = Date(timeIntervalSinceNow: -24 * 60 * 60 * 3)
+    
+    // 2.创建formatter对象
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    formatter.locale = Locale(identifier: "en")
+    
+    // 3.将date对象类型转成String类型
+    let planTime = formatter.string(from: date)
+    let currentTime = formatter.string(from: Date())
+    print(planTime)
+    print(currentTime)
+}
+
+let kCurrentVersionDateKey = "kCurrentVersionDateKey"
+func isExperrise() -> Bool {
+    // 判断今天是否执行某方法
+    let defaultst = UserDefaults.standard
+    var date = defaultst.object(forKey: kCurrentVersionDateKey) as? String
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd"
+    let snow = formatter.string(from: Date())
+    if date == nil { // 第一次使用三天后才会有执行这个方法（跳过审核）
+        date = formatter.string(from: Date(timeIntervalSinceNow: 24 * 60 * 60 * 3))
+    }
+    if snow.compare(date!) == .orderedAscending {
+        return false
+    }
+    //  设置这个是为了以后每天都会执行方法
+    defaultst.set(snow, forKey: kCurrentVersionDateKey)
+    // 要执行的方法
+    return true
+}
+
+isExperrise()
+
+pow(3, 3)
+
+3^3
+2^2
+
+var urlString = "12个月21天"
+var nonDigits = CharacterSet.decimalDigits.inverted
+var remainSecond = Int(urlString.trimmingCharacters(in: nonDigits)) ?? 0
+print(" num \(remainSecond) ")
+
+var scanner = Scanner(string: urlString)
+scanner.scanUpToCharacters(from: CharacterSet.decimalDigits, into: nil)
+var number: Int = 0
+scanner.scanInt(&number)
+var num = "\(number)"

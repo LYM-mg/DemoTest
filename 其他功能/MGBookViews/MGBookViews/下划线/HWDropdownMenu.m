@@ -2,7 +2,7 @@
 //  HWDropdownMenu.m
 //
 //  Created by apple on 14-10-8.
-//  Copyright (c) 2014年 heima. All rights reserved.
+//  Copyright (c) 2014年 ming. All rights reserved.
 //
 
 #import "HWDropdownMenu.h"
@@ -85,7 +85,7 @@
 - (void)showFrom:(UIView *)from
 {
     // 1.获得最上面的窗口
-    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
     
     // 2.添加自己到窗口上
     [window addSubview:self];

@@ -58,6 +58,8 @@
 		F420DB7F1FF4E49F00AD8DC0 /* PhotoClipCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420DB791FF4E49F00AD8DC0 /* PhotoClipCoverView.swift */; };
 		F420DB801FF4E49F00AD8DC0 /* PhotoClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420DB7A1FF4E49F00AD8DC0 /* PhotoClipView.swift */; };
 		F420DB811FF4E49F00AD8DC0 /* XLCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420DB7B1FF4E49F00AD8DC0 /* XLCameraViewController.swift */; };
+		F4466060202AFA5600EA7C0D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446605F202AFA5600EA7C0D /* LaunchViewController.swift */; };
+		F4466062202AFC4100EA7C0D /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4466061202AFC4100EA7C0D /* LaunchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +121,8 @@
 		F420DB791FF4E49F00AD8DC0 /* PhotoClipCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoClipCoverView.swift; sourceTree = "<group>"; };
 		F420DB7A1FF4E49F00AD8DC0 /* PhotoClipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoClipView.swift; sourceTree = "<group>"; };
 		F420DB7B1FF4E49F00AD8DC0 /* XLCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XLCameraViewController.swift; sourceTree = "<group>"; };
+		F446605F202AFA5600EA7C0D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		F4466061202AFC4100EA7C0D /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
 		F764537F780CF5ECA7FC905C /* Pods-MGBookViews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGBookViews.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGBookViews/Pods-MGBookViews.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +169,8 @@
 		C010F8C31F48175E003FEE62 /* MGBookViews */ = {
 			isa = PBXGroup;
 			children = (
+				F446605F202AFA5600EA7C0D /* LaunchViewController.swift */,
+				F4466061202AFC4100EA7C0D /* LaunchViewController.xib */,
 				F420DB751FF4E49F00AD8DC0 /* Camera */,
 				C0CE13301FBC0E9400C2F965 /* 表格 */,
 				C08551E31FBAC10B00655360 /* 可控定时器 */,
@@ -356,6 +362,7 @@
 				F420DB641FF4916A00AD8DC0 /* 角_右上@2x.png in Resources */,
 				F420DB681FF4916A00AD8DC0 /* 角_左上@2x.png in Resources */,
 				F420DB6A1FF4916A00AD8DC0 /* 角_右下@2x.png in Resources */,
+				F4466062202AFC4100EA7C0D /* LaunchViewController.xib in Resources */,
 				C010F8CF1F48175E003FEE62 /* LaunchScreen.storyboard in Resources */,
 				F420DB661FF4916A00AD8DC0 /* 角_左下@3x.png in Resources */,
 				F420DB671FF4916A00AD8DC0 /* 角_右上@3x.png in Resources */,
@@ -436,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F420DB7C1FF4E49F00AD8DC0 /* CameraBlurView.swift in Sources */,
+				F4466060202AFA5600EA7C0D /* LaunchViewController.swift in Sources */,
 				C08551E01FBA75F400655360 /* TestViewController.swift in Sources */,
 				F420DB801FF4E49F00AD8DC0 /* PhotoClipView.swift in Sources */,
 				F41F0B551FFB3140009DE62E /* UITextField+XLExtension.swift in Sources */,
@@ -594,7 +602,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = H54L47S422;
 				INFOPLIST_FILE = MGBookViews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "i-Techsys.com.MGBookViews";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -612,7 +620,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = H54L47S422;
 				INFOPLIST_FILE = MGBookViews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "i-Techsys.com.MGBookViews";
 				PRODUCT_NAME = "$(TARGET_NAME)";
