@@ -67,7 +67,7 @@ class MGProfileViewController: UIViewController,UITableViewDelegate,UICollection
             return scrollView
         }()
         self.scrollView = scrollView
-        
+
         let tableHeaderView = UIView() // 占位的头部tableViewheaderView
 //        tableHeaderView.alpha = 0.0
         tableHeaderView.frame = CGRect(x: 0, y: 0, width: MGScreenW, height: MGHeadViewHeight + MGTitleHeight)
@@ -188,6 +188,7 @@ class MGProfileViewController: UIViewController,UITableViewDelegate,UICollection
     func setupHeaderView() {
         let headerView: UIView = MGProfileHeaderView(frame: CGRect(x: 0, y: 0, width: MGScreenW, height: MGHeadViewHeight + MGTitleHeight))
         view.addSubview(headerView)
+        headerView.isUserInteractionEnabled = false;
         self.headerView = headerView
         let titleView = MGProfileTitlesView()
         headerView.addSubview(titleView)

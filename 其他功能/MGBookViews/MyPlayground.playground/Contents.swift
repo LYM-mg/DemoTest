@@ -84,6 +84,8 @@ if "onev@onevcat.com" =~
 
 let sssss = "\\U5b89\\U5168\\U4fdd\\U969c1".utf8
 
+
+
 //let test = "helLo"
 //let interval = "a"..."z"
 //for c in test {
@@ -378,6 +380,7 @@ class Link {
         if count == 1 {
             top = nil
             current = nil
+            return;
         }
         var item = top
         for _ in 0..<index {
@@ -579,8 +582,8 @@ pow(3, 3)
 3^3
 2^2
 
-var urlString = "12个月21天"
-var nonDigits = CharacterSet.decimalDigits.inverted
+var urlString = "aa12个月21天"
+var nonDigits = CharacterSet.alphanumerics// CharacterSet.decimalDigits.inverted
 var remainSecond = Int(urlString.trimmingCharacters(in: nonDigits)) ?? 0
 print(" num \(remainSecond) ")
 
@@ -589,3 +592,6 @@ scanner.scanUpToCharacters(from: CharacterSet.decimalDigits, into: nil)
 var number: Int = 0
 scanner.scanInt(&number)
 var num = "\(number)"
+
+
+//"1,000"

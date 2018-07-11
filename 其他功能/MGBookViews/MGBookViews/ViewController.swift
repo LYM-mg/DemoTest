@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    lazy var isShowAlert: Bool = false
+    lazy var isShowUpdateAlert: Bool = false
     lazy var imageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     
     var number = 110;
@@ -40,9 +41,10 @@ class ViewController: UIViewController {
     }
 
     func click() {
-        let vc = MGNextViewController()
-        vc.view.backgroundColor = UIColor.mg_randomColor()
-        self.show(vc, sender: nil)
+        self.show(MGProfileViewController(), sender: nil)
+//        let vc = MGNextViewController()
+//        vc.view.backgroundColor = UIColor.mg_randomColor()
+//        self.show(vc, sender: nil)
     }
     
     func click1() {
@@ -56,9 +58,60 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if (self.navigationController?.topViewController == self) {
+            if (self.isShowAlert)  {
+                MGWindow.show(dismiss: {
+                    self.isShowAlert = false
+                })
+            }
+        }
+    }
+    
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.show(MGProfileViewController(), sender: nil)
+        super.touchesBegan(touches, with: event)
+        self.isShowUpdateAlert = true
+        var alertView: XLAlertView? = XLAlertView.instance(withTitle: "你个大笨蛋", forceUpdate: "NO", withContent: "你是笨蛋吗？你看我想不想理你", withEnsureBlock: { (reslut) in
+            UIApplication.shared.openURL(URL(string: "http://baidu.com")!)
+            self.isShowUpdateAlert = false
+        }) { (reslut) in
+            self.isShowUpdateAlert = false
+        }
+
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+            self.isShowUpdateAlert = true
+            let vc: UIViewController = (self.tabBarController!.selectedViewController! as! UINavigationController).topViewController!
+            if (vc == self) {
+                self.tabBarController?.view.addSubview(alertView!)
+            }
+        }
+       
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+            self.isShowAlert = true
+            let vc: UIViewController = (self.tabBarController!.selectedViewController! as! UINavigationController).topViewController!
+            if (vc == self) {
+                MGWindow.show(dismiss: {
+                    self.isShowAlert = false
+                })
+            }
+        }
+        
+//        var alertView: XLAlertView? = XLAlertView.instance(withTitle: "你个大笨蛋", forceUpdate: "NO", withContent: "你是笨蛋吗？你看我想不想理你", withEnsureBlock: { (reslut) in
+//            UIApplication.shared.openURL(URL(string: "http://baidu.com")!)
+//        }) { (reslut) in
+//
+//        }
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+//            self.tabBarController?.view.addSubview(alertView!)
+//        }
+    
+    
+//        self.show(MGProfileViewController(), sender: nil)
 //        let _ = Timer.new(after: 5.0.minutes) {
 //            print("5秒后执行定时器")
 //        }

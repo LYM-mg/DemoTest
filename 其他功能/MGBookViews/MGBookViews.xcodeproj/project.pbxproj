@@ -60,6 +60,9 @@
 		F420DB811FF4E49F00AD8DC0 /* XLCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420DB7B1FF4E49F00AD8DC0 /* XLCameraViewController.swift */; };
 		F4466060202AFA5600EA7C0D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446605F202AFA5600EA7C0D /* LaunchViewController.swift */; };
 		F4466062202AFC4100EA7C0D /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4466061202AFC4100EA7C0D /* LaunchViewController.xib */; };
+		F475915520AD2F620066BF19 /* XLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F475915220AD2F600066BF19 /* XLAlertView.m */; };
+		F475915620AD2F620066BF19 /* XLAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F475915420AD2F620066BF19 /* XLAlertView.xib */; };
+		F4D6364A20AD5AED00172072 /* MGWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6364920AD5AED00172072 /* MGWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +126,10 @@
 		F420DB7B1FF4E49F00AD8DC0 /* XLCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XLCameraViewController.swift; sourceTree = "<group>"; };
 		F446605F202AFA5600EA7C0D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		F4466061202AFC4100EA7C0D /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
+		F475915220AD2F600066BF19 /* XLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLAlertView.m; sourceTree = "<group>"; };
+		F475915320AD2F610066BF19 /* XLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLAlertView.h; sourceTree = "<group>"; };
+		F475915420AD2F620066BF19 /* XLAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XLAlertView.xib; sourceTree = "<group>"; };
+		F4D6364920AD5AED00172072 /* MGWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGWindow.swift; sourceTree = "<group>"; };
 		F764537F780CF5ECA7FC905C /* Pods-MGBookViews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGBookViews.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGBookViews/Pods-MGBookViews.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +188,10 @@
 				C010F8E91F4A7F1C003FEE62 /* BaseNavigationController.swift */,
 				C010F8C41F48175E003FEE62 /* AppDelegate.swift */,
 				C010F8C61F48175E003FEE62 /* ViewController.swift */,
+				F4D6364920AD5AED00172072 /* MGWindow.swift */,
+				F475915220AD2F600066BF19 /* XLAlertView.m */,
+				F475915320AD2F610066BF19 /* XLAlertView.h */,
+				F475915420AD2F620066BF19 /* XLAlertView.xib */,
 				F420DB711FF4BDED00AD8DC0 /* MGNextViewController.swift */,
 				C010F8E71F483F5C003FEE62 /* UIColor+Extension.swift */,
 				F41F0B541FFB3140009DE62E /* UITextField+XLExtension.swift */,
@@ -362,6 +373,7 @@
 				F420DB641FF4916A00AD8DC0 /* 角_右上@2x.png in Resources */,
 				F420DB681FF4916A00AD8DC0 /* 角_左上@2x.png in Resources */,
 				F420DB6A1FF4916A00AD8DC0 /* 角_右下@2x.png in Resources */,
+				F475915620AD2F620066BF19 /* XLAlertView.xib in Resources */,
 				F4466062202AFC4100EA7C0D /* LaunchViewController.xib in Resources */,
 				C010F8CF1F48175E003FEE62 /* LaunchScreen.storyboard in Resources */,
 				F420DB661FF4916A00AD8DC0 /* 角_左下@3x.png in Resources */,
@@ -459,6 +471,7 @@
 				F40212731FEC9A74006B282F /* LineVisible.swift in Sources */,
 				C010F8DE1F4819AF003FEE62 /* MGTableView.swift in Sources */,
 				C010F8E01F481B51003FEE62 /* MGProfileHeaderView.swift in Sources */,
+				F4D6364A20AD5AED00172072 /* MGWindow.swift in Sources */,
 				F402127F1FECD51B006B282F /* MGTitleMenuViewController.swift in Sources */,
 				F420DB811FF4E49F00AD8DC0 /* XLCameraViewController.swift in Sources */,
 				C010F8E21F481F47003FEE62 /* MGProfileTitlesView.swift in Sources */,
@@ -476,6 +489,7 @@
 				C08551E21FBA8A8100655360 /* SBTools.swift in Sources */,
 				C010F8E81F483F5C003FEE62 /* UIColor+Extension.swift in Sources */,
 				C0CE133A1FBC107E00C2F965 /* FAIcon.swift in Sources */,
+				F475915520AD2F620066BF19 /* XLAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -68,7 +68,8 @@ extension XJLOccupationViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let group = occupationDict[section]  //  return  group.models.count
-        return group.isExpaned == false ? 0 : group.models.count
+        return group.models.count;
+//        return group.isExpaned == false ? 0 : group.models.count
     }
     
     
