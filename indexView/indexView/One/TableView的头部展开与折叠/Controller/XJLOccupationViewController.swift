@@ -13,8 +13,10 @@ class XJLOccupationViewController: UITableViewController {
     // 数据源
     fileprivate lazy var occupationDict = [XJLGroupModel]()
     
-    fileprivate lazy var hearderSection: Int = 0
-    private lazy var hearderView: XJLHeaderFooterView = XJLHeaderFooterView()
+    fileprivate lazy var hearderSection: NSInteger = 0
+    var isSame: Bool = false
+    
+    //: XJLHeaderFooterView = XJLHeaderFooterView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,8 +70,8 @@ extension XJLOccupationViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let group = occupationDict[section]  //  return  group.models.count
-        return group.models.count;
-//        return group.isExpaned == false ? 0 : group.models.count
+//        return group.models.count;
+        return group.isExpaned == false ? 0 : group.models.count
     }
     
     
@@ -98,20 +100,41 @@ extension XJLOccupationViewController {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderFooterViewID") as! XJLHeaderFooterView
         // 回调
         headerView.gruop = occupationDict[section]
-        var tempHearderView: XJLHeaderFooterView? = XJLHeaderFooterView()
-        headerView.btnBlock = { (dict: XJLGroupModel,hearderView: XJLHeaderFooterView) in
+        var tempHearderView: XJLHeaderFooterView?
+        headerView.btnBlock = { [unowned self](gruop: XJLGroupModel,hearderView: XJLHeaderFooterView) in
+            
             self.tableView.beginUpdates()
             self.tableView.reloadSections(IndexSet(integer: self.hearderSection), with: .automatic)
             self.tableView.reloadSections(NSIndexSet(index: section) as IndexSet, with: .automatic)
             self.tableView.endUpdates()
-            
             tempHearderView = hearderView
+            
+            
+            if (section == self.hearderSection && !self.isSame) {
+                 self.isSame = true
+                 gruop.isExpaned = !gruop.isExpaned
+                
+                 self.hearderSection = section
+                 self.occupationDict[section] = gruop;
+                 self.tableView.reloadData()
+                return;
+            }
+            self.isSame = false
             self.hearderSection = section
             tempHearderView!.gruop?.isExpaned = false
-//            if ((self.hearderSection == section)) {
+
+            
+
 //
-//                return
+//
+//            if (self.hearderSection == section) {
+//
+//            }else {
+//
 //            }
+//
+//            self.tableView.reloadData()
+            
         }
         return headerView
     }

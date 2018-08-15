@@ -18,7 +18,7 @@ class XJLHeaderFooterView: UITableViewHeaderFooterView {
     var gruop: XJLGroupModel? {
         didSet {
             if (gruop!.isExpaned) { // 已经展开
-                image.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI)/2);
+                image.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi)/2);
             } else { // 未展开
                 image.transform = CGAffineTransform.identity;
             }
@@ -59,7 +59,7 @@ class XJLHeaderFooterView: UITableViewHeaderFooterView {
     @objc func btnClick(_ btn: UIButton) {
         gruop!.isExpaned = !gruop!.isExpaned
         if (gruop!.isExpaned) { // 已经展开
-            image.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI)/2)
+            image.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi)/2)
         } else { // 未展开
             image.transform = CGAffineTransform.identity;
         }

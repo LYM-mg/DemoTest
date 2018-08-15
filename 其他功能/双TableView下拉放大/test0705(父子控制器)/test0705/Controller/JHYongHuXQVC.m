@@ -62,7 +62,7 @@
     UILabel *titleLab;
     UILabel * blackTip;
     CGFloat tableH;
-    
+    UIView *hideView;
 }
 
 static NSString *kUserAppraiseCellID = @"JHUserAppraiseCell";
@@ -174,7 +174,7 @@ static NSString *kUserPhotoCellID = @"JHUserPhotoCell";
     }];
     
     __weak typeof(self) weakSelf = self;
-    titleView.titles             = @[@"动态", @"文章"];
+    titleView.titles             = @[@"都比都比动态", @"文章"];
     titleView.selectedIndex      = 0;
     titleView.buttonSelected     = ^(NSInteger index){
         [weakSelf.scrollView setContentOffset:CGPointMake(JHScreenW * index, 0) animated:YES];
@@ -224,7 +224,13 @@ static NSString *kUserPhotoCellID = @"JHUserPhotoCell";
     navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, navBgView.width, navBgView.height)];
     navView.backgroundColor = [UIColor whiteColor];//mainColor;
     navView.alpha = 0;
+    navView.clipsToBounds = YES;
     [navBgView addSubview:navView];
+    
+    hideView = [[UIView alloc] initWithFrame:CGRectMake((JHScreenW-100)/2, navBgView.height, 100, 30)];
+    hideView.backgroundColor = [UIColor redColor];//mainColor;
+    hideView.alpha = 1;
+    [navView addSubview:hideView];
     
     UIButton *b = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, JHScreenW, 44)];
   //  [b addTarget:self action:@selector(toptapClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -285,7 +291,7 @@ static NSString *kUserPhotoCellID = @"JHUserPhotoCell";
     }
     CGFloat originY      = 0;
     CGFloat otherOffsetY = 0;
-    if (offsetY <= NNHeadViewHeight -64) {
+    if (offsetY <= NNHeadViewHeight -SafeAreaTopHeight) {
         originY              = -offsetY;
         if (offsetY < 0) {
             otherOffsetY         = 0;
@@ -293,7 +299,7 @@ static NSString *kUserPhotoCellID = @"JHUserPhotoCell";
             otherOffsetY         = offsetY;
         }
     } else {
-        originY              = -NNHeadViewHeight+64;
+        originY              = -NNHeadViewHeight+SafeAreaTopHeight;
         otherOffsetY         = NNHeadViewHeight;
     }
     self.headerV.frame = CGRectMake(0, originY, JHScreenW, NNHeadViewHeight + NNTitleHeight);
@@ -302,7 +308,7 @@ static NSString *kUserPhotoCellID = @"JHUserPhotoCell";
             UITableView *contentView = self.scrollView.subviews[i];
             CGPoint offset = CGPointMake(0, otherOffsetY);
             if ([contentView isKindOfClass:[UITableView class]]) {
-                if (contentView.contentOffset.y < NNHeadViewHeight-64 || offset.y < NNHeadViewHeight-64) {
+                if (contentView.contentOffset.y < NNHeadViewHeight-SafeAreaTopHeight || offset.y < NNHeadViewHeight-SafeAreaTopHeight) {
                     [contentView setContentOffset:offset animated:NO];
                     self.scrollView.offset = offset;
                 }
@@ -324,13 +330,13 @@ static NSString *kUserPhotoCellID = @"JHUserPhotoCell";
         self.headerV.bgHUDView.jh_height = 360;
 
     }
-    NSLog(@"嘿嘿 = %f",self.headerV.contentView1.height);
+//    NSLog(@"嘿嘿 = %f",self.headerV.contentView1.height);
     
     // 处理导航栏的透明度
     if (offsetY<0) {
         offsetY = 0;
     }
-    CGFloat alpha = (offsetY) / (296-64  );
+    CGFloat alpha = (offsetY) / (296-SafeAreaTopHeight  );
 //    if (alpha >= 1.0) {
 //        alpha = 0.99;
 //    }
@@ -374,7 +380,15 @@ static NSString *kUserPhotoCellID = @"JHUserPhotoCell";
 //        self.hedaerView.effectView.transform = CGAffineTransformMakeScale(1 + ABS(offsetY) / 200.0, 1 + ABS(offsetY) / 200.0);
     }
     ///////
-   
+//    NSLog(@"offsetY = %f",offsetY);
+    if (offsetY > 211) {
+        hideView.jh_y = navView.height-(offsetY-208-3);
+        if (hideView.jh_y == (navView.height-hideView.height)/2) {
+            hideView.center = CGPointMake((JHScreenW-100)/2, 40/2);
+        }
+    }else if (offsetY<211){
+        hideView.frame = CGRectMake((JHScreenW-100)/2, navView.height, 100, 30);
+    }
     
 }
 
