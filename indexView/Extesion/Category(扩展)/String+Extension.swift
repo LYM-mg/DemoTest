@@ -43,19 +43,21 @@ extension String {
 extension String {
     subscript (range: Range<Int>) -> String {
         get {
+            
             let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
             let endIndex = self.index(self.startIndex, offsetBy: range.upperBound)
-            return self[Range(startIndex..<endIndex)]
+            return self[(startIndex..<endIndex)]
         } set {
             let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
             let endIndex = self.index(self.startIndex, offsetBy: range.upperBound)
-            let strRange = Range(startIndex..<endIndex)
+            let strRange =  Range.init(uncheckedBounds: (lower: startIndex, upper: endIndex))
+            //Range(uncheckedBounds: startIndex..<endIndex)
             self.replaceSubrange(strRange, with: newValue)
         }
     }
     
     func subString(from: Int) -> String {
-        let end = self.characters.count
+        let end = self.count
         return self[from..<end]
     }
     func subString(from: Int, length: Int) -> String {

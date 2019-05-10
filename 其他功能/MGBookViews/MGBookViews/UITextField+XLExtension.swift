@@ -40,7 +40,7 @@ extension UITextField {
     }
     
     func loadRightEyeButton(withCallBack backBlock: CallBackBlock?) {
-        objc_setAssociatedObject(self, UITextField.RuntimeKey.Right_Eye_CallBackBlock!, backBlock, .OBJC_ASSOCIATION_RETAIN)
+        objc_setAssociatedObject(self, UITextField.RuntimeKey.Right_Eye_CallBackBlock!, backBlock, .OBJC_ASSOCIATION_RETAIN) as? CallBackBlock
         loadRightEyeButton()
     }
     
@@ -65,7 +65,7 @@ extension UITextField {
         }
     }
     
-    func loadRightClearButton(withCallBack backBlock: CallBackBlock) {
+    func loadRightClearButton(withCallBack backBlock: @escaping CallBackBlock) {
          objc_setAssociatedObject(self, UITextField.RuntimeKey.Right_clear_CallBackBlock!, backBlock, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         loadRightClearButton()
     }

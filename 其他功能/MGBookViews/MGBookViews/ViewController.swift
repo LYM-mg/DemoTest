@@ -17,6 +17,15 @@ class ViewController: UIViewController {
     var number1 = 10
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if #available(iOS 11.0, *) {
+//            tableView.contentInsetAdjustmentBehavior = .never
+        } else if #available(iOS 10.0, *) {
+            automaticallyAdjustsScrollViewInsets = false
+            extendedLayoutIncludesOpaqueBars = true
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
         
         view.backgroundColor = UIColor.orange
         

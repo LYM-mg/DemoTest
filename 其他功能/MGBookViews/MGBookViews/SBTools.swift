@@ -16,6 +16,13 @@ class SBTools: NSObject {
     class func loadControllerFromSBWithID<T>(_ SBName: String,_ SBId: String) -> T {
         return UIStoryboard(name: SBName, bundle: nil).instantiateViewController(withIdentifier: SBId) as! T
     }
+
+    class func loadControllerFromSB<T:微信协议>(_ SBName: String,Y:T){
+        
+    }
 }
 
+protocol 微信协议 {
+
+}
 

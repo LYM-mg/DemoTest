@@ -10,4 +10,13 @@ import UIKit
 
 class XJLView: UIView {
 
+    @IBOutlet weak var timeLabel: UILabel!
+    
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        
+
+    }
 }

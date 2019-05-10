@@ -90,6 +90,8 @@
 		C0F98EC81E7679A500FCA839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F98EC71E7679A500FCA839 /* Assets.xcassets */; };
 		C0F98ECB1E7679A500FCA839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F98EC91E7679A500FCA839 /* LaunchScreen.storyboard */; };
 		E1C89971062F3F1E46BC24FC /* Pods_indexView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A8E45A17F3C10E861931A8 /* Pods_indexView.framework */; };
+		F49E65CE2278246E002EEB6B /* Timer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E65CD2278246E002EEB6B /* Timer+Extension.swift */; };
+		F49E65D0227824B1002EEB6B /* UIGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E65CF227824B1002EEB6B /* UIGestureRecognizer+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +163,8 @@
 		C0F98EC71E7679A500FCA839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0F98ECA1E7679A500FCA839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0F98ECC1E7679A500FCA839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F49E65CD2278246E002EEB6B /* Timer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timer+Extension.swift"; sourceTree = "<group>"; };
+		F49E65CF227824B1002EEB6B /* UIGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,6 +421,7 @@
 		C04FC9DA1E8A82F100E9361B /* Category(扩展) */ = {
 			isa = PBXGroup;
 			children = (
+				F49E65CF227824B1002EEB6B /* UIGestureRecognizer+Extension.swift */,
 				C04FC9DB1E8A82F100E9361B /* Array+Extension.swift */,
 				C04FC9DC1E8A82F100E9361B /* Date+Extension.swift */,
 				C04FC9DD1E8A82F100E9361B /* NSObject+Extension.swift */,
@@ -429,6 +434,7 @@
 				C04FC9E41E8A82F100E9361B /* UILabel+Extension.swift */,
 				C04FC9E51E8A82F100E9361B /* UINavigationBar+Extension.swift */,
 				C04FC9E61E8A82F100E9361B /* UIView+Extension.swift */,
+				F49E65CD2278246E002EEB6B /* Timer+Extension.swift */,
 			);
 			path = "Category(扩展)";
 			sourceTree = "<group>";
@@ -723,8 +729,10 @@
 				C04C9D7D1F17556000888518 /* AESViewController.swift in Sources */,
 				C04C9D891F17556000888518 /* IndexViewController.swift in Sources */,
 				C04FC9F41E8A82F100E9361B /* Date+Extension.swift in Sources */,
+				F49E65CE2278246E002EEB6B /* Timer+Extension.swift in Sources */,
 				C04C9D8F1F17556000888518 /* CopyLinkActivity.swift in Sources */,
 				C04FC9F91E8A82F100E9361B /* UIColor+Extension.swift in Sources */,
+				F49E65D0227824B1002EEB6B /* UIGestureRecognizer+Extension.swift in Sources */,
 				C04C9D771F17556000888518 /* MGTableViewController.swift in Sources */,
 				C0EF39F41F1CAD6C0089F2A9 /* XibViewController.swift in Sources */,
 				C04FCA011E8A82F100E9361B /* CornersLabel.swift in Sources */,

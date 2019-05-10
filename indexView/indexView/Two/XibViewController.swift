@@ -11,9 +11,10 @@ import UIKit
 class XibViewController: UIViewController {
 
     fileprivate lazy var titleLabel: UILabel = UILabel()
+    var timer: Timer?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = UIColor.randomColor()
         let view: XJLView  = XJLView.loadViewFromXib1()
         self.view.addSubview(view)
         let view1: MGXibView  = MGXibView.loadViewFromXib1()
@@ -22,6 +23,13 @@ class XibViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "SB", style: .done, target: self, action: #selector(LoadSB))
         
         titleLabel.frame = CGRect(x: 120, y: 380, width: 200, height: 100)
+
+//        timer = Timer.scheduledTimer(with: 1.0, block: {
+//             print("打印定时器")
+//        }, repeats: true)
+        timer = Timer.scheduledTimer(with: 1.0, action: {
+            print("打印定时器")
+        })
     }
     
     func LoadSB() {
@@ -42,6 +50,10 @@ class XibViewController: UIViewController {
     }
  
 
+    deinit {
+        timer?.invalidate()
+        print("XibViewController--deinit")
+    }
     /*
     // MARK: - Navigation
 
