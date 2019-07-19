@@ -40,6 +40,10 @@ class MGResponseVC: UIViewController {
             make.left.equalTo(view).offset(30)
         }
         btn1.showBadge(12)
+        let Arr:[String] = [String]()
+        for (i,dict) in Arr.enumerated() {
+            
+        }
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(self.rightClick))
     }

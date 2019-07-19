@@ -60,6 +60,7 @@
 		F494EF6122670739006E4792 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F494EF6022670739006E4792 /* SwiftyJSON.framework */; };
 		F494EF64226716BB006E4792 /* DataRequest+NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494EF63226716BB006E4792 /* DataRequest+NSObject.swift */; };
 		F494EF6622672D3D006E4792 /* MGSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494EF6522672D3D006E4792 /* MGSearchTableViewController.swift */; };
+		F49C960C22CDE8A9003A9A86 /* MGLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C960B22CDE8A9003A9A86 /* MGLayerView.swift */; };
 		F4D2D38B225F5A2700ADF674 /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D2D38A225F5A2600ADF674 /* BiometricService.swift */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +122,7 @@
 		F494EF6022670739006E4792 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F494EF63226716BB006E4792 /* DataRequest+NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+NSObject.swift"; sourceTree = "<group>"; };
 		F494EF6522672D3D006E4792 /* MGSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSearchTableViewController.swift; sourceTree = "<group>"; };
+		F49C960B22CDE8A9003A9A86 /* MGLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGLayerView.swift; sourceTree = "<group>"; };
 		F4D2D38A225F5A2600ADF674 /* BiometricService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,6 +199,7 @@
 				F45AA629225AFA160061A0F0 /* TbaleViewContainTBController.swift */,
 				F45AA62D225B34790061A0F0 /* TBViewController.swift */,
 				F4D2D38A225F5A2600ADF674 /* BiometricService.swift */,
+				F49C960B22CDE8A9003A9A86 /* MGLayerView.swift */,
 				F422AC962249D5B900DECC45 /* Main.storyboard */,
 				F422AC992249D5BB00DECC45 /* Assets.xcassets */,
 				F422AC9B2249D5BB00DECC45 /* LaunchScreen.storyboard */,
@@ -261,11 +264,11 @@
 			children = (
 				F494EF6222671689006E4792 /* Tool + 泛型 + 协议 + NSObject */,
 				F40703B5226460F400F7B9C5 /* Tool + 普通封装 */,
-				F45D592F225DC0D90082DCBE /* Reachability.swift */,
-				F45D592D225DC0840082DCBE /* ClassroomNetworkListener.swift */,
 				F45AA62B225B06500061A0F0 /* MGJSONSerializable.swift */,
 				F45AA61E225488F80061A0F0 /* MGSessionManager.swift */,
 				F45AA62022548CD20061A0F0 /* DataRequestExtension.swift */,
+				F45D592F225DC0D90082DCBE /* Reachability.swift */,
+				F45D592D225DC0840082DCBE /* ClassroomNetworkListener.swift */,
 				F47DB11A226046AA004A7D2F /* MGTouchIDManager.swift */,
 			);
 			path = Network;
@@ -430,6 +433,7 @@
 				F422ACE1224A14EB00DECC45 /* UIGestureRecognizer+Extension.swift in Sources */,
 				F40703B72264610900F7B9C5 /* NetWorkTools.swift in Sources */,
 				F494EF6622672D3D006E4792 /* MGSearchTableViewController.swift in Sources */,
+				F49C960C22CDE8A9003A9A86 /* MGLayerView.swift in Sources */,
 				F47DB12022606FCE004A7D2F /* MGResponseVC.swift in Sources */,
 				F47DB1222260B59C004A7D2F /* NSMutableAttributedString+Extension.swift in Sources */,
 				F422ACE0224A14EB00DECC45 /* UIDevice+Extension.swift in Sources */,
@@ -623,6 +627,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H54L47S422;
 				INFOPLIST_FILE = SwiftyDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -642,6 +647,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H54L47S422;
 				INFOPLIST_FILE = SwiftyDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

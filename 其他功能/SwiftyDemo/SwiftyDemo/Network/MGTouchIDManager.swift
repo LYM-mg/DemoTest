@@ -6,7 +6,7 @@
 //  Copyright © 2019 firestonetmt. All rights reserved.
 //
 
-//指纹解锁
+/// 指纹解锁
 import UIKit
 import LocalAuthentication
 

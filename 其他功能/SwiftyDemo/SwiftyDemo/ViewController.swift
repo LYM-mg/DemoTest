@@ -27,8 +27,60 @@ class ViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.play, target: self, action: #selector(self.rightClick))
         let btn = UIButton()
         btn.mg.sss()
+        btn.frame = CGRect(x: 50, y: 88, width: 50, height: 50)
+        btn.setTitle("闪烁", for: .normal)
+        btn.setTitleColor(.lightGray, for: .normal)
+        view.addSubview(btn)
+        let shareView = MGLayerView(frame: CGRect(origin: .zero, size: btn.mg_size))
+//        shareView.center = btn.center
+        btn.addTarget(self, action: #selector(self.share(_:)), for: .touchUpInside)
+        shareView.shareColor = .randomColor()
+        btn.addSubview(shareView)
+        shareView.starAnimation()
+        shareView.tapBlock = {
+            shareView.pauseAnimation()
+        }
+
+
+        let btn2 = UIButton()
+        btn2.frame = CGRect(x: 50, y: 140, width: 50, height: 50)
+        btn2.setTitle("闪烁", for: .normal)
+        btn2.setTitleColor(.lightGray, for: .normal)
+        view.addSubview(btn2)
+        let shareView2 = MGLayerView(frame: CGRect(origin: .zero, size: btn2.mg_size))
+        //        shareView.center = btn.center
+        btn2.addTarget(self, action: #selector(self.share(_:)), for: .touchUpInside)
+        shareView2.shareColor = .randomColor()
+        btn2.addSubview(shareView2)
+        shareView2.starAnimation()
+
+        shareView2.tapBlock = {
+            shareView.resumeAnimation()
+        }
+
         view.lym.sss()
         btn.lym.sss()
+
+        let btn1 = UIButton()
+        btn1.frame = CGRect(x: 250, y: 88, width: 80, height: 50)
+        btn1.setTitle("点击闪烁", for: .normal)
+        btn1.backgroundColor = .black
+        btn1.setTitleColor(.lightGray, for: .normal)
+        btn1.addTarget(self, action: #selector(self.share(_:)), for: .touchUpInside)
+        btn1.contentVerticalAlignment = .center
+        btn1.contentHorizontalAlignment = .center
+        view.addSubview(btn1)
+        let shareView1 = MGLayerView(frame: CGRect(origin: .zero, size: btn1.mg_size))//MGLayerView(frame:  btn1.frame)
+        shareView1.shareColor = .yellow
+        shareView1.repeatCount = 1;
+        shareView1.tag = 9999;
+        btn1.addSubview(shareView1)
+        shareView1.tapBlock = {
+            shareView1.starAnimation()
+        }
+//        self.view.insertSubview(shareView1, belowSubview: btn1)
+
+//        shareView1.starAnimation()
 
         setUpMainView()
         let request = SettingRequest(password: "123")
@@ -37,6 +89,12 @@ class ViewController: UIViewController {
         }
         MGSessionManager.default.request("Room/GetNewRoomOnline?page=1", method: .get, parameters: nil).mgResponseDecodableObject { (response: DataResponse<MGServicelData1>) in
             print(response)
+        }
+    }
+
+    @objc func share(_ btn: UIButton) {
+        if let shareView = self.view.viewWithTag(9999), shareView is MGLayerView{
+            (shareView as! MGLayerView).starAnimation()
         }
     }
 
@@ -68,6 +126,8 @@ class ViewController: UIViewController {
             ])
 
         ideaTextView.attributedText = contentString
+
+        print(Date())
     }
 
     @objc func leftClick() {
@@ -87,6 +147,64 @@ class ViewController: UIViewController {
 //                print(error)
 //            }
 //        }
+        print(Date())
+        print(Date(timeIntervalSinceNow: 0))
+
+        let isOn = isProtraitLockOn()
+        print(isOn)
+
+        let isAir = isIpadAir()
+        print(isAir)
+    }
+    func isIpadAir() -> Bool {
+        var systemInfo: utsname = utsname()
+        uname(&systemInfo)
+        let name = "12"
+        let platform = String(cString: "\(systemInfo.machine)", encoding: .ascii)
+        if platform == "iPad4,1" || platform == "iPad4,2" || platform == "iPad4,3" || platform == "iPad5,3" || platform == "iPad5,4"{
+            return true
+        }
+        return false
+    }
+
+    func isProtraitLockOn() -> Bool {
+        let app = UIApplication.shared
+        var foregroundView: UIView?
+        var cls: UIView.Type?
+
+
+        let statusBar: UIView? = app.value(forKeyPath: "statusBar") as? UIView
+        guard statusBar != nil else {
+            return false
+        }
+
+        foregroundView = statusBar?.value(forKeyPath: "foregroundView") as? UIView
+        if foregroundView == nil {
+            let statusBarView = statusBar!.value(forKeyPath: "statusBar") as? UIView
+            if statusBarView != nil {
+                foregroundView = statusBarView!.value(forKeyPath: "foregroundView") as? UIView
+            }
+        }
+//        foregroundView = statusBar!.value(forKeyPath: "statusBar") as? UIView)?.value(forKeyPath: "foregroundView") as? UIView
+        cls = NSClassFromString("_UIStatusBarImageView") as? UIView.Type
+
+        var isOn = false
+        for child in foregroundView?.subviews ?? [] {
+            if let cls1 = cls, child.isKind(of: cls1), child.frame.size.equalTo(CGSize(width: 11.5, height: 10.0)) {
+                isOn = true
+                break
+            }
+        }
+        return isOn
+    }
+}
+
+extension UIView {
+    override open func setValue(_ value: Any?, forUndefinedKey key: String) {
+    }
+
+    open override func value(forUndefinedKey key: String) -> Any? {
+        return nil
     }
 }
 
@@ -308,3 +426,42 @@ struct MGHot12: Codable {
 //
 //    // MARK: - 属性
 }
+
+struct HSUser1111: Codable {
+    /**
+     *  health只有有值就代表台灯未使用过或者损坏 (-1)
+     */
+    var health: Int?
+    var data:HSUser2222;
+}
+
+struct HSUser2222: Codable {
+    /**
+     *  health只有有值就代表台灯未使用过或者损坏 (-1)
+     */
+    var health: Int?
+}
+
+struct HSUser333: Codable {
+    /**
+     *  health只有有值就代表台灯未使用过或者损坏 (-1)
+     */
+    var health: Int?
+    var data:HSUser2222;
+
+    init(health:Int?,data:HSUser2222) {
+        self.health = health
+        self.data = data
+    }
+    init() {
+        self.init()
+    }
+}
+
+func test() {
+    let data = HSUser2222(health: 12)
+    let _: HSUser1111? = HSUser1111(health: 12, data: data)
+    let _ = HSUser333()
+}
+
+

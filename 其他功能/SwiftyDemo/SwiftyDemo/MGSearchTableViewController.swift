@@ -58,6 +58,9 @@ class MGSearchTableViewController: UITableViewController {
     @objc func textFieldChanged(_ textFIeld: UITextField) {
         self.tableView.reloadData()
     }
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -78,8 +81,49 @@ class MGSearchTableViewController: UITableViewController {
         }
 
         cell?.textLabel?.attributedText = self.titleLabText(self.titles[indexPath.item], keyWords: self.textField.text?.trim())
+        // 4 添加长按手势操作
+        cell!.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self.cellLongPress(_:))))
         return cell!
     }
+
+
+    @objc func cellLongPress(_ recognizer: UIGestureRecognizer) {
+        if recognizer.state == .began {
+            let location = recognizer.location(in: self.tableView)
+            let cell = (recognizer.view! as! UITableViewCell)
+            //这里把cell做为第一响应(cell默认是无法成为responder,需要重写canBecomeFirstResponder方法)
+            cell.becomeFirstResponder()
+            // 创建提示框
+            let itCopy = UIMenuItem(title: "关注", action: #selector(self.handleTopCell(_:)))
+//            let itDelete = UIMenuItem(title: "取消关注", action: #selector(self.handleDeleteCell))
+//            let menuBlock = UIMenuItem.action("测试一下") { (menu) in
+//                print("测试一下")
+//            }
+            let itDelete = UIMenuItem(title: "取消关注", action: #selector(self.handleDeleteCell(_:)), otherParametric: cell.textLabel?.text)
+            let itDelete1 = UIMenuItem.menu(title: "收藏", action: #selector(self.handleDeleteCell(_:)), otherParametric: cell.textLabel?.text)
+            let menu = UIMenuController.shared
+            menu.menuItems = [itCopy,itDelete,itDelete1]
+            menu.setTargetRect(cell.frame, in: cell.superview!)
+            menu.arrowDirection = .down
+            menu.setMenuVisible(true, animated: true)
+            print(menu.menuFrame)
+            print(menu)
+        }
+    }
+
+    @objc func handleTopCell(_ sender: UIMenuController) {
+
+    }
+
+    @objc func handleDeleteCell(_ sender: UIMenuController) {
+        let menu: UIMenuItem = sender.menuItems![1]
+        print(menu.parametric ?? nil)
+        if menu.parametric != nil {
+
+        }
+    }
+
+
 
     func titleLabText(_ title: String?,keyWords: String?) -> NSAttributedString? {
         let attributeString = NSMutableAttributedString(string: title ?? "")
@@ -107,3 +151,69 @@ class MGSearchTableViewController: UITableViewController {
         return attributeString
     }
 }
+
+
+import ObjectiveC
+typealias XJLMenuItemActionClosure = ((UIMenuItem)->Void)
+extension UIMenuItem {
+    struct XJLMenuItemAssociateHandle {
+        static let XJL_MenuItemHandleValue = UnsafeRawPointer(bitPattern: "XJL_MenuItemHandleValue".hashValue)
+        static let XJL_MenuItemParametricValue = UnsafeRawPointer(bitPattern: "XJL_MenuItemParametricValue".hashValue)
+    }
+
+    var parametric:Any? {
+        set {
+            objc_setAssociatedObject(self, UIMenuItem.XJLMenuItemAssociateHandle.XJL_MenuItemParametricValue!, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        get {
+            return objc_getAssociatedObject(self, UIMenuItem.XJLMenuItemAssociateHandle.XJL_MenuItemParametricValue!)
+        }
+    }
+    /// 用于替代目标动作回调的方法
+    ///
+    /// - Parameter handle: 执行的闭包
+    class func action(_ title: String,_ handle:@escaping XJLMenuItemActionClosure) -> UIMenuItem{
+        //缓存
+        objc_setAssociatedObject(self, XJLMenuItemAssociateHandle.XJL_MenuItemHandleValue!, handle, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC)
+
+        //添加
+        return UIMenuItem(title: title, action: #selector(XJL_actionHandle(_:)))
+        //        self.addTarget(self, action: #selector(UIGestureRecognizer.MG_actionHandle))
+    }
+
+
+    @objc class fileprivate func XJL_actionHandle(_ menu:UIMenuItem) {
+        //执行
+        (objc_getAssociatedObject(self, XJLMenuItemAssociateHandle.XJL_MenuItemHandleValue!) as! XJLMenuItemActionClosure)(menu)
+
+    }
+
+    convenience init (_ title: String,_ handle:@escaping XJLMenuItemActionClosure) {
+        //缓存
+        self.init(title: title, action: #selector(XJL_actionHandle1))
+        objc_setAssociatedObject(self, XJLMenuItemAssociateHandle.XJL_MenuItemHandleValue!, handle, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+    }
+
+    @objc fileprivate func XJL_actionHandle1() {
+        //执行
+        (objc_getAssociatedObject(self, XJLMenuItemAssociateHandle.XJL_MenuItemHandleValue!) as! XJLMenuItemActionClosure)(self)
+
+    }
+
+    /// 携带参数
+    convenience init (title: String,action:Selector,otherParametric:Any?) {
+        //缓存
+        self.init(title: title, action: action)
+        self.parametric = otherParametric
+
+    }
+
+    /// 携带参数
+    class func menu(title: String,action:Selector,otherParametric:Any?) -> UIMenuItem {
+        //缓存
+        let menu = UIMenuItem.init(title: title, action: action)
+        menu.parametric = otherParametric
+        return menu;
+    }
+}
+
