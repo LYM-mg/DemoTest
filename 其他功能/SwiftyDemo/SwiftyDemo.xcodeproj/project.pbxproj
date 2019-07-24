@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,6 +49,8 @@
 		F45AA62A225AFA160061A0F0 /* TbaleViewContainTBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AA629225AFA160061A0F0 /* TbaleViewContainTBController.swift */; };
 		F45AA62C225B06500061A0F0 /* MGJSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AA62B225B06500061A0F0 /* MGJSONSerializable.swift */; };
 		F45AA62E225B34790061A0F0 /* TBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AA62D225B34790061A0F0 /* TBViewController.swift */; };
+		F45CEFA122E718260034DE7D /* MGUploadToos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45CEF9F22E718260034DE7D /* MGUploadToos.swift */; };
+		F45CEFA222E718260034DE7D /* MessageNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45CEFA022E718260034DE7D /* MessageNetwork.swift */; };
 		F45D592E225DC0850082DCBE /* ClassroomNetworkListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45D592D225DC0840082DCBE /* ClassroomNetworkListener.swift */; };
 		F45D5930225DC0D90082DCBE /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45D592F225DC0D90082DCBE /* Reachability.swift */; };
 		F465B29D225D9EC000F69BB9 /* MGBadgeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465B29C225D9EBF00F69BB9 /* MGBadgeProtocol.swift */; };
@@ -111,6 +113,8 @@
 		F45AA629225AFA160061A0F0 /* TbaleViewContainTBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbaleViewContainTBController.swift; sourceTree = "<group>"; };
 		F45AA62B225B06500061A0F0 /* MGJSONSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGJSONSerializable.swift; sourceTree = "<group>"; };
 		F45AA62D225B34790061A0F0 /* TBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBViewController.swift; sourceTree = "<group>"; };
+		F45CEF9F22E718260034DE7D /* MGUploadToos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGUploadToos.swift; sourceTree = "<group>"; };
+		F45CEFA022E718260034DE7D /* MessageNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageNetwork.swift; sourceTree = "<group>"; };
 		F45D592D225DC0840082DCBE /* ClassroomNetworkListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomNetworkListener.swift; sourceTree = "<group>"; };
 		F45D592F225DC0D90082DCBE /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		F465B29C225D9EBF00F69BB9 /* MGBadgeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGBadgeProtocol.swift; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 		F45AA61D225488CE0061A0F0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F45CEFA322E7183A0034DE7D /* upload + 系统 */,
 				F494EF6222671689006E4792 /* Tool + 泛型 + 协议 + NSObject */,
 				F40703B5226460F400F7B9C5 /* Tool + 普通封装 */,
 				F45AA62B225B06500061A0F0 /* MGJSONSerializable.swift */,
@@ -272,6 +277,15 @@
 				F47DB11A226046AA004A7D2F /* MGTouchIDManager.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		F45CEFA322E7183A0034DE7D /* upload + 系统 */ = {
+			isa = PBXGroup;
+			children = (
+				F45CEFA022E718260034DE7D /* MessageNetwork.swift */,
+				F45CEF9F22E718260034DE7D /* MGUploadToos.swift */,
+			);
+			path = "upload + 系统";
 			sourceTree = "<group>";
 		};
 		F47DB11C22606E42004A7D2F /* New Group */ = {
@@ -389,30 +403,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftyDemo/Pods-SwiftyDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftyDemo/Pods-SwiftyDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftyDemo/Pods-SwiftyDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -444,6 +439,7 @@
 				F45AA62C225B06500061A0F0 /* MGJSONSerializable.swift in Sources */,
 				F422ACD7224A14EB00DECC45 /* Array+Extension.swift in Sources */,
 				F422ACA52249DA3700DECC45 /* MGNameSpaceWrappable.swift in Sources */,
+				F45CEFA222E718260034DE7D /* MessageNetwork.swift in Sources */,
 				F422AC952249D5B900DECC45 /* ViewController.swift in Sources */,
 				F422ACDE224A14EB00DECC45 /* UIBUtton+Extension.swift in Sources */,
 				F422ACE4224A14EB00DECC45 /* UILabel+Extension.swift in Sources */,
@@ -460,6 +456,7 @@
 				F422ACEF224A2D6800DECC45 /* LeftViewController.swift in Sources */,
 				F422ACE8224A14EB00DECC45 /* CornersLabel.swift in Sources */,
 				F45AA61F225488F80061A0F0 /* MGSessionManager.swift in Sources */,
+				F45CEFA122E718260034DE7D /* MGUploadToos.swift in Sources */,
 				F422ACE2224A14EB00DECC45 /* UIImage+Extension.swift in Sources */,
 				F422ACD9224A14EB00DECC45 /* NSObject+Extension.swift in Sources */,
 				F422ACF3224A34F700DECC45 /* BViewController.swift in Sources */,

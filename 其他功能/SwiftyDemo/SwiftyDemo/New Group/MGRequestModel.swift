@@ -14,7 +14,7 @@ import SwiftyJSON
 
 struct MGSong:Codable {
     let content: [Song]?
-    let error_code:String?
+    let error_code:Int?
 
     enum CodingKeys: String, CodingKey {
         case error_code
@@ -36,7 +36,7 @@ struct Song:Codable  {
     let color:String?
     let bg_color:String?
     let bg_pic:String?
-    let content:[Content]  = [Content]()
+    let content:[Content]?
 
     enum CodingKeys: String, CodingKey {
         case type
@@ -48,15 +48,14 @@ struct Song:Codable  {
         case pic_s444
         case pic_s260
         case pic_s210
-
+        case content
         case color
         case bg_color
         case bg_pic
-        case content
     }
 }
 
-struct Content:Codable  {
+struct Content: Codable {
     let title:String?
     let author:String?
     let song_id:String?

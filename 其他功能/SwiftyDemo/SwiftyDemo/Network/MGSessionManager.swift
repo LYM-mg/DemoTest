@@ -72,7 +72,7 @@ protocol MGRequestable {
 }
 
 extension MGRequestable {
-    func request<T: Decodable>(completionHandler: @escaping (DataResponse<T>) -> Void) {
+    func request<T: Decodable>(completionHandler: @escaping (DataResponse<MGResponse<T>>) -> Void) {
         MGSessionManager.default.request(self).mgResponseDecodableObject(completionHandler: completionHandler)
     }
 }

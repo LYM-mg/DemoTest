@@ -9,12 +9,11 @@
 import UIKit
 import Alamofire
 import MJExtension
-import SwiftyJSON
 
 public let mgDecoder: JSONDecoder = {
     let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
-    decoder.dateDecodingStrategy = .iso8601
+//    decoder.keyDecodingStrategy = .convertFromSnakeCase
+//    decoder.dateDecodingStrategy = .iso8601
     return decoder
 }()
 
@@ -40,7 +39,7 @@ public struct MGResponse<T: Decodable>: Decodable {
 
 public struct LYMResponse<T> {
     public let data: T?
-    public let success: Int
+    public let success: Int?
     public let error: MGNetworkingError?
 }
 
@@ -56,14 +55,8 @@ extension DataRequest {
         switch result {
         case .success(let data):
             do {
-                let object = try decoder.decode(MGResponse<T>.self, from: data)
-                if object.success == 1, let data = object.data {
-                    return .success(data)
-                } else if let itError = object.error {
-                    return .failure(itError as! Error)
-                }
-                //TODO be more specific
-                return .failure(NSError.init())
+                let object = try decoder.decode(T.self, from: data)
+                return .success(object)
             }
             catch {
                 return .failure(error)
@@ -114,8 +107,26 @@ extension DataRequest {
     }
 }
 
+public enum AlamofireDecodableError: Error {
+    case invalidKeyPath
+    case emptyKeyPath
+    case invalidJSON
+}
 
+extension AlamofireDecodableError: LocalizedError {
+
+    public var errorDescription: String? {
+        switch self {
+            case .invalidKeyPath:   return "Nested object doesn't exist by this keyPath."
+            case .emptyKeyPath:     return "KeyPath can not be empty."
+            case .invalidJSON:      return "Invalid nested json."
+        }
+    }
+}
+
+// 也可以只写上面的  只是方法名不同
 extension DataRequest {
+
     private static func DecodableObjectSerializer<T: Decodable>(_ keyPath: String?, _ decoder: JSONDecoder) -> DataResponseSerializer<T> {
         return DataResponseSerializer { _, response, data, error in
             if let error = error {
@@ -154,6 +165,9 @@ extension DataRequest {
         case .success(let json):
             if let nestedJson = (json as AnyObject).value(forKeyPath: keyPath) {
                 do {
+                    guard JSONSerialization.isValidJSONObject(nestedJson) else {
+                        return .failure(AlamofireDecodableError.invalidJSON)
+                    }
                     let data = try JSONSerialization.data(withJSONObject: nestedJson)
                     let object = try decoder.decode(T.self, from: data)
                     return .success(object)
@@ -178,23 +192,9 @@ extension DataRequest {
     /// - parameter completionHandler: The code to be executed once the request has finished and the data has been mapped by `JSONDecoder`.
 
     /// - returns: The request.
+
     @discardableResult
     public func responseDecodableObject<T: Decodable>(queue: DispatchQueue? = nil, keyPath: String? = nil, decoder: JSONDecoder = JSONDecoder(), completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
         return response(queue: queue, responseSerializer: DataRequest.DecodableObjectSerializer(keyPath, decoder), completionHandler: completionHandler)
-    }
-}
-
-public enum AlamofireDecodableError: Error {
-    case invalidKeyPath
-    case emptyKeyPath
-}
-
-extension AlamofireDecodableError: LocalizedError {
-
-    public var errorDescription: String? {
-        switch self {
-        case .invalidKeyPath:   return "Nested object doesn't exist by this keyPath."
-        case .emptyKeyPath:     return "KeyPath can not be empty."
-        }
     }
 }

@@ -84,10 +84,10 @@ class ViewController: UIViewController {
 
         setUpMainView()
         let request = SettingRequest(password: "123")
-        MGSessionManager.default.request(request).mgResponseDecodableObject { (response: DataResponse<HSUserData>) in
+        MGSessionManager.default.request(request).mgResponseDecodableObject { (response: DataResponse<MGResponse<HSUserData>>) in
             print(response)
         }
-        MGSessionManager.default.request("Room/GetNewRoomOnline?page=1", method: .get, parameters: nil).mgResponseDecodableObject { (response: DataResponse<MGServicelData1>) in
+        MGSessionManager.default.request("Room/GetNewRoomOnline?page=1", method: .get, parameters: nil).mgResponseDecodableObject { (response: DataResponse<MGResponse<MGServicelData1>>) in
             print(response)
         }
     }

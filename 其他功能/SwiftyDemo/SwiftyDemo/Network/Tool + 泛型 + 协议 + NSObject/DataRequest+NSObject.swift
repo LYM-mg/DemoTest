@@ -55,7 +55,7 @@ protocol MGModelProtocol {
 
  */
 
-// MARK:  - 参考responseJSON 构造泛型返回,继承NSObject
+// MARK:  - 参考responseJSON 构造泛型返回,继承NSObjectA*
 extension DataRequest {
     // MARK:  - 继承NSObject
     public static func jsonResponseSerializer<T:NSObject>(
