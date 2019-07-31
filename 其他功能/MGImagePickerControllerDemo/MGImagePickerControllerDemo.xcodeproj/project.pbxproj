@@ -1,0 +1,511 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8FF5FABFAFDF04FD07CAF930 /* Pods_MGImagePickerControllerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7AE505B51B719036F4F9872 /* Pods_MGImagePickerControllerDemo.framework */; };
+		F40736AA22D2E15C0098AA3A /* MGPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40736A922D2E15C0098AA3A /* MGPhotosViewController.swift */; };
+		F40736AC22D2E3150098AA3A /* MGPhotoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40736AB22D2E3150098AA3A /* MGPhotoExtension.swift */; };
+		F40736AE22D2E5950098AA3A /* MGPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40736AD22D2E5950098AA3A /* MGPhotosCell.swift */; };
+		F40736B022D2E6610098AA3A /* MGPhotosBottomReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40736AF22D2E6610098AA3A /* MGPhotosBottomReusableView.swift */; };
+		F40736B322D2EC730098AA3A /* MGSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F40736B222D2EC730098AA3A /* MGSelected.png */; };
+		F40736B622D2EC7F0098AA3A /* MGPhotoBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F40736B422D2EC7F0098AA3A /* MGPhotoBack@2x.png */; };
+		F40736B722D2EC7F0098AA3A /* MGPhotoBack@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F40736B522D2EC7F0098AA3A /* MGPhotoBack@3x.png */; };
+		F40736B922D2EC880098AA3A /* MGDeselected.png in Resources */ = {isa = PBXBuildFile; fileRef = F40736B822D2EC880098AA3A /* MGDeselected.png */; };
+		F40736BB22D312FD0098AA3A /* MGPhotosBrowseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40736BA22D312FD0098AA3A /* MGPhotosBrowseController.swift */; };
+		F40736BD22D317210098AA3A /* MGPhotosPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40736BC22D317210098AA3A /* MGPhotosPreviewController.swift */; };
+		F40736BF22D31E2C0098AA3A /* MGPhotosCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40736BE22D31E2C0098AA3A /* MGPhotosCacheManager.swift */; };
+		F40736C222D327410098AA3A /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40736C122D327400098AA3A /* UIDevice+Extension.swift */; };
+		F40736C422D328250098AA3A /* MGPhotosBrowseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40736C322D328250098AA3A /* MGPhotosBrowseCell.swift */; };
+		F40736C622D33C9A0098AA3A /* MGPhotoHandleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40736C522D33C9A0098AA3A /* MGPhotoHandleManager.swift */; };
+		F40736C822D361360098AA3A /* MGPhotoBridgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40736C722D361360098AA3A /* MGPhotoBridgeManager.swift */; };
+		F417125022CF5D9300E31D22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417124F22CF5D9300E31D22 /* AppDelegate.swift */; };
+		F417125222CF5D9300E31D22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417125122CF5D9300E31D22 /* ViewController.swift */; };
+		F417125522CF5D9300E31D22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F417125322CF5D9300E31D22 /* Main.storyboard */; };
+		F417125722CF5D9400E31D22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F417125622CF5D9400E31D22 /* Assets.xcassets */; };
+		F417125A22CF5D9400E31D22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F417125822CF5D9400E31D22 /* LaunchScreen.storyboard */; };
+		F417126322CF5F2500E31D22 /* MGPhotoGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417126222CF5F2500E31D22 /* MGPhotoGroupViewController.swift */; };
+		F417126522CF605B00E31D22 /* MGPhotoGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417126422CF605B00E31D22 /* MGPhotoGroupCell.swift */; };
+		F417126922CF75CB00E31D22 /* MGPhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417126822CF75CB00E31D22 /* MGPhotoStore.swift */; };
+		F417126B22CF789500E31D22 /* MGPhotoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417126A22CF789500E31D22 /* MGPhotoConfig.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		47763AF51391EF4E39062CD1 /* Pods-MGImagePickerControllerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGImagePickerControllerDemo.debug.xcconfig"; path = "Target Support Files/Pods-MGImagePickerControllerDemo/Pods-MGImagePickerControllerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		CC1B57BF2579A0E2BA57265F /* Pods-MGImagePickerControllerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGImagePickerControllerDemo.release.xcconfig"; path = "Target Support Files/Pods-MGImagePickerControllerDemo/Pods-MGImagePickerControllerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F40736A922D2E15C0098AA3A /* MGPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotosViewController.swift; sourceTree = "<group>"; };
+		F40736AB22D2E3150098AA3A /* MGPhotoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotoExtension.swift; sourceTree = "<group>"; };
+		F40736AD22D2E5950098AA3A /* MGPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotosCell.swift; sourceTree = "<group>"; };
+		F40736AF22D2E6610098AA3A /* MGPhotosBottomReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotosBottomReusableView.swift; sourceTree = "<group>"; };
+		F40736B222D2EC730098AA3A /* MGSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MGSelected.png; sourceTree = "<group>"; };
+		F40736B422D2EC7F0098AA3A /* MGPhotoBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MGPhotoBack@2x.png"; sourceTree = "<group>"; };
+		F40736B522D2EC7F0098AA3A /* MGPhotoBack@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MGPhotoBack@3x.png"; sourceTree = "<group>"; };
+		F40736B822D2EC880098AA3A /* MGDeselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MGDeselected.png; sourceTree = "<group>"; };
+		F40736BA22D312FD0098AA3A /* MGPhotosBrowseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotosBrowseController.swift; sourceTree = "<group>"; };
+		F40736BC22D317210098AA3A /* MGPhotosPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotosPreviewController.swift; sourceTree = "<group>"; };
+		F40736BE22D31E2C0098AA3A /* MGPhotosCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotosCacheManager.swift; sourceTree = "<group>"; };
+		F40736C122D327400098AA3A /* UIDevice+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
+		F40736C322D328250098AA3A /* MGPhotosBrowseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotosBrowseCell.swift; sourceTree = "<group>"; };
+		F40736C522D33C9A0098AA3A /* MGPhotoHandleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotoHandleManager.swift; sourceTree = "<group>"; };
+		F40736C722D361360098AA3A /* MGPhotoBridgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotoBridgeManager.swift; sourceTree = "<group>"; };
+		F417124C22CF5D9300E31D22 /* MGImagePickerControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGImagePickerControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F417124F22CF5D9300E31D22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F417125122CF5D9300E31D22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F417125422CF5D9300E31D22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F417125622CF5D9400E31D22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F417125922CF5D9400E31D22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F417125B22CF5D9400E31D22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F417126222CF5F2500E31D22 /* MGPhotoGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotoGroupViewController.swift; sourceTree = "<group>"; };
+		F417126422CF605B00E31D22 /* MGPhotoGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotoGroupCell.swift; sourceTree = "<group>"; };
+		F417126822CF75CB00E31D22 /* MGPhotoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotoStore.swift; sourceTree = "<group>"; };
+		F417126A22CF789500E31D22 /* MGPhotoConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPhotoConfig.swift; sourceTree = "<group>"; };
+		F7AE505B51B719036F4F9872 /* Pods_MGImagePickerControllerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGImagePickerControllerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F417124922CF5D9300E31D22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FF5FABFAFDF04FD07CAF930 /* Pods_MGImagePickerControllerDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8C4649C48B89098166C9D51E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				47763AF51391EF4E39062CD1 /* Pods-MGImagePickerControllerDemo.debug.xcconfig */,
+				CC1B57BF2579A0E2BA57265F /* Pods-MGImagePickerControllerDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BE33B3C41C88618B3CAA7FFD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7AE505B51B719036F4F9872 /* Pods_MGImagePickerControllerDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F40736B122D2EC500098AA3A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F40736B822D2EC880098AA3A /* MGDeselected.png */,
+				F40736B422D2EC7F0098AA3A /* MGPhotoBack@2x.png */,
+				F40736B522D2EC7F0098AA3A /* MGPhotoBack@3x.png */,
+				F40736B222D2EC730098AA3A /* MGSelected.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F40736C022D3265E0098AA3A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F417126822CF75CB00E31D22 /* MGPhotoStore.swift */,
+				F417126A22CF789500E31D22 /* MGPhotoConfig.swift */,
+				F40736BE22D31E2C0098AA3A /* MGPhotosCacheManager.swift */,
+				F40736AB22D2E3150098AA3A /* MGPhotoExtension.swift */,
+				F40736C522D33C9A0098AA3A /* MGPhotoHandleManager.swift */,
+				F40736C722D361360098AA3A /* MGPhotoBridgeManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		F417124322CF5D9300E31D22 = {
+			isa = PBXGroup;
+			children = (
+				F417124E22CF5D9300E31D22 /* MGImagePickerControllerDemo */,
+				F417124D22CF5D9300E31D22 /* Products */,
+				8C4649C48B89098166C9D51E /* Pods */,
+				BE33B3C41C88618B3CAA7FFD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F417124D22CF5D9300E31D22 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F417124C22CF5D9300E31D22 /* MGImagePickerControllerDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F417124E22CF5D9300E31D22 /* MGImagePickerControllerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				F417126122CF5DA300E31D22 /* MGPhoto */,
+				F417124F22CF5D9300E31D22 /* AppDelegate.swift */,
+				F417125122CF5D9300E31D22 /* ViewController.swift */,
+				F417125322CF5D9300E31D22 /* Main.storyboard */,
+				F417125622CF5D9400E31D22 /* Assets.xcassets */,
+				F417125822CF5D9400E31D22 /* LaunchScreen.storyboard */,
+				F417125B22CF5D9400E31D22 /* Info.plist */,
+			);
+			path = MGImagePickerControllerDemo;
+			sourceTree = "<group>";
+		};
+		F417126122CF5DA300E31D22 /* MGPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				F40736B122D2EC500098AA3A /* Resource */,
+				F40736C022D3265E0098AA3A /* Manager */,
+				F417126222CF5F2500E31D22 /* MGPhotoGroupViewController.swift */,
+				F417126422CF605B00E31D22 /* MGPhotoGroupCell.swift */,
+				F40736A922D2E15C0098AA3A /* MGPhotosViewController.swift */,
+				F40736AD22D2E5950098AA3A /* MGPhotosCell.swift */,
+				F40736AF22D2E6610098AA3A /* MGPhotosBottomReusableView.swift */,
+				F40736BA22D312FD0098AA3A /* MGPhotosBrowseController.swift */,
+				F40736C322D328250098AA3A /* MGPhotosBrowseCell.swift */,
+				F40736BC22D317210098AA3A /* MGPhotosPreviewController.swift */,
+				F40736C122D327400098AA3A /* UIDevice+Extension.swift */,
+			);
+			name = MGPhoto;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F417124B22CF5D9300E31D22 /* MGImagePickerControllerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F417125E22CF5D9400E31D22 /* Build configuration list for PBXNativeTarget "MGImagePickerControllerDemo" */;
+			buildPhases = (
+				9856F05737E41E70992590BD /* [CP] Check Pods Manifest.lock */,
+				F417124822CF5D9300E31D22 /* Sources */,
+				F417124922CF5D9300E31D22 /* Frameworks */,
+				F417124A22CF5D9300E31D22 /* Resources */,
+				A911D67112CB07C2DDA66EF5 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MGImagePickerControllerDemo;
+			productName = MGImagePickerControllerDemo;
+			productReference = F417124C22CF5D9300E31D22 /* MGImagePickerControllerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F417124422CF5D9300E31D22 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = MG;
+				TargetAttributes = {
+					F417124B22CF5D9300E31D22 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = F417124722CF5D9300E31D22 /* Build configuration list for PBXProject "MGImagePickerControllerDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F417124322CF5D9300E31D22;
+			productRefGroup = F417124D22CF5D9300E31D22 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F417124B22CF5D9300E31D22 /* MGImagePickerControllerDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F417124A22CF5D9300E31D22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F417125A22CF5D9400E31D22 /* LaunchScreen.storyboard in Resources */,
+				F417125722CF5D9400E31D22 /* Assets.xcassets in Resources */,
+				F40736B722D2EC7F0098AA3A /* MGPhotoBack@3x.png in Resources */,
+				F40736B322D2EC730098AA3A /* MGSelected.png in Resources */,
+				F417125522CF5D9300E31D22 /* Main.storyboard in Resources */,
+				F40736B922D2EC880098AA3A /* MGDeselected.png in Resources */,
+				F40736B622D2EC7F0098AA3A /* MGPhotoBack@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9856F05737E41E70992590BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MGImagePickerControllerDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A911D67112CB07C2DDA66EF5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MGImagePickerControllerDemo/Pods-MGImagePickerControllerDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MGImagePickerControllerDemo/Pods-MGImagePickerControllerDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MGImagePickerControllerDemo/Pods-MGImagePickerControllerDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F417124822CF5D9300E31D22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F40736B022D2E6610098AA3A /* MGPhotosBottomReusableView.swift in Sources */,
+				F40736BF22D31E2C0098AA3A /* MGPhotosCacheManager.swift in Sources */,
+				F40736C822D361360098AA3A /* MGPhotoBridgeManager.swift in Sources */,
+				F40736AE22D2E5950098AA3A /* MGPhotosCell.swift in Sources */,
+				F417126B22CF789500E31D22 /* MGPhotoConfig.swift in Sources */,
+				F417126922CF75CB00E31D22 /* MGPhotoStore.swift in Sources */,
+				F40736BB22D312FD0098AA3A /* MGPhotosBrowseController.swift in Sources */,
+				F40736C422D328250098AA3A /* MGPhotosBrowseCell.swift in Sources */,
+				F417126522CF605B00E31D22 /* MGPhotoGroupCell.swift in Sources */,
+				F40736AC22D2E3150098AA3A /* MGPhotoExtension.swift in Sources */,
+				F40736BD22D317210098AA3A /* MGPhotosPreviewController.swift in Sources */,
+				F40736C622D33C9A0098AA3A /* MGPhotoHandleManager.swift in Sources */,
+				F417125222CF5D9300E31D22 /* ViewController.swift in Sources */,
+				F417126322CF5F2500E31D22 /* MGPhotoGroupViewController.swift in Sources */,
+				F417125022CF5D9300E31D22 /* AppDelegate.swift in Sources */,
+				F40736C222D327410098AA3A /* UIDevice+Extension.swift in Sources */,
+				F40736AA22D2E15C0098AA3A /* MGPhotosViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F417125322CF5D9300E31D22 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F417125422CF5D9300E31D22 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F417125822CF5D9400E31D22 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F417125922CF5D9400E31D22 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F417125C22CF5D9400E31D22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F417125D22CF5D9400E31D22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F417125F22CF5D9400E31D22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47763AF51391EF4E39062CD1 /* Pods-MGImagePickerControllerDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H54L47S422;
+				INFOPLIST_FILE = MGImagePickerControllerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.firestonetmt.MGImagePickerControllerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F417126022CF5D9400E31D22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC1B57BF2579A0E2BA57265F /* Pods-MGImagePickerControllerDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H54L47S422;
+				INFOPLIST_FILE = MGImagePickerControllerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.firestonetmt.MGImagePickerControllerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F417124722CF5D9300E31D22 /* Build configuration list for PBXProject "MGImagePickerControllerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F417125C22CF5D9400E31D22 /* Debug */,
+				F417125D22CF5D9400E31D22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F417125E22CF5D9400E31D22 /* Build configuration list for PBXNativeTarget "MGImagePickerControllerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F417125F22CF5D9400E31D22 /* Debug */,
+				F417126022CF5D9400E31D22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F417124422CF5D9300E31D22 /* Project object */;
+}

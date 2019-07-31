@@ -21,7 +21,36 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let kfManager = KingfisherManager.shared
+        // 通过manager 获取cache
+        let cache = kfManager.cache
 
+        let isCached = cache.isCached(forKey: "urlStr")
+
+        // 通过manager 获取downloader
+        let downloader = kfManager.downloader
+        downloader.downloadImage(with: URL(string: "urlStr")!, options: nil, progressBlock: { (dd, ff) in
+
+        }) { (result) in
+            switch result {
+                case .success(let value):
+                    self.base.setImage(value.image, for: ÷state)
+                case .failure:
+
+            }
+        }
+//        // 设置options, 你可以设置你的newCache/newDownloader以及其他配置
+//        kfManager.defaultOptions = [.targetCache(newCache), .downloader(newDownloader), .forceRefresh, .backgroundDecode, .onlyFromCache, .downloadPriority(1.0)]
+        // 检索
+        let resource = ImageResource(downloadURL: URL(string: "http://xxxx.com")!, cacheKey: "text")
+        let retriveImageTask = kfManager.retrieveImage(with: resource, options: nil, progressBlock: nil, completionHandler: {
+            (image, error, cacheType, imageURL) in
+            if error == nil { // 已下载
+                print("检索图片成功")
+            } else {  // 未下载
+                print("检索图片失败")
+            }
+        })
 
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(self.leftClick))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.play, target: self, action: #selector(self.rightClick))

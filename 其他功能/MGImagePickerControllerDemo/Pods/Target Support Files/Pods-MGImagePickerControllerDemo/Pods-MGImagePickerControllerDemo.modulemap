@@ -1,0 +1,6 @@
+framework module Pods_MGImagePickerControllerDemo {
+  umbrella header "Pods-MGImagePickerControllerDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}

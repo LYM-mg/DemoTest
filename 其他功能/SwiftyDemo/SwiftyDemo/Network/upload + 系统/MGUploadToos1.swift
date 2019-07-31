@@ -1,17 +1,17 @@
 //
-//  MGUploadToos.swift
+//  MGUploadToos1.swift
 //  message
 //
 //  Created by newunion on 2019/7/22.
 //  Copyright © 2019 italki. All rights reserved.
-//  普通回调
+//  泛型回调
 /*
  eg:
- MGUploadToos.share.upload(path:
- "https://dev-api.longxins.com/api/v2/me/sendfilemessage",
-      parameters: parameters,
-            data: data,
-     contentType: "image/jpeg", progress: { (value) in
+ MGUploadToos<ImageContent>().upload(path:
+        "https://dev-api.longxins.com/api/v2/me/sendfilemessage",
+        parameters: parameters,
+              data: data,
+       contentType: "image/jpeg", progress: { (value) in
     print(value)
  }, successed: { (result, t) in
     print(result)
@@ -20,17 +20,24 @@
  }
  */
 
+
 import UIKit
 import MobileCoreServices
 
-class MGUploadToos:NSObject {
+class MGUploadToos1 <T:Decodable> :NSObject, URLSessionDelegate, URLSessionTaskDelegate,URLSessionDataDelegate {
 
     //单例模式
-    static var shared = MGUploadToos()
+//    static var shared = MGUploadToos()
     //上传进度回调
-     var onProgress: ((Float) -> ())?
+    var onProgress: ((Float) -> ())?
     private let boundary = "lymzijixiedewangluokuangjia"
-    private let baseURL: String = "https://qa-api.longxins.com/api/v2"
+    private var baseURL: String  {
+        if ("".isEmpty) { // 线上环境
+            return "https://qa-api.longxins.com/api/v2"
+        }else {           // 开发环境
+            return "https://dev-api.longxins.com/api/v2/"
+        }
+    }
 
     //background session
     lazy var session:URLSession = {
@@ -39,8 +46,8 @@ class MGUploadToos:NSObject {
         return currentSession
     }()
 
-    public func upload(path:String,parameters:[String:Any]?,data:Data,contentType:String,progress: ((_ pregressValue: Float) -> Swift.Void)?,successed:@escaping ((_ result : Any?, _ error: Error?) -> Swift.Void), failure:@escaping ((_ error: Error?)  -> Swift.Void)) {
-        onProgress = progress
+    public func upload(path:String,parameters:[String:Any]?,data:Data,contentType:String,progress: ((_ pregressValue: Float) -> Swift.Void)?,successed:@escaping ((_ result : T?, _ error: Error?) -> Swift.Void), failure:@escaping ((_ error: Error?)  -> Swift.Void)) {
+        self.onProgress = progress
         var trueURL: URL?
         if path.hasPrefix("https://") {
             trueURL = URL(string: path)
@@ -95,8 +102,28 @@ class MGUploadToos:NSObject {
 
                 if let response = response as? HTTPURLResponse, [200,204, 205].contains(response.statusCode) {
                     do {
-                        let dict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-                        successed(dict, nil)
+
+                        guard let dict:[String:Any] = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as? [String : Any] else {
+                            failure(AFError.ResponseSerializationFailureReason.inputDataNil as? Error)
+                            return
+                        }
+
+                        guard  let dataObject = dict["data"] else {
+                        failure(AFError.ResponseSerializationFailureReason .inputDataNil as? Error)
+                            return
+                        }
+                        let dataDict = try JSONSerialization.data(withJSONObject: dataObject, options: JSONSerialization.WritingOptions.prettyPrinted)
+
+                        let decoder = JSONDecoder()
+                        decoder.keyDecodingStrategy = .convertFromSnakeCase
+                        if #available(iOS 10.0, *) {
+                            decoder.dateDecodingStrategy = .iso8601
+                        } else {
+                            // Fallback on earlier versions
+                        }
+                        
+                        let object = try decoder.decode(T.self, from: dataDict)
+                        successed(object, nil)
                     }catch {
                         failure(AFError.ResponseSerializationFailureReason.jsonSerializationFailed(error: error) as? Error)
                     }
@@ -117,13 +144,14 @@ class MGUploadToos:NSObject {
             data = s.data(using: .utf8)!
         } else if (value is Data) {
             data = value as! Data
-        }else if (value is Int||value is Float || value is Double) {
-            var value: Int = value as! Int
-
-            data = NSData(bytes: &value, length: 32) as Data
-        }else if (value is UIImage) {
-            data = (value as! UIImage).jpegData(compressionQuality: 1.0) ?? Data()
         }
+//        }else if (value is Int||value is Float || value is Double) {
+//            var value: Int = value as! Int
+//
+//            data = NSData(bytes: &value, length: 32) as Data
+//        }else if (value is UIImage) {
+//            data = (value as! UIImage).jpegData(compressionQuality: 1.0) ?? Data()
+//        }
 
         let part = "--\(boundary)\r\nContent-Disposition: form-data; name=\"\(key)\"\r\n"
         muData.append(part.data(using: .utf8)!)
@@ -145,7 +173,7 @@ class MGUploadToos:NSObject {
         return ""
     }()
 
-    lazy var appName: String = {
+    var appName: String = {
         if let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String {
             return appName
         }
@@ -173,10 +201,54 @@ class MGUploadToos:NSObject {
     lazy var deviceVersion: String = {
         return UIDevice.current.model
     }()
+
+    //上传代理方法，监听上传进度
+    func urlSession(_ session: URLSession, task: URLSessionTask,
+                    didSendBodyData bytesSent: Int64, totalBytesSent: Int64,
+                    totalBytesExpectedToSend: Int64) {
+        //获取进度
+        let written = (Float)(totalBytesSent)
+        let total = (Float)(totalBytesExpectedToSend)
+        let pro = written/total
+        if let onProgress = onProgress {
+            onProgress(pro)
+        }
+    }
+
+
+    func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
+
+    }
+
+    //上传代理方法，传输完毕后服务端返回结果
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        let str = String(data: data, encoding: String.Encoding.utf8)
+        print("服务端返回结果：\(str!)")
+    }
+
+    //上传代理方法，上传结束
+
+    func urlSession(_ session: URLSession, task: URLSessionTask,
+                    didCompleteWithError error: Error?) {
+        print("上传结束!")
+    }
+
+    //session完成事件
+    //    func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
+    //        //主线程调用
+    //        DispatchQueue.main.async {
+    //            if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+    //                let completionHandler = appDelegate.backgroundSessionCompletionHandler {
+    //                appDelegate.backgroundSessionCompletionHandler = nil
+    //                //调用此方法告诉操作系统，现在可以安全的重新suspend你的app
+    //                completionHandler()
+    //            }
+    //        }
+    //    }
 }
 
 /// 多文件
-extension MGUploadToos {
+extension MGUploadToos1 {
     //创建请求
     static func createRequest(url: URL,
                               parameters: [String: String]?,
@@ -221,7 +293,7 @@ extension MGUploadToos {
 
             // 数据之前要用 --分隔线 来隔开 ，否则后台会解析失败
             body.append("--\(boundary)\r\n")
-            body.append("Content-Disposition: form-data; name=\"\(file.name)\"; filename=\(filename)\r\n")
+            body.append("Content-Disposition: form-data; name=file; filename=\(filename)\r\n")
             body.append("Content-Type: \(mimetype)\r\n\r\n") //文件类型
             body.append(data) //文件主体
             body.append("\r\n") //使用\r\n来表示这个这个值的结束符
@@ -247,60 +319,19 @@ extension MGUploadToos {
     }
 }
 
-extension MGUploadToos: URLSessionDelegate, URLSessionTaskDelegate,
-URLSessionDataDelegate {
-    //上传代理方法，监听上传进度
-    func urlSession(_ session: URLSession, task: URLSessionTask,
-                    didSendBodyData bytesSent: Int64, totalBytesSent: Int64,
-                    totalBytesExpectedToSend: Int64) {
-        //获取进度
-        let written = (Float)(totalBytesSent)
-        let total = (Float)(totalBytesExpectedToSend)
-        let pro = written/total
-        if let onProgress = onProgress {
-            onProgress(pro)
-        }
-    }
+extension MGUploadToos1 {
 
-    func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
-
-    }
-
-    //上传代理方法，传输完毕后服务端返回结果
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        let str = String(data: data, encoding: String.Encoding.utf8)
-        print("服务端返回结果：\(str!)")
-    }
-
-    //上传代理方法，上传结束
-    func urlSession(_ session: URLSession, task: URLSessionTask,
-                    didCompleteWithError error: Error?) {
-        print("上传结束!")
-    }
-
-    //session完成事件
-    //    func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
-    //        //主线程调用
-    //        DispatchQueue.main.async {
-    //            if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
-    //                let completionHandler = appDelegate.backgroundSessionCompletionHandler {
-    //                appDelegate.backgroundSessionCompletionHandler = nil
-    //                //调用此方法告诉操作系统，现在可以安全的重新suspend你的app
-    //                completionHandler()
-    //            }
-    //        }
-    //    }
 }
 
-//扩展Data
-extension Data {
-    //增加直接添加String数据的方法
-    mutating func append(_ string: String, using encoding: String.Encoding = .utf8) {
-        if let data = string.data(using: encoding) {
-            append(data)
-        }
-    }
-}
+////扩展Data
+//extension Data {
+//    //增加直接添加String数据的方法
+//    mutating func append(_ string: String, using encoding: String.Encoding = .utf8) {
+//        if let data = string.data(using: encoding) {
+//            append(data)
+//        }
+//    }
+//}
 
 //// MARK: - 请求枚举
 //public enum SYSHTTPMethod: String {
@@ -469,45 +500,4 @@ extension Data {
 //        }
 //    }
 //}
-
-struct MMMM {
-    static func request<T:Codable>(successed:@escaping ((_ e: T?, _ error: Error?) -> Swift.Void), failure:@escaping ((_ error: Error?)  -> Swift.Void)) {
-        let request =  URLRequest(url: URL(string: "http://baidu.com")!, method: SYSHTTPMethod.post, headers: [:])
-
-        let session = URLSession.shared
-        let task = session.uploadTask(with: request, from: Data()) { (data, response, error) in
-            DispatchQueue.main.async {
-                guard error == nil else {
-                    failure(error)
-                    return
-                }
-                guard let validData = data, validData.count > 0 else {
-                    failure(AFError.responseSerializationFailed(reason: .inputDataNilOrZeroLength))
-                    return
-                }
-
-                if let response = response as? HTTPURLResponse, [200,204, 205].contains(response.statusCode) {
-                    do {
-                        let decoder = JSONDecoder()
-                        let object = try decoder.decode(T.self, from: data!)
-//                        let dict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-                        successed(object, nil)
-                    }catch {
-                        failure(AFError.ResponseSerializationFailureReason.jsonSerializationFailed(error: error) as? Error)
-                    }
-                }else { // 其他, 204, 205
-                    failure(AFError.ResponseSerializationFailureReason.stringSerializationFailed(encoding: String.Encoding.utf8) as? Error)
-                }
-            }
-        }
-        task.resume()
-    }
-}
-
-
-class ListResponse<T>: URLResponse where T: Decodable {
-    public var data: T?
-    public var success: Int = 0
-    public var error: Int = 0
-}
 
