@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 import Alamofire
+import Foundation
 
 #if DEBUG // 调试
 
@@ -17,10 +18,70 @@ import Alamofire
 
 #endif
 
+
+class Content1:Codable {
+    var name: String?
+    var age: Int?
+    var sex: String?
+    var born_in: String?
+
+    static func creat(name: String?,age: Int?,sex: String?,born_in: String?) -> Content1{
+        let v = Content1()
+        v.name    = name
+        v.age     = age
+        v.sex     = sex
+        v.born_in = born_in
+        return v
+    }
+
+    func ss() {
+        print("没有崩溃")
+    }
+}
+
+
+
+
+//let v333:Content1? = objectArray[3] as? Content1
+//v333?.name
+//v333?.ss()
+//let v444:Content1? = objectArray[1] as? Content1
+//v444?.name
+//v444?.ss()
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        var ceshi = ["1","2"]
+        ceshi.safe_object(at: 1)
+
+        let v3:Content1 = Content1.creat(name: "笨蛋小li612313", age: 231, sex:  "女", born_in: "2013")
+        let v4:Content1 = Content1.creat(name: "笨蛋小li6", age: 231, sex:  "男", born_in: "1993")
+        var  objectArray = [v3,v4]
+        let v33 = objectArray.safe_object(at: 3)
+        v33?.name
+        v33?.ss()
+        let v44:Content1? = objectArray.safe_object(at: 1)
+        v44?.name
+        v44?.ss()
+
+        let v333 = objectArray[safeIndex: 3]
+        v333?.name
+        v333?.ss()
+        let v444 = objectArray[safeIndex: 1]
+        v444?.name
+        v444?.ss()
+        objectArray[safeIndex:5] = v3
+
+        objectArray[1] = v3
+        let v5 = Content1.creat(name: "z笨猪就是你", age: 123, sex:  "男", born_in: "2312")
+        objectArray[safeIndex:1] = v5
+        let _ = objectArray[safeIndex:3]
+        objectArray[safeIndex:4] = v5
+        UINavigationBar.appearance().isTranslucent = false
+
         let kfManager = KingfisherManager.shared
         // 通过manager 获取cache
         let cache = kfManager.cache
@@ -29,16 +90,16 @@ class ViewController: UIViewController {
 
         // 通过manager 获取downloader
         let downloader = kfManager.downloader
-        downloader.downloadImage(with: URL(string: "urlStr")!, options: nil, progressBlock: { (dd, ff) in
-
-        }) { (result) in
-            switch result {
-                case .success(let value):
-                    self.base.setImage(value.image, for: ÷state)
-                case .failure:
-
-            }
-        }
+//        downloader.downloadImage(with: URL(string: "urlStr")!, options: nil, progressBlock: { (dd, ff) in
+//
+//        }) { (result) in
+//            switch result {
+//                case .success(let value):
+////                    self.base.setImage(value.image, for: state)
+//                case .failure:
+//                    break
+//            }
+//        }
 //        // 设置options, 你可以设置你的newCache/newDownloader以及其他配置
 //        kfManager.defaultOptions = [.targetCache(newCache), .downloader(newDownloader), .forceRefresh, .backgroundDecode, .onlyFromCache, .downloadPriority(1.0)]
         // 检索

@@ -63,6 +63,7 @@
 		F494EF64226716BB006E4792 /* DataRequest+NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494EF63226716BB006E4792 /* DataRequest+NSObject.swift */; };
 		F494EF6622672D3D006E4792 /* MGSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494EF6522672D3D006E4792 /* MGSearchTableViewController.swift */; };
 		F49C960C22CDE8A9003A9A86 /* MGLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C960B22CDE8A9003A9A86 /* MGLayerView.swift */; };
+		F4B3999322F97191001714AE /* NSObject+FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B3999222F97191001714AE /* NSObject+FileManager.swift */; };
 		F4B85F6C22EA9CB20033F2D4 /* MGUploadToos1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B85F6B22EA9CB20033F2D4 /* MGUploadToos1.swift */; };
 		F4D2D38B225F5A2700ADF674 /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D2D38A225F5A2600ADF674 /* BiometricService.swift */; };
 /* End PBXBuildFile section */
@@ -128,6 +129,7 @@
 		F494EF63226716BB006E4792 /* DataRequest+NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+NSObject.swift"; sourceTree = "<group>"; };
 		F494EF6522672D3D006E4792 /* MGSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSearchTableViewController.swift; sourceTree = "<group>"; };
 		F49C960B22CDE8A9003A9A86 /* MGLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGLayerView.swift; sourceTree = "<group>"; };
+		F4B3999222F97191001714AE /* NSObject+FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+FileManager.swift"; sourceTree = "<group>"; };
 		F4B85F6B22EA9CB20033F2D4 /* MGUploadToos1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGUploadToos1.swift; sourceTree = "<group>"; };
 		F4D2D38A225F5A2600ADF674 /* BiometricService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,6 +233,7 @@
 		F422ACC0224A14EA00DECC45 /* Category(扩展) */ = {
 			isa = PBXGroup;
 			children = (
+				F4B3999222F97191001714AE /* NSObject+FileManager.swift */,
 				F422ACC1224A14EA00DECC45 /* Array+Extension.swift */,
 				F422ACC2224A14EA00DECC45 /* CALayer+Extension.swift */,
 				F422ACC3224A14EA00DECC45 /* NSObject+Extension.swift */,
@@ -431,6 +434,7 @@
 				F422ACE1224A14EB00DECC45 /* UIGestureRecognizer+Extension.swift in Sources */,
 				F40703B72264610900F7B9C5 /* NetWorkTools.swift in Sources */,
 				F494EF6622672D3D006E4792 /* MGSearchTableViewController.swift in Sources */,
+				F4B3999322F97191001714AE /* NSObject+FileManager.swift in Sources */,
 				F49C960C22CDE8A9003A9A86 /* MGLayerView.swift in Sources */,
 				F47DB12022606FCE004A7D2F /* MGResponseVC.swift in Sources */,
 				F47DB1222260B59C004A7D2F /* NSMutableAttributedString+Extension.swift in Sources */,

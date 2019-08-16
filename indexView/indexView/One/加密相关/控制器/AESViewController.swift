@@ -78,8 +78,8 @@ class AESViewController: UIViewController {
             self.pageControl.currentPage = self.i - 1
             let transition = CATransition()
             transition.duration = 1.5
-            transition.type = "cameraIrisHollowClose"  // suckEffect  rippleEffect cameraIrisHollowOpen reveal
-            transition.subtype = kCATransitionFromLeft
+            transition.type = CATransitionType(rawValue: "cameraIrisHollowClose")  // suckEffect  rippleEffect cameraIrisHollowOpen reveal
+            transition.subtype = CATransitionSubtype.fromLeft
             self.imageView.layer.add(transition, forKey: nil)
             self.imageView.image = UIImage(named: "ming\(self.i)")
         }
@@ -103,7 +103,7 @@ class AESViewController: UIViewController {
     func transition(i: Int) {
         self.pageControl.currentPage = i - 1
         let transition = CATransition()
-        transition.type = "rippleEffect"   // rippleEffect
+        transition.type = CATransitionType(rawValue: "rippleEffect")   // rippleEffect
         transition.duration = 1.0
         imageView.layer.add(transition, forKey: nil)
         imageView.image = UIImage(named: "ming\(i)")
@@ -114,10 +114,10 @@ class AESViewController: UIViewController {
         let transition = CATransition()
         if tap.location(in: tap.view).y > imageView.frame.size.height/2 {
             i -= 1
-            transition.type = "pageCurl"
+            transition.type = CATransitionType(rawValue: "pageCurl")
         } else {
             i += 1
-            transition.type = "pageUnCurl"
+            transition.type = CATransitionType(rawValue: "pageUnCurl")
         }
         
         
@@ -143,7 +143,7 @@ enum UIPanGestureRecognizerDirection{
 
 extension AESViewController {
     //加载手势
-    func handlePanGesture(pan: UIPanGestureRecognizer){
+    @objc func handlePanGesture(pan: UIPanGestureRecognizer){
         switch(pan.state){
             case .began:
                   timer.suspend() // 暂停定时器
@@ -197,7 +197,7 @@ extension AESViewController {
         }
         pageControl.currentPage = i - 1
         let transition = CATransition()
-        transition.type = "rippleEffect"   // rippleEffect
+        transition.type = CATransitionType(rawValue: "rippleEffect")   // rippleEffect
         transition.duration = 1.0
         imageView.layer.add(transition, forKey: nil)
         imageView.image = UIImage(named: "ming\(i)")
@@ -221,12 +221,12 @@ extension AESViewController {
     func handleSwipeGesture(){
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(AESViewController.moveLeft(_:)))
         leftSwipe.numberOfTouchesRequired = 1
-        leftSwipe.direction = UISwipeGestureRecognizerDirection.left
+        leftSwipe.direction = UISwipeGestureRecognizer.Direction.left
         imageView.addGestureRecognizer(leftSwipe)
         
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(AESViewController.moveRight(_:)))
         rightSwipe.numberOfTouchesRequired = 1
-        rightSwipe.direction = UISwipeGestureRecognizerDirection.right
+        rightSwipe.direction = UISwipeGestureRecognizer.Direction.right
         imageView.addGestureRecognizer(rightSwipe)
     }
 }
@@ -267,21 +267,21 @@ extension NSData{
         if CCStatus(cryptStatus) == CCStatus(kCCSuccess) {
             let len = Int(numBytesEncrypted.pointee)
             let data:NSData = NSData(bytesNoCopy: cryptPointer, length: len)
-            numBytesEncrypted.deallocate(capacity: 1)
+            numBytesEncrypted.deallocate()
             return data
             
         } else {
-            numBytesEncrypted.deallocate(capacity: 1)
-            cryptPointer.deallocate(capacity: cryptLength)
+            numBytesEncrypted.deallocate()
+            cryptPointer.deallocate()
             return nil
         }
     }
     
     static func test(){
         let keyString     = "12345678901234567890123456789012"
-        let keyData: NSData! = (keyString as NSString).data(using: String.Encoding.utf8.rawValue) as NSData!
+        let keyData: NSData! = (keyString as NSString).data(using: String.Encoding.utf8.rawValue) as NSData?
         let message       = "你是大傻瓜吗？你才是"
-        let data: NSData! = (message as NSString).data(using: String.Encoding.utf8.rawValue) as NSData!
+        let data: NSData! = (message as NSString).data(using: String.Encoding.utf8.rawValue) as NSData?
         
         print("要加密的字符串：" + message)
         let result:NSData? = data.AES128Crypt(operation: CCOperation(kCCEncrypt), keyData: keyData)

@@ -4,7 +4,7 @@ use_frameworks!
 
 target 'indexView' do
 
-  pod 'Alamofire', '~> 4.4.0'
+    pod 'Alamofire', '~> 4.8' #, '~> 4.4.0'
 
 end
 

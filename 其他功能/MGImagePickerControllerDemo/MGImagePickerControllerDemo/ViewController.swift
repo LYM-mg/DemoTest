@@ -76,7 +76,7 @@ class ViewController: UIViewController {
 extension ViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let size = (collectionView.frame.size.width - 3) / 4
+        let size = collectionView.frame.size.width
 
         return CGSize(width: size, height: size)
     }
@@ -107,7 +107,7 @@ extension ViewController : UICollectionViewDataSource {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MGPhotosCell
 
-        cell.mg_imageView.image = self.images[indexPath.item]
+        cell.mg_imageView.image = UIImage(data: self.images[indexPath.item].jpegData(compressionQuality: 1.0)!) 
         cell.mg_chooseImageView.isHidden = true
 
         return cell

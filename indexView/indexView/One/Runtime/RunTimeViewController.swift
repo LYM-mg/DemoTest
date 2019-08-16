@@ -42,7 +42,7 @@ class RunTimeViewController: UIViewController {
     }
     
     func alert(msg: String!) {
-        let alertControler = UIAlertController(title: "提示", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        let alertControler = UIAlertController(title: "提示", message: msg, preferredStyle: UIAlertController.Style.alert)
         self.present(alertControler, animated: true, completion: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             alertControler.dismiss(animated: true, completion: nil)
@@ -59,19 +59,19 @@ class RunTimeViewController: UIViewController {
 
 // MARK: - NSURL
 extension NSURL  {
-    override open class func initialize() {
-        super.initialize()
-        self.mg_SwitchMethod(cls: NSURL.self, originalSelector: #selector(NSURL.init(string:)), swizzledSelector: #selector(NSURL.MGURL(withStr:)))
-    }
-
-    func MGURL(withStr: String) -> URL? {
-        let url = MGURL(withStr: withStr)
-        if url == nil {
-            print("URL是空")
-        }
-        
-        return url
-    }
+//    override open class func initialize() {
+//        super.initialize()
+//        self.mg_SwitchMethod(cls: NSURL.self, originalSelector: #selector(NSURL.init(string:)), swizzledSelector: #selector(NSURL.MGURL(withStr:)))
+//    }
+//
+//    @objc func MGURL(withStr: String) -> URL? {
+//        let url = MGURL(withStr: withStr)
+//        if url == nil {
+//            print("URL是空")
+//        }
+//        
+//        return url
+//    }
     
     /**
      - parameter cls: : 当前类
@@ -108,18 +108,18 @@ extension Data {
     
     var keyBytes: UnsafeMutablePointer<DIR>! {
         get {
-            return (objc_getAssociatedObject(self, &DataKeys.mg_keyBytesKey) as? UnsafeMutablePointer<DIR>!)!
+            return (objc_getAssociatedObject(self, &DataKeys.mg_keyBytesKey) as? UnsafeMutablePointer<DIR>?)!
         }
         set(newValue) {
-            objc_setAssociatedObject(self, &DataKeys.mg_keyBytesKey, newValue as UnsafeMutablePointer<DIR>!, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self, &DataKeys.mg_keyBytesKey, newValue as UnsafeMutablePointer<DIR>?, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
         }
     }
     var dataBytes: UnsafeMutablePointer<DIR>! {
         get {
-            return (objc_getAssociatedObject(self, &DataKeys.mg_dataBytesKey) as? UnsafeMutablePointer<DIR>!)!
+            return (objc_getAssociatedObject(self, &DataKeys.mg_dataBytesKey) as? UnsafeMutablePointer<DIR>?)!
         }
         set(newValue) {
-            objc_setAssociatedObject(self, &DataKeys.mg_dataBytesKey, newValue as UnsafeMutablePointer<DIR>!, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self, &DataKeys.mg_dataBytesKey, newValue as UnsafeMutablePointer<DIR>?, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
         }
     }
 }

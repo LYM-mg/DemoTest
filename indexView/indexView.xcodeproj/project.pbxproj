@@ -90,7 +90,8 @@
 		C0F98EC81E7679A500FCA839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F98EC71E7679A500FCA839 /* Assets.xcassets */; };
 		C0F98ECB1E7679A500FCA839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F98EC91E7679A500FCA839 /* LaunchScreen.storyboard */; };
 		E1C89971062F3F1E46BC24FC /* Pods_indexView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A8E45A17F3C10E861931A8 /* Pods_indexView.framework */; };
-		F49E65CE2278246E002EEB6B /* Timer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E65CD2278246E002EEB6B /* Timer+Extension.swift */; };
+		F406B57922F417AA0088B3BE /* Timer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406B57822F417A90088B3BE /* Timer+Extension.swift */; };
+		F406B57A22F417AA0088B3BE /* Timer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406B57822F417A90088B3BE /* Timer+Extension.swift */; };
 		F49E65D0227824B1002EEB6B /* UIGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E65CF227824B1002EEB6B /* UIGestureRecognizer+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -163,7 +164,7 @@
 		C0F98EC71E7679A500FCA839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0F98ECA1E7679A500FCA839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0F98ECC1E7679A500FCA839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F49E65CD2278246E002EEB6B /* Timer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timer+Extension.swift"; sourceTree = "<group>"; };
+		F406B57822F417A90088B3BE /* Timer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timer+Extension.swift"; sourceTree = "<group>"; };
 		F49E65CF227824B1002EEB6B /* UIGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -434,7 +435,7 @@
 				C04FC9E41E8A82F100E9361B /* UILabel+Extension.swift */,
 				C04FC9E51E8A82F100E9361B /* UINavigationBar+Extension.swift */,
 				C04FC9E61E8A82F100E9361B /* UIView+Extension.swift */,
-				F49E65CD2278246E002EEB6B /* Timer+Extension.swift */,
+				F406B57822F417A90088B3BE /* Timer+Extension.swift */,
 			);
 			path = "Category(扩展)";
 			sourceTree = "<group>";
@@ -549,7 +550,6 @@
 				C0F98EBA1E7679A500FCA839 /* Frameworks */,
 				C0F98EBB1E7679A500FCA839 /* Resources */,
 				21C55D01E7F8352925DB04FC /* [CP] Embed Pods Frameworks */,
-				2CD2F5C92BDD10489360E909 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -587,6 +587,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -637,28 +638,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-indexView/Pods-indexView-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-indexView/Pods-indexView-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2CD2F5C92BDD10489360E909 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-indexView/Pods-indexView-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-indexView/Pods-indexView-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AFEE8B027BF2C32925B134F8 /* [CP] Check Pods Manifest.lock */ = {
@@ -667,13 +656,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-indexView-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -690,6 +682,7 @@
 				C04C9D7A1F17556000888518 /* NSData+Extension.swift in Sources */,
 				C04C9D981F17556000888518 /* WeiboActivity.swift in Sources */,
 				C04C9D801F17556000888518 /* EncryptViewController.swift in Sources */,
+				F406B57A22F417AA0088B3BE /* Timer+Extension.swift in Sources */,
 				C04C9D721F17556000888518 /* XJLGroupModel.swift in Sources */,
 				C04C9D881F17556000888518 /* MGCarGroup.swift in Sources */,
 				C04C9D9D1F17559000888518 /* UISettingViewController.swift in Sources */,
@@ -729,8 +722,8 @@
 				C04C9D7D1F17556000888518 /* AESViewController.swift in Sources */,
 				C04C9D891F17556000888518 /* IndexViewController.swift in Sources */,
 				C04FC9F41E8A82F100E9361B /* Date+Extension.swift in Sources */,
-				F49E65CE2278246E002EEB6B /* Timer+Extension.swift in Sources */,
 				C04C9D8F1F17556000888518 /* CopyLinkActivity.swift in Sources */,
+				F406B57922F417AA0088B3BE /* Timer+Extension.swift in Sources */,
 				C04FC9F91E8A82F100E9361B /* UIColor+Extension.swift in Sources */,
 				F49E65D0227824B1002EEB6B /* UIGestureRecognizer+Extension.swift in Sources */,
 				C04C9D771F17556000888518 /* MGTableViewController.swift in Sources */,
@@ -928,7 +921,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "i-Techsys.com.indexView";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/IndexView/Header.h;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -945,7 +938,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "i-Techsys.com.indexView";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/IndexView/Header.h;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

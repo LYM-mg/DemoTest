@@ -25,12 +25,12 @@ extension UIGestureRecognizer {
     
     fileprivate func addActionBlock(_ block: MGGestureBlock?) {
         if (block != nil) {
-            objc_setAssociatedObject(self, UIGestureRecognizer.RuntimeKey.mg_GestureBlockKey, block!, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, UIGestureRecognizer.RuntimeKey.mg_GestureBlockKey!, block!, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
     @objc fileprivate func invoke(_ sender: Any) {
-        let block = objc_getAssociatedObject(self, UIGestureRecognizer.RuntimeKey.mg_GestureBlockKey) as? MGGestureBlock
+        let block = objc_getAssociatedObject(self, UIGestureRecognizer.RuntimeKey.mg_GestureBlockKey!) as? MGGestureBlock
         if (block != nil) {
             block!(sender);
         }

@@ -57,7 +57,7 @@ class IndexViewController: UIViewController {
         loadData()
         indexView.selectedScaleAnimation = true
         view.addSubview(indexView)
-        view.bringSubview(toFront: indexView)
+        view.bringSubviewToFront(indexView)
         
         scrollViewDidScroll(tableView)
 //        
@@ -105,7 +105,7 @@ extension IndexViewController: UITableViewDataSource {
         let bgView = UIView()
         bgView.backgroundColor = UIColor.brown.withAlphaComponent(0.7) // 蓝色太难看了，设置为棕色
         cell.selectedBackgroundView = bgView
-        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         
         // 设置数据
         let group = self.dataArr[indexPath.section]

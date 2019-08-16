@@ -27,12 +27,12 @@ class XibViewController: UIViewController {
 //        timer = Timer.scheduledTimer(with: 1.0, block: {
 //             print("打印定时器")
 //        }, repeats: true)
-        timer = Timer.scheduledTimer(with: 1.0, action: {
-            print("打印定时器")
-        })
+//        timer = Timer.scheduledTimer(with: 1.0, action: {
+//            print("打印定时器")
+//        })
     }
     
-    func LoadSB() {
+    @objc func LoadSB() {
         self.show(SBTools.loadControllerFromSB("Main"), sender: nil)
     }
 
@@ -44,7 +44,7 @@ class XibViewController: UIViewController {
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        var att = NSMutableAttributedString(string: "释放查看，的撒会单据号塞到好似符号ID师父hi第三方his地方很多看撒娇的接口", attributes: [NSVerticalGlyphFormAttributeName: 1, NSFontAttributeName: UIFont.systemFont(ofSize: 9), NSForegroundColorAttributeName: UIColor.red])
+        let att = NSMutableAttributedString(string: "释放查看，的撒会单据号塞到好似符号ID师父hi第三方his地方很多看撒娇的接口", attributes: [NSAttributedString.Key.verticalGlyphForm: 1, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 9), NSAttributedString.Key.foregroundColor: UIColor.red])
         titleLabel.attributedText = att
         titleLabel.transform = CGAffineTransform(rotationAngle: .pi/2)
     }

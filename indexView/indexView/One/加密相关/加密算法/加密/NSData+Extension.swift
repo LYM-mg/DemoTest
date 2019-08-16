@@ -118,11 +118,11 @@ extension NSData {
             let len = Int(numBytesEncrypted.pointee)
             let data:NSData = NSData(bytesNoCopy: cryptPointer, length: len)
             
-            numBytesEncrypted.deallocate(capacity: 1)
+            numBytesEncrypted.deallocate()
             return data
         } else {
-            numBytesEncrypted.deallocate(capacity: 1)
-            cryptPointer.deallocate(capacity: cryptLength)
+            numBytesEncrypted.deallocate()
+            cryptPointer.deallocate()
             return nil
         }
     }
@@ -189,11 +189,11 @@ extension Data {
         if CCStatus(cryptStatus) == CCStatus(kCCSuccess) {
             let len = Int(numBytesEncrypted.pointee)
             let data = Data.init(bytes: cryptPointer, count: len)
-            numBytesEncrypted.deallocate(capacity: 1)
+            numBytesEncrypted.deallocate()
             return data
         } else {
-            numBytesEncrypted.deallocate(capacity: 1)
-            cryptPointer.deallocate(capacity: cryptLength)
+            numBytesEncrypted.deallocate()
+            cryptPointer.deallocate()
             return nil
         }
     }

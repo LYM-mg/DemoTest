@@ -5,7 +5,7 @@
 
 import UIKit
 
-private let kSymmetricCryptorRandomStringGeneratorCharset: [Character] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map({$0})
+private let kSymmetricCryptorRandomStringGeneratorCharset: [Character] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".map({$0})
 
 // MARK: - enum SymmetricCryptorAlgorithm
 enum SymmetricCryptorAlgorithm {

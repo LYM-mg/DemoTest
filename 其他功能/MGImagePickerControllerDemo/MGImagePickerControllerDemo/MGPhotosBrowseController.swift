@@ -333,9 +333,9 @@ extension MGPhotosBrowseController : UICollectionViewDataSource {
         //修改
         objc_setAssociatedObject(self, MGPhotoBrowseViewModelAssociate.MG_photoBrowViewEndDeceleratingAssociate!, false, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
 
-        //获得indexPath
+//        //获得indexPath
 //        let indexPath = IndexPath(item: currentIndex, section: 0)
-
+//
 //        //请求高清图片
 //        image(at: indexPath, in: scrollView as! UICollectionView, isThum: false) { [weak self](image, asset) in
 //            if let strongSelf = self {
@@ -355,7 +355,7 @@ extension MGPhotosBrowseController : UICollectionViewDataSource {
         let cacheManager = MGPhotosCacheManager.sharedInstance
         self.selectedItem.setImage((cacheManager.assetIsSelectedSignal[mg_index(indexFromAllPhotosToAll: currentIndex)] ? mg_selectedImage : mg_deselectedImage)!, for: .normal)
 
-//        self.mg_check(hightQuarityChangedAt: currentIndex)
+        self.mg_check(hightQuarityChangedAt: currentIndex)
     }
 
 
@@ -376,9 +376,9 @@ extension MGPhotosBrowseController : UICollectionViewDataSource {
             }
         }
 
-        if (self.isSelectOriginalPhoto)  {
-            self.mg_check(hightQuarityChangedAt: indexPath.item)
-        }
+//        if (self.isSelectOriginalPhoto)  {
+//            self.mg_check(hightQuarityChangedAt: indexPath.item)
+//        }
 
         cell.mg_photoBrowerSimpleTapHandle = { [unowned self] (cell) in
             self.sendViewBarShouldChangedSignal()

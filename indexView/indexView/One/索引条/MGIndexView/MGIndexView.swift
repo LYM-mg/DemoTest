@@ -149,7 +149,7 @@ extension MGIndexView {
              let btn = UIButton(frame: CGRect(x: x, y: y, width: Int(self.frame.size.width), height: h))
             btn.setTitle(letter, for: .normal)
             btn.setTitleColor(normalColor, for: .normal)
-            btn.titleLabel?.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
+            btn.titleLabel?.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline)
             btn.isUserInteractionEnabled = false
             addSubview(btn)
             letterButtons.append(btn)

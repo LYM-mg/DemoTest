@@ -70,3 +70,32 @@ private func ClassMethodNames(c: AnyClass) -> [Any]? {
 
     return array
 }
+
+import UIKit
+import ObjectiveC.runtime
+
+extension UILabel {
+    ///提供多个运行时的key
+    struct RuntimeKey {
+        static let buttonKey = UnsafeRawPointer.init(bitPattern: "BTNKey".hashValue)
+    }
+    ///需要扩充的边距
+    var hitTestEdgeInsets: UIEdgeInsets? {
+        set {
+            objc_setAssociatedObject(self, RuntimeKey.buttonKey!, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
+        }
+        get {
+            return objc_getAssociatedObject(self, RuntimeKey.buttonKey!) as? UIEdgeInsets ?? UIEdgeInsets.zero
+        }
+    }
+
+    ///是否响应
+    open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        if hitTestEdgeInsets! == UIEdgeInsets.zero || !isEnabled || isHidden {
+            return super.point(inside: point, with: event)
+        }
+        return  bounds.inset(by: hitTestEdgeInsets!).contains(point)
+    }
+
+}
+

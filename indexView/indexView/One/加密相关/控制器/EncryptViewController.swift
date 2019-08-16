@@ -45,7 +45,7 @@ extension EncryptViewController {
     
     // 加密
     @IBAction func encodeEncrypt() {
-        if originTetxView.text.characters.count < 1 || (encryptTextField.text?.characters.count)! < 1 {
+        if originTetxView.text.count < 1 || (encryptTextField.text?.count)! < 1 {
             showAlertWithMessage("请输入要加密的字符或者key不能为空")
             return
         }
@@ -67,7 +67,7 @@ extension EncryptViewController {
     
     // 解密
     @IBAction func decodeEncrypt() {
-        if encryptTextView.text.characters.count < 1 || (encryptTextField.text?.characters.count)! < 0 {
+        if encryptTextView.text.count < 1 || (encryptTextField.text?.count)! < 0 {
             showAlertWithMessage("请输入至少一个字符.")
             return
         }

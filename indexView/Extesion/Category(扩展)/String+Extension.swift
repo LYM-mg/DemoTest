@@ -15,8 +15,8 @@
 
 import UIKit
 import Foundation
-//import CommonDigest>
-//import <CommonCrypto/CommonDigest.h>
+import CommonCrypto.CommonDigest
+import CommonCrypto
 
 // MARK: - 沙盒路径
 extension String {
@@ -41,32 +41,32 @@ extension String {
 
 // MARK: - 通过扩展来简化一下,截取字符串
 extension String {
-    subscript (range: Range<Int>) -> String {
-        get {
-            
-            let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
-            let endIndex = self.index(self.startIndex, offsetBy: range.upperBound)
-            return self[(startIndex..<endIndex)]
-        } set {
-            let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
-            let endIndex = self.index(self.startIndex, offsetBy: range.upperBound)
-            let strRange =  Range.init(uncheckedBounds: (lower: startIndex, upper: endIndex))
-            //Range(uncheckedBounds: startIndex..<endIndex)
-            self.replaceSubrange(strRange, with: newValue)
-        }
-    }
+//    subscript (range: Range<Int>) -> String {
+//        get {
+//            
+//            let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
+//            let endIndex = self.index(self.startIndex, offsetBy: range.upperBound)
+//            return self[(startIndex..<endIndex)]
+//        } set {
+//            let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
+//            let endIndex = self.index(self.startIndex, offsetBy: range.upperBound)
+//            let strRange =  Range.init(uncheckedBounds: (lower: startIndex, upper: endIndex))
+//            //Range(uncheckedBounds: startIndex..<endIndex)
+//            self.replaceSubrange(strRange, with: newValue)
+//        }
+//    }
     
-    func subString(from: Int) -> String {
-        let end = self.count
-        return self[from..<end]
-    }
-    func subString(from: Int, length: Int) -> String {
-        let end = from + length
-        return self[from..<end]
-    }
-    func subString(from:Int, to:Int) ->String {
-        return self[from..<to]
-    }
+//    func subString(from: Int) -> String {
+//        let end = self.count
+//        return self[from..<end]
+//    }
+//    func subString(from: Int, length: Int) -> String {
+//        let end = from + length
+//        return self[from..<end]
+//    }
+//    func subString(from:Int, to:Int) ->String {
+//        return self[from..<to]
+//    }
 }
 
 // MARK: - 判断手机号  隐藏手机中间四位  正则匹配用户身份证号15或18位  正则RegexKitLite框架
@@ -99,8 +99,8 @@ extension String {
         if form < 0 {
             form = 0
         }
-        if to > self.characters.count {
-            to = self.characters.count
+        if to > self.count {
+            to = self.count
         }
         var star = ""
         for _ in form...to {
@@ -201,7 +201,7 @@ extension String {
         
         CCHmac(algorithm.HMACAlgorithm, keyStr!, keyLen, str!, strLen, result)
         let digest = stringFromResult(result:  result, length: digestLen)
-        result.deallocate(capacity: digestLen)
+        result.deallocate()
         
         return digest
     }

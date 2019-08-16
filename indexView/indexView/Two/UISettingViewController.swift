@@ -17,10 +17,10 @@ class UISettingViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "SB", style: .done, target: self, action: #selector(LoadSB))
     }
     
-    func LoadXib() {
+    @objc func LoadXib() {
         self.show(XibViewController(), sender: nil)
     }
-    func LoadSB() {
+    @objc func LoadSB() {
         self.show(SBTools.loadControllerFromSBWithID("Main", "TableViewCellID"), sender: nil)
     }
 

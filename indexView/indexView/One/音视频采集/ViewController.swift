@@ -85,16 +85,16 @@ class ViewController: UIViewController {
     @IBAction func switchScene(_ sender: UIButton) {
         // 0.执行动画
         let rotaionAnim = CATransition()
-        rotaionAnim.type = "oglFlip"
-        rotaionAnim.subtype = "fromLeft"
+        rotaionAnim.type = CATransitionType(rawValue: "oglFlip")
+        rotaionAnim.subtype = CATransitionSubtype(rawValue: "fromLeft")
         rotaionAnim.duration = 0.5
         view.layer.add(rotaionAnim, forKey: nil)
         // 1.校验videoInput是否有值
         guard let videoInput = videoInput else { return }
         // 2.获取当前镜头
-        let position : AVCaptureDevicePosition = videoInput.device.position == .front ? .back : .front
+        let position : AVCaptureDevice.Position = videoInput.device.position == .front ? .back : .front
         // 3.创建新的input
-        guard let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) as? [AVCaptureDevice] else { return }
+        guard let devices = AVCaptureDevice.devices(for: AVMediaType.video) as? [AVCaptureDevice] else { return }
         guard let newDevice = devices.filter({$0.position == position}).first else { return }
         guard let newVideoInput = try? AVCaptureDeviceInput(device: newDevice) else { return }
         // 4.移除旧输入，添加新输入
@@ -114,7 +114,7 @@ extension ViewController {
     func setupVideoSource(session: AVCaptureSession) {
         // 1.创建输入
         // 1.1获取所有 的设备
-        guard let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) as? [AVCaptureDevice] else {
+        guard let devices = AVCaptureDevice.devices(for: AVMediaType.video) as? [AVCaptureDevice] else {
             return
         }
         
@@ -147,13 +147,13 @@ extension ViewController {
             session.addOutput(videoOutput)
         }
         // 4.给connect赋值
-        videoOutput.connection(withMediaType: AVMediaTypeVideo)
+        videoOutput.connection(with: AVMediaType.video)
     }
     
     // 给会话设置音频源（输入源&输出源）
     fileprivate func setupAudioSource(session : AVCaptureSession) {
         // 1.创建输入
-        guard let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio) else { return }
+        guard let device = AVCaptureDevice.default(for: AVMediaType.audio) else { return }
         guard let audioInput = try? AVCaptureDeviceInput(device: device) else { return }
         // 2.创建输出源
         let audioOutput = AVCaptureAudioDataOutput()
@@ -170,7 +170,8 @@ extension ViewController {
     
     fileprivate func setupPreviewLayer(session : AVCaptureSession) {
         // 1.创建预览图层
-        guard let previewLayer = AVCaptureVideoPreviewLayer(session: session) else { return }
+        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
+       
         // 2.设置图层的属性
         previewLayer.frame = view.bounds
         self.previewLayer = previewLayer
@@ -181,7 +182,7 @@ extension ViewController {
 
 extension ViewController : AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate {
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
-        if connection == videoOutput?.connections.first!  as! AVCaptureConnection{
+        if connection == videoOutput?.connections.first!{
             print("视频数据")
         } else {
             print("音频数据")
@@ -189,11 +190,12 @@ extension ViewController : AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptu
     }
 }
 
-extension ViewController : AVCaptureFileOutputRecordingDelegate {
-    func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
+extension ViewController : AVFoundation.AVCaptureFileOutputRecordingDelegate {
+    func fileOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL, from connections: [AVCaptureConnection]) {
         print("开始录制")
     }
-    func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
+
+    func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
         print("停止录制")
     }
 }

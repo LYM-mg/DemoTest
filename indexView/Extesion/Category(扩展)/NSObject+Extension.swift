@@ -37,41 +37,39 @@ extension NSObject {
 // MARK: - RunTime
 extension NSObject {
     /**
-      获取所有的方法和属性
-      - parameter cls: 当前类
+     获取所有的方法和属性
+     - parameter cls: 当前类
      */
     func mg_GetMethodAndPropertiesFromClass(cls: AnyClass) {
         debugPrint("方法========================================================")
         var methodNum: UInt32 = 0
         let methods = class_copyMethodList(cls, &methodNum)
         for index in 0..<numericCast(methodNum) {
-            let met: Method = methods![index]!
-            debugPrint("m_name: \(method_getName(met)!)" + " |==| " + "m_type: \(String(utf8String: method_getTypeEncoding(met))!)")
-//            debugPrint("m_returnType: \(String(utf8String: method_copyReturnType(met))!)")
-//            debugPrint("m_type: \(String(utf8String: method_getTypeEncoding(met))!)")
+            let met: Method = methods![index]
+            debugPrint("m_name: \(method_getName(met))")
+            //            debugPrint("m_returnType: \(String(utf8String: method_copyReturnType(met))!)")
+            //            debugPrint("m_type: \(String(utf8String: method_getTypeEncoding(met))!)")
         }
-        
+
         debugPrint("属性=========================================================")
         var propNum: UInt32 = 0
         let properties = class_copyPropertyList(cls, &propNum)
         for index in 0..<Int(propNum) {
-            let prop: objc_property_t = properties![index]!
+            let prop: objc_property_t = properties![index]
             debugPrint("p_name: \(String(utf8String: property_getName(prop))!)")
-//            debugPrint("p_Attr: \(String(utf8String: property_getAttributes(prop))!)")
+            //            debugPrint("p_Attr: \(String(utf8String: property_getAttributes(prop))!)")
         }
-        
+
         debugPrint("成员变量======================================================")
         var ivarNum: UInt32 = 0
         let ivars = class_copyIvarList(cls, &ivarNum)
         for index in 0..<numericCast(ivarNum) {
-            let ivar: objc_property_t = ivars![index]!
+            let ivar: objc_property_t = ivars![index]
             let name = ivar_getName(ivar)
-            let type = ivar_getTypeEncoding(ivar);
-            //            NSLog(@"成员变量名：%s 成员变量类型：%s",name,type);
-            debugPrint("ivar_name: \(String(cString: name!))" + " |==| " + "ivar_type: \(String(cString: type!))")
+            debugPrint("ivar_name: \(String(cString: name!))")
         }
     }
-    
+
     /**
      - parameter cls: : 当前类
      - parameter originalSelector: : 原方法
@@ -79,16 +77,56 @@ extension NSObject {
      */
     /// RunTime交换方法
     class func mg_SwitchMethod(cls: AnyClass, originalSelector: Selector, swizzledSelector: Selector) {
-        
-        let originalMethod = class_getInstanceMethod(cls, originalSelector)
-        let swizzledMethod = class_getInstanceMethod(cls, swizzledSelector)
-        
+
+        guard let originalMethod = class_getInstanceMethod(cls, originalSelector) else {
+            return;
+        }
+        guard let swizzledMethod = class_getInstanceMethod(cls, swizzledSelector) else {
+            return;
+        }
         let didAddMethod = class_addMethod(cls, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
-        
+
         if didAddMethod {
             class_replaceMethod(cls, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
         } else {
             method_exchangeImplementations(originalMethod, swizzledMethod);
         }
+    }
+
+
+    //
+    public func ClassIvarsNames(c: AnyClass) -> [Any]? {
+        var array: [AnyHashable] = []
+        var ivarNum: UInt32 = 0
+        let ivars = class_copyIvarList(c, &ivarNum)
+        for index in 0..<numericCast(ivarNum) {
+            let ivar: objc_property_t = ivars![index]
+            if let name:UnsafePointer<Int8> = ivar_getName(ivar) {
+                debugPrint("ivar_name: \(String(cString: name))")
+                if  let key = String(utf8String:name) {
+                    array.append(key)
+                    array.append("\n")
+                }
+            }
+        }
+
+        free(ivars)
+        return array
+    }
+
+    public func ClassMethodNames(c: AnyClass) -> [Any]? {
+        var array: [AnyHashable] = []
+
+        var methodCount: UInt32 = 0
+        let methodList = class_copyMethodList(c, &methodCount)
+        guard let methodArray = methodList else {
+            return array;
+        }
+        for i in 0..<methodCount {
+            array.append(NSStringFromSelector(method_getName(methodArray[Int(i)])))
+        }
+        free(methodArray)
+
+        return array
     }
 }

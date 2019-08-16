@@ -31,7 +31,7 @@ class MGDocumentInteractionVC: UIViewController {
         
         if UIApplication.shared.canOpenURL(url){
             if #available(iOS 10.0, *) {
-                let options = [UIApplicationOpenURLOptionUniversalLinksOnly : true]
+                let options = [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly : true]
                 UIApplication.shared.open(url, options: options, completionHandler: nil)
             } else {
                 UIApplication.shared.openURL(url)
@@ -94,7 +94,7 @@ extension MGDocumentInteractionVC {
     }
     
     func alert(msg: String!) {
-        let alertControler = UIAlertController(title: "提示", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        let alertControler = UIAlertController(title: "提示", message: msg, preferredStyle: UIAlertController.Style.alert)
         self.present(alertControler, animated: true, completion: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             alertControler.dismiss(animated: true, completion: nil)
