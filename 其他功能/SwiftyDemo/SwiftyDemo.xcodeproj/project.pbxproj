@@ -43,6 +43,7 @@
 		F422ACF1224A2D7700DECC45 /* RightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F422ACF0224A2D7700DECC45 /* RightViewController.swift */; };
 		F422ACF3224A34F700DECC45 /* BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F422ACF2224A34F700DECC45 /* BViewController.swift */; };
 		F422AD15224B923800DECC45 /* MGFeedbackCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F422AD14224B923800DECC45 /* MGFeedbackCollectionReusableView.swift */; };
+		F42B43EE230E40A70079CBAB /* MGOrigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42B43ED230E40A70079CBAB /* MGOrigationViewController.swift */; };
 		F45AA61F225488F80061A0F0 /* MGSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AA61E225488F80061A0F0 /* MGSessionManager.swift */; };
 		F45AA62122548CD20061A0F0 /* DataRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AA62022548CD20061A0F0 /* DataRequestExtension.swift */; };
 		F45AA6232254B2FA0061A0F0 /* MGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AA6222254B2FA0061A0F0 /* MGModel.swift */; };
@@ -109,6 +110,7 @@
 		F422ACF0224A2D7700DECC45 /* RightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightViewController.swift; sourceTree = "<group>"; };
 		F422ACF2224A34F700DECC45 /* BViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BViewController.swift; sourceTree = "<group>"; };
 		F422AD14224B923800DECC45 /* MGFeedbackCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGFeedbackCollectionReusableView.swift; sourceTree = "<group>"; };
+		F42B43ED230E40A70079CBAB /* MGOrigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGOrigationViewController.swift; sourceTree = "<group>"; };
 		F45AA61E225488F80061A0F0 /* MGSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSessionManager.swift; sourceTree = "<group>"; };
 		F45AA62022548CD20061A0F0 /* DataRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequestExtension.swift; sourceTree = "<group>"; };
 		F45AA6222254B2FA0061A0F0 /* MGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGModel.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				F422ACBF224A14EA00DECC45 /* Extesion */,
 				F422AD14224B923800DECC45 /* MGFeedbackCollectionReusableView.swift */,
 				F494EF6522672D3D006E4792 /* MGSearchTableViewController.swift */,
+				F42B43ED230E40A70079CBAB /* MGOrigationViewController.swift */,
 			);
 			path = SwiftyDemo;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				F422AC932249D5B900DECC45 /* AppDelegate.swift in Sources */,
 				F422ACED224A182A00DECC45 /* UIViewController+Extension.swift in Sources */,
 				F422ACD8224A14EB00DECC45 /* CALayer+Extension.swift in Sources */,
+				F42B43EE230E40A70079CBAB /* MGOrigationViewController.swift in Sources */,
 				F422ACE5224A14EB00DECC45 /* UIView+Extension.swift in Sources */,
 				F422ACE7224A14EB00DECC45 /* Constant.swift in Sources */,
 				F40703B92264633E00F7B9C5 /* NetWorkTools+Extension.swift in Sources */,

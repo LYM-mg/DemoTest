@@ -19,27 +19,25 @@ import Foundation
 #endif
 
 
-class Content1:Codable {
-    var name: String?
-    var age: Int?
-    var sex: String?
-    var born_in: String?
-
-    static func creat(name: String?,age: Int?,sex: String?,born_in: String?) -> Content1{
-        let v = Content1()
-        v.name    = name
-        v.age     = age
-        v.sex     = sex
-        v.born_in = born_in
-        return v
-    }
-
-    func ss() {
-        print("没有崩溃")
-    }
-}
-
-
+//class Content1:Codable {
+//    var name: String?
+//    var age: Int?
+//    var sex: String?
+//    var born_in: String?
+//
+//    static func creat(name: String?,age: Int?,sex: String?,born_in: String?) -> Content1{
+//        let v = Content1()
+//        v.name    = name
+//        v.age     = age
+//        v.sex     = sex
+//        v.born_in = born_in
+//        return v
+//    }
+//
+//    func ss() {
+//        print("没有崩溃")
+//    }
+//}
 
 
 //let v333:Content1? = objectArray[3] as? Content1
@@ -54,33 +52,37 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var ceshi = ["1","2"]
-        ceshi.safe_object(at: 1)
 
-        let v3:Content1 = Content1.creat(name: "笨蛋小li612313", age: 231, sex:  "女", born_in: "2013")
-        let v4:Content1 = Content1.creat(name: "笨蛋小li6", age: 231, sex:  "男", born_in: "1993")
-        var  objectArray = [v3,v4]
-        let v33 = objectArray.safe_object(at: 3)
-        v33?.name
-        v33?.ss()
-        let v44:Content1? = objectArray.safe_object(at: 1)
-        v44?.name
-        v44?.ss()
 
-        let v333 = objectArray[safeIndex: 3]
-        v333?.name
-        v333?.ss()
-        let v444 = objectArray[safeIndex: 1]
-        v444?.name
-        v444?.ss()
-        objectArray[safeIndex:5] = v3
+        testtest()
 
-        objectArray[1] = v3
-        let v5 = Content1.creat(name: "z笨猪就是你", age: 123, sex:  "男", born_in: "2312")
-        objectArray[safeIndex:1] = v5
-        let _ = objectArray[safeIndex:3]
-        objectArray[safeIndex:4] = v5
-        UINavigationBar.appearance().isTranslucent = false
+//        var ceshi = ["1","2"]
+//        ceshi.safe_object(at: 1)
+//
+//        let v3:Content1 = Content1.creat(name: "笨蛋小li612313", age: 231, sex:  "女", born_in: "2013")
+//        let v4:Content1 = Content1.creat(name: "笨蛋小li6", age: 231, sex:  "男", born_in: "1993")
+//        var  objectArray = [v3,v4]
+//        let v33 = objectArray.safe_object(at: 3)
+//        v33?.name
+//        v33?.ss()
+//        let v44:Content1? = objectArray.safe_object(at: 1)
+//        v44?.name
+//        v44?.ss()
+//
+//        let v333 = objectArray[safeIndex: 3]
+//        v333?.name
+//        v333?.ss()
+//        let v444 = objectArray[safeIndex: 1]
+//        v444?.name
+//        v444?.ss()
+//        objectArray[safeIndex:5] = v3
+//
+//        objectArray[1] = v3
+//        let v5 = Content1.creat(name: "z笨猪就是你", age: 123, sex:  "男", born_in: "2312")
+//        objectArray[safeIndex:1] = v5
+//        let _ = objectArray[safeIndex:3]
+//        objectArray[safeIndex:4] = v5
+//        UINavigationBar.appearance().isTranslucent = false
 
         let kfManager = KingfisherManager.shared
         // 通过manager 获取cache
@@ -183,6 +185,7 @@ class ViewController: UIViewController {
     }
 
     @objc func share(_ btn: UIButton) {
+
         if let shareView = self.view.viewWithTag(9999), shareView is MGLayerView{
             (shareView as! MGLayerView).starAnimation()
         }
@@ -221,11 +224,14 @@ class ViewController: UIViewController {
     }
 
     @objc func leftClick() {
+        let ssss = "https://dev-api.longxins.com/api/v2/file/f5676ba6c31411e9879d42010af00002.mp3?signature=c0df5a94ed1b721d035f8eea91e8d634fce9809ca793ae0c119c10dba9747a67&file_name=《往后余生》.mp3&access_user_ids_str=4538798_4539308&file_id=55&file_folder=message%2F2019%2F08%2F20&active_time=2019-08-20T06%3A45%3A30Z&user_id=4539308&device_id=23"
+        let urlSsss = URL(string: ssss.addingPercentEncoding(withAllowedCharacters: CharacterSet.whitespacesAndNewlines) ?? "")
         self.navigationController?.pushViewController(LeftViewController(), animated: true)
     }
 
     @objc func rightClick() {
-        self.navigationController?.pushViewController(BViewController(), animated: true)
+        self.navigationController?.pushViewController(MGOrigationViewController(), animated: true)
+//        self.navigationController?.pushViewController(BViewController(), animated: true)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -555,3 +561,104 @@ func test() {
 }
 
 
+struct Message:Codable {
+    var id: Int?
+    var text: String?
+}
+
+class Content1:Codable {
+    var name: String?
+    var age: Int?
+    var sex: String?
+    var born_in: String?
+    var message: Message?
+
+    static func creat(name: String?,age: Int?,sex: String?,born_in: String?,message: Message?) -> Content1{
+        let v = Content1()
+        v.name    = name
+        v.age     = age
+        v.sex     = sex
+        v.born_in = born_in
+        v.message = message
+        return v
+    }
+
+    func ss() {
+        print("没有崩溃")
+    }
+}
+
+//extension Array {
+//    // 防止数组越界
+//    subscript(_ index: Int) -> Element? {
+//        if index < count {
+//            return self[index]
+//        } else {
+//            return nil
+//        }
+//    }
+//
+//    func safe_object(at index: Int) -> Element? {
+//        if index < count {
+//            return self[index]
+//        } else {
+//            return nil
+//        }
+//    }
+//}
+//
+//extension NSMutableArray {
+//    func safe_addObject(_ object: Element?) {
+//        if object != nil {
+//            if let object = object {
+//                self.add(object)
+//            }
+//        }
+//    }
+//
+//    func safe_addObjects(fromArray array: [Element]?) {
+//        if array != nil {
+//            if let array = array {
+//                self.addObjects(from: array)
+//            }
+//        }
+//    }
+//
+//    func safe_remove(_ object: Element?) {
+//        if object != nil {
+//            if let object = object {
+//                self.remove(object)
+//            }
+//        }
+//    }
+//}
+
+
+func testtest() {
+    var ceshi = ["1","2"]
+    ceshi.safe_object(at: 1)
+
+    let v3:Content1 = Content1.creat(name: "笨蛋小li6", age: 231, sex:  "男", born_in: "1993",message: Message(id: 1, text: "222333333"))
+    let v4:Content1 = Content1.creat(name: "笨蛋", age: 231, sex:  "男", born_in: "1993",message: Message(id: 1, text: "666666666666"))
+    var  objectArray = [v3,v4]
+    let v33:Content1? = objectArray.safe_object(at: 3) as? Content1
+    v33?.name
+    v33?.ss()
+    let v44:Content1? = objectArray.safe_object(at: 1) as? Content1
+    v44?.name
+    v44?.ss()
+
+    let v333:Content1? = objectArray[0] as? Content1
+    v333?.message?.text = "32131243"
+    v333?.name
+    v333?.ss()
+//    objectArray[2] = v4
+    //let v444:Content1? = objectArray[1] as? Content1
+    //v444?.name
+    //v444?.ss()
+    let newValue: Any? = nil
+//    (newValue ?? nil)!
+    let v5:Content1? = Content1.creat(name: "ss", age: 123441, sex:  "男", born_in: "2019",message: Message(id: 1, text: "666666666666"))
+    objectArray[1] = (v5 ?? nil)!
+
+}
