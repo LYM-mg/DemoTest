@@ -133,6 +133,22 @@ public extension String {
         return String(self[range])
     }
 
+    func removeLastCharacter() -> String {
+        if self.count <= 0 {
+            return self
+        }
+        var range = self.startIndex..<self.endIndex
+
+        let opts:NSString.EnumerationOptions = [.byComposedCharacterSequences, .reverse]
+        self.enumerateSubstrings(in: range, options: opts) {
+            (substring, substringRange, enclosingRange, stop) -> () in
+            range = substringRange
+            stop = true
+        }
+
+        return String(self[range])
+    }
+
     /// 使用下标截取字符串 例: "示例字符串"[0..<2] 结果是 "示例"
     subscript (r: Range<Int>) -> String {
         get {

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -43,15 +43,12 @@
 		F422ACF1224A2D7700DECC45 /* RightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F422ACF0224A2D7700DECC45 /* RightViewController.swift */; };
 		F422ACF3224A34F700DECC45 /* BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F422ACF2224A34F700DECC45 /* BViewController.swift */; };
 		F422AD15224B923800DECC45 /* MGFeedbackCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F422AD14224B923800DECC45 /* MGFeedbackCollectionReusableView.swift */; };
-		F42B43EE230E40A70079CBAB /* MGOrigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42B43ED230E40A70079CBAB /* MGOrigationViewController.swift */; };
 		F45AA61F225488F80061A0F0 /* MGSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AA61E225488F80061A0F0 /* MGSessionManager.swift */; };
 		F45AA62122548CD20061A0F0 /* DataRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AA62022548CD20061A0F0 /* DataRequestExtension.swift */; };
 		F45AA6232254B2FA0061A0F0 /* MGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AA6222254B2FA0061A0F0 /* MGModel.swift */; };
 		F45AA62A225AFA160061A0F0 /* TbaleViewContainTBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AA629225AFA160061A0F0 /* TbaleViewContainTBController.swift */; };
 		F45AA62C225B06500061A0F0 /* MGJSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AA62B225B06500061A0F0 /* MGJSONSerializable.swift */; };
 		F45AA62E225B34790061A0F0 /* TBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AA62D225B34790061A0F0 /* TBViewController.swift */; };
-		F45CEFA122E718260034DE7D /* MGUploadToos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45CEF9F22E718260034DE7D /* MGUploadToos.swift */; };
-		F45CEFA222E718260034DE7D /* MessageNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45CEFA022E718260034DE7D /* MessageNetwork.swift */; };
 		F45D592E225DC0850082DCBE /* ClassroomNetworkListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45D592D225DC0840082DCBE /* ClassroomNetworkListener.swift */; };
 		F45D5930225DC0D90082DCBE /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45D592F225DC0D90082DCBE /* Reachability.swift */; };
 		F465B29D225D9EC000F69BB9 /* MGBadgeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465B29C225D9EBF00F69BB9 /* MGBadgeProtocol.swift */; };
@@ -63,9 +60,6 @@
 		F494EF6122670739006E4792 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F494EF6022670739006E4792 /* SwiftyJSON.framework */; };
 		F494EF64226716BB006E4792 /* DataRequest+NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494EF63226716BB006E4792 /* DataRequest+NSObject.swift */; };
 		F494EF6622672D3D006E4792 /* MGSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494EF6522672D3D006E4792 /* MGSearchTableViewController.swift */; };
-		F49C960C22CDE8A9003A9A86 /* MGLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C960B22CDE8A9003A9A86 /* MGLayerView.swift */; };
-		F4B3999322F97191001714AE /* NSObject+FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B3999222F97191001714AE /* NSObject+FileManager.swift */; };
-		F4B85F6C22EA9CB20033F2D4 /* MGUploadToos1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B85F6B22EA9CB20033F2D4 /* MGUploadToos1.swift */; };
 		F4D2D38B225F5A2700ADF674 /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D2D38A225F5A2600ADF674 /* BiometricService.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,15 +104,12 @@
 		F422ACF0224A2D7700DECC45 /* RightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightViewController.swift; sourceTree = "<group>"; };
 		F422ACF2224A34F700DECC45 /* BViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BViewController.swift; sourceTree = "<group>"; };
 		F422AD14224B923800DECC45 /* MGFeedbackCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGFeedbackCollectionReusableView.swift; sourceTree = "<group>"; };
-		F42B43ED230E40A70079CBAB /* MGOrigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGOrigationViewController.swift; sourceTree = "<group>"; };
 		F45AA61E225488F80061A0F0 /* MGSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSessionManager.swift; sourceTree = "<group>"; };
 		F45AA62022548CD20061A0F0 /* DataRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequestExtension.swift; sourceTree = "<group>"; };
 		F45AA6222254B2FA0061A0F0 /* MGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGModel.swift; sourceTree = "<group>"; };
 		F45AA629225AFA160061A0F0 /* TbaleViewContainTBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbaleViewContainTBController.swift; sourceTree = "<group>"; };
 		F45AA62B225B06500061A0F0 /* MGJSONSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGJSONSerializable.swift; sourceTree = "<group>"; };
 		F45AA62D225B34790061A0F0 /* TBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBViewController.swift; sourceTree = "<group>"; };
-		F45CEF9F22E718260034DE7D /* MGUploadToos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGUploadToos.swift; sourceTree = "<group>"; };
-		F45CEFA022E718260034DE7D /* MessageNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageNetwork.swift; sourceTree = "<group>"; };
 		F45D592D225DC0840082DCBE /* ClassroomNetworkListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomNetworkListener.swift; sourceTree = "<group>"; };
 		F45D592F225DC0D90082DCBE /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		F465B29C225D9EBF00F69BB9 /* MGBadgeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGBadgeProtocol.swift; sourceTree = "<group>"; };
@@ -130,9 +121,6 @@
 		F494EF6022670739006E4792 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F494EF63226716BB006E4792 /* DataRequest+NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+NSObject.swift"; sourceTree = "<group>"; };
 		F494EF6522672D3D006E4792 /* MGSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSearchTableViewController.swift; sourceTree = "<group>"; };
-		F49C960B22CDE8A9003A9A86 /* MGLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGLayerView.swift; sourceTree = "<group>"; };
-		F4B3999222F97191001714AE /* NSObject+FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+FileManager.swift"; sourceTree = "<group>"; };
-		F4B85F6B22EA9CB20033F2D4 /* MGUploadToos1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGUploadToos1.swift; sourceTree = "<group>"; };
 		F4D2D38A225F5A2600ADF674 /* BiometricService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,7 +197,6 @@
 				F45AA629225AFA160061A0F0 /* TbaleViewContainTBController.swift */,
 				F45AA62D225B34790061A0F0 /* TBViewController.swift */,
 				F4D2D38A225F5A2600ADF674 /* BiometricService.swift */,
-				F49C960B22CDE8A9003A9A86 /* MGLayerView.swift */,
 				F422AC962249D5B900DECC45 /* Main.storyboard */,
 				F422AC992249D5BB00DECC45 /* Assets.xcassets */,
 				F422AC9B2249D5BB00DECC45 /* LaunchScreen.storyboard */,
@@ -218,7 +205,6 @@
 				F422ACBF224A14EA00DECC45 /* Extesion */,
 				F422AD14224B923800DECC45 /* MGFeedbackCollectionReusableView.swift */,
 				F494EF6522672D3D006E4792 /* MGSearchTableViewController.swift */,
-				F42B43ED230E40A70079CBAB /* MGOrigationViewController.swift */,
 			);
 			path = SwiftyDemo;
 			sourceTree = "<group>";
@@ -236,7 +222,6 @@
 		F422ACC0224A14EA00DECC45 /* Category(扩展) */ = {
 			isa = PBXGroup;
 			children = (
-				F4B3999222F97191001714AE /* NSObject+FileManager.swift */,
 				F422ACC1224A14EA00DECC45 /* Array+Extension.swift */,
 				F422ACC2224A14EA00DECC45 /* CALayer+Extension.swift */,
 				F422ACC3224A14EA00DECC45 /* NSObject+Extension.swift */,
@@ -274,27 +259,16 @@
 		F45AA61D225488CE0061A0F0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				F45CEFA322E7183A0034DE7D /* upload + 系统 */,
 				F494EF6222671689006E4792 /* Tool + 泛型 + 协议 + NSObject */,
 				F40703B5226460F400F7B9C5 /* Tool + 普通封装 */,
+				F45D592F225DC0D90082DCBE /* Reachability.swift */,
+				F45D592D225DC0840082DCBE /* ClassroomNetworkListener.swift */,
 				F45AA62B225B06500061A0F0 /* MGJSONSerializable.swift */,
 				F45AA61E225488F80061A0F0 /* MGSessionManager.swift */,
 				F45AA62022548CD20061A0F0 /* DataRequestExtension.swift */,
-				F45D592F225DC0D90082DCBE /* Reachability.swift */,
-				F45D592D225DC0840082DCBE /* ClassroomNetworkListener.swift */,
 				F47DB11A226046AA004A7D2F /* MGTouchIDManager.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		F45CEFA322E7183A0034DE7D /* upload + 系统 */ = {
-			isa = PBXGroup;
-			children = (
-				F45CEFA022E718260034DE7D /* MessageNetwork.swift */,
-				F45CEF9F22E718260034DE7D /* MGUploadToos.swift */,
-				F4B85F6B22EA9CB20033F2D4 /* MGUploadToos1.swift */,
-			);
-			path = "upload + 系统";
 			sourceTree = "<group>";
 		};
 		F47DB11C22606E42004A7D2F /* New Group */ = {
@@ -437,8 +411,6 @@
 				F422ACE1224A14EB00DECC45 /* UIGestureRecognizer+Extension.swift in Sources */,
 				F40703B72264610900F7B9C5 /* NetWorkTools.swift in Sources */,
 				F494EF6622672D3D006E4792 /* MGSearchTableViewController.swift in Sources */,
-				F4B3999322F97191001714AE /* NSObject+FileManager.swift in Sources */,
-				F49C960C22CDE8A9003A9A86 /* MGLayerView.swift in Sources */,
 				F47DB12022606FCE004A7D2F /* MGResponseVC.swift in Sources */,
 				F47DB1222260B59C004A7D2F /* NSMutableAttributedString+Extension.swift in Sources */,
 				F422ACE0224A14EB00DECC45 /* UIDevice+Extension.swift in Sources */,
@@ -449,7 +421,6 @@
 				F45AA62C225B06500061A0F0 /* MGJSONSerializable.swift in Sources */,
 				F422ACD7224A14EB00DECC45 /* Array+Extension.swift in Sources */,
 				F422ACA52249DA3700DECC45 /* MGNameSpaceWrappable.swift in Sources */,
-				F45CEFA222E718260034DE7D /* MessageNetwork.swift in Sources */,
 				F422AC952249D5B900DECC45 /* ViewController.swift in Sources */,
 				F422ACDE224A14EB00DECC45 /* UIBUtton+Extension.swift in Sources */,
 				F422ACE4224A14EB00DECC45 /* UILabel+Extension.swift in Sources */,
@@ -460,15 +431,12 @@
 				F422AC932249D5B900DECC45 /* AppDelegate.swift in Sources */,
 				F422ACED224A182A00DECC45 /* UIViewController+Extension.swift in Sources */,
 				F422ACD8224A14EB00DECC45 /* CALayer+Extension.swift in Sources */,
-				F42B43EE230E40A70079CBAB /* MGOrigationViewController.swift in Sources */,
 				F422ACE5224A14EB00DECC45 /* UIView+Extension.swift in Sources */,
 				F422ACE7224A14EB00DECC45 /* Constant.swift in Sources */,
 				F40703B92264633E00F7B9C5 /* NetWorkTools+Extension.swift in Sources */,
 				F422ACEF224A2D6800DECC45 /* LeftViewController.swift in Sources */,
 				F422ACE8224A14EB00DECC45 /* CornersLabel.swift in Sources */,
-				F4B85F6C22EA9CB20033F2D4 /* MGUploadToos1.swift in Sources */,
 				F45AA61F225488F80061A0F0 /* MGSessionManager.swift in Sources */,
-				F45CEFA122E718260034DE7D /* MGUploadToos.swift in Sources */,
 				F422ACE2224A14EB00DECC45 /* UIImage+Extension.swift in Sources */,
 				F422ACD9224A14EB00DECC45 /* NSObject+Extension.swift in Sources */,
 				F422ACF3224A34F700DECC45 /* BViewController.swift in Sources */,
@@ -634,9 +602,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H54L47S422;
+				DEVELOPMENT_TEAM = 8Q5PM386TD;
 				INFOPLIST_FILE = SwiftyDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -654,9 +621,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H54L47S422;
+				DEVELOPMENT_TEAM = 8Q5PM386TD;
 				INFOPLIST_FILE = SwiftyDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

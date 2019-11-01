@@ -8,18 +8,18 @@
     <a href="https://github.com/Juanpe/SkeletonView">
         <img src="https://img.shields.io/cocoapods/p/SkeletonView.svg" alt="Platforms">
     </a>
-    <img src="https://img.shields.io/badge/Swift-4.2-orange.svg" />
+    <img src="https://img.shields.io/badge/Swift-5-orange.svg" />
     <a href="https://cocoapods.org/pods/SkeletonView">
         <img src="https://img.shields.io/cocoapods/v/SkeletonView.svg" alt="CocoaPods" />
     </a>
-    <a href="https://cocoapods.org/pods/SkeletonView">
-        <img src="https://img.shields.io/cocoapods/dt/SkeletonView.svg?style=flat" alt="CocoaPods downloads" />
+    <a href="https://github.com/Carthage/Carthage">
+        <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage" />
+    </a>
+    <a href="https://github.com/apple/swift-package-manager">
+        <img src="https://img.shields.io/badge/SPM-compatible-brightgreen.svg" alt="SPM" />
     </a>
     <a href="https://twitter.com/JuanpeCatalan">
         <img src="https://img.shields.io/badge/contact-@JuanpeCatalan-blue.svg?style=flat" alt="Twitter: @JuanpeCatalan" />
-    </a>
-    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=MJ4Y2D9DEX6FL&lc=ES&item_name=SkeletonView&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">
-        <img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Paypal" />
     </a>
     <br/>
     <a href="https://twitter.com/intent/tweet?text=Wow%20This%20library%20is%20awesome:&url=https%3A%2F%2Fgithub.com%2FJuanpe%2FSkeletonView">
@@ -29,7 +29,8 @@
 
 🌎  Translations: </br>
 [🇨🇳](https://github.com/Juanpe/SkeletonView/blob/master/README_zh.md) by [@WhatsXie](https://twitter.com/WhatsXie) </br>
-[🇧🇷](https://github.com/Juanpe/SkeletonView/blob/master/README_pt-br.md) by [@brunomunizaf](https://twitter.com/brunomuniz_af)
+[🇧🇷](https://github.com/Juanpe/SkeletonView/blob/master/README_pt-br.md) by [@brunomunizaf](https://twitter.com/brunomuniz_af) </br>
+[🇰🇷](https://github.com/Juanpe/SkeletonView/blob/master/README_ko.md) by [@techinpark](https://twitter.com/techinpark)
 
 Today almost all apps have async processes, such as Api requests, long running processes, etc. And while the processes are working, usually developers place a loading view to show users that something is going on.
 
@@ -42,6 +43,7 @@ Enjoy it! 🙂
 * [Installation](#-installation)
   * [Cocoapods](#using-cocoapods)
   * [Carthage](#using-carthage)
+  * [SPM](#using-swift-package-manager)
 * [How to use](#-how-to-use)
   * [Collections](#-collections)
   * [Multiline text](#-multiline-text)
@@ -90,6 +92,18 @@ Edit your `Cartfile` and specify the dependency:
 ```bash
 github "Juanpe/SkeletonView"
 ```
+
+#### Using [Swift Package Manager](https://github.com/apple/swift-package-manager)
+
+Once you have your Swift package set up, adding `SkeletonView` as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```swift
+  dependencies: [
+    .package(url: "https://github.com/Juanpe/SkeletonView.git", from: "1.7")
+  ]
+```
+
+
 
 ## 🐒 How to use
 
@@ -155,11 +169,36 @@ avatarImageView.isSkeletonable = true
 > **IMPORTANT!**
 >>```SkeletonView``` is recursive, so if you want show the skeleton in all skeletonable views, you only need to call the show method in the main container view. For example, with UIViewControllers
 
+### Extra
+
+#### Skeleton views layout
+
+Sometimes skeleton layout may not fit your layout because the parent view bounds have changed. For example, rotating the device.
+
+You can relayout the skeleton views like so:
+
+```swift
+override func viewDidLayoutSubviews() {
+    view.layoutSkeletonIfNeeded()
+}
+```
+
+#### Update skeleton configuration
+
+You can change the skeleton configuration at any time like its colour, animation, etc. with the following methods:
+
+```swift
+(1) view.updateSkeleton()                 // Solid
+(2) view.updateGradientSkeleton()         // Gradient
+(3) view.updateAnimatedSkeleton()         // Solid animated
+(4) view.updateAnimatedGradientSkeleton() // Gradient animated
+```
+
 ### 🌿 Collections
 
  Now, ```SkeletonView``` is compatible with ```UITableView``` and ```UICollectionView```.
 
-###### UITableView
+#### UITableView
 
 If you want to show the skeleton in a ```UITableView```, you need to conform to ```SkeletonTableViewDataSource``` protocol.
 
@@ -200,7 +239,15 @@ There is only one method you need to implement to let Skeleton know the cell ide
 > **IMPORTANT!**
 > If you are using resizable cells (`tableView.rowHeight = UITableViewAutomaticDimension` ), it's mandatory define the `estimatedRowHeight`.
 
-###### UICollectionView
+👩🏼‍🏫  **How specify which elements are skeletonables?**
+
+Here is an illustration that shows how you should specify which elements are skeletonables when you are using an `UITableView`:
+
+![](Assets/tableview_scheme.png)
+
+As you can see, we have to make skeletonable the tableview, the cell and the UI elements, but we don't need to set as skeletonable the `contentView`
+
+####  UICollectionView
 
 For ```UICollectionView```, you need to conform to ```SkeletonCollectionViewDataSource``` protocol.
 

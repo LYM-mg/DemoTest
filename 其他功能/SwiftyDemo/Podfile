@@ -10,7 +10,7 @@ target 'SwiftyDemo' do
   pod 'Alamofire'
   pod 'MJExtension'
   pod 'SVProgressHUD' # 请求的时候提示文字
-  pod 'HandyJSON','~> 5.0.0'
-  pod 'SwiftyJSON','~> 5.0.0'
+  pod 'HandyJSON', '~> 5.0.0'
+  pod 'SwiftyJSON','~> 4.2.0'
 
 end

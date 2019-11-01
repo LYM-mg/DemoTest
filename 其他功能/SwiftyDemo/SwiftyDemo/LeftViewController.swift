@@ -133,6 +133,19 @@ class LeftViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         btn.showBadge(22)
         btn1.hideBadge()
+        testLocalTime()
+    }
+
+    @objc func testLocalTime() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        //dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"]; // 这里是用小写的 h
+        let dateFormatter1 = DateFormatter()
+        dateFormatter1.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        print(DateFormatter.formatterMMddHHmm.string(from: Date()))
+        print(dateFormatter.string(from: Date()))
+        print(dateFormatter1.string(from: Date()))
     }
 
     @objc func change(_ sw: UISwitch) {
@@ -284,6 +297,33 @@ extension LeftViewController: ClassRoomNetWorkListenerDelegate {
     }
 }
 
+extension DateFormatter {
+    static func dateFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
+        return formatter
+    }
+
+    // Jan 20, 13:30
+    static let formatterMMddHHmm: DateFormatter = {
+        let formatter = dateFormatter()
+        // 获取系统时区
+        //        formatter.timeZone = NSTimeZone.system
+
+        let format = "MMM dd, hh:mm a" // usesAMPM() ? "MMM dd, hh:mm a" : "MMM dd, HH:mm"
+        formatter.setLocalizedDateFormatFromTemplate(format)
+        return formatter
+    }()
+
+    static func usesAMPM() -> Bool {
+        if let formatString = dateFormat(fromTemplate: "yMMMMd", options: 0, locale: Locale.current) {
+            return formatString.contains("a")
+        }
+        return true
+    }
+}
+
+
 class XXX: MGModel {
     /**
      *  health只有有值就代表台灯未使用过或者损坏 (-1)
@@ -314,7 +354,8 @@ class XXX: MGModel {
 struct Person: Codable {
     let age:Int
     let name:String
-    let userid:String
+    let user_id:String
+    let ttt:String?
 }
 
 struct MGRequest <T : Codable> {
@@ -323,7 +364,7 @@ struct MGRequest <T : Codable> {
 public typealias GenericClosure<T> = (T) -> ()
 extension MGRequest {
     static func requestService(decoder: JSONDecoder = JSONDecoder(), success:@escaping (Any)->(),fail: @escaping ()->()) {
-        let dict:[String:Any] = ["age":10,"name":"MG","user_id":"MG"]
+        let dict:[String:Any] = ["age":10,"name":"笨蛋","user_id":"MG"]
         guard let data = try? JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted) else {
             fail()
             return ;
@@ -342,5 +383,4 @@ extension MGRequest {
         print(dict22 as Any)
     }
 }
-
 

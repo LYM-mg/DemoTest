@@ -1,12 +1,12 @@
 PODS:
   - Alamofire (4.8.2)
   - HandyJSON (5.0.0)
-  - Kingfisher (5.3.1)
-  - MJExtension (3.0.16)
-  - SkeletonView (1.4.2)
-  - SnapKit (4.2.0)
+  - Kingfisher (5.7.0)
+  - MJExtension (3.0.17)
+  - SkeletonView (1.7)
+  - SnapKit (5.0.0)
   - SVProgressHUD (2.2.5)
-  - SwiftyJSON (5.0.0)
+  - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -16,7 +16,7 @@ DEPENDENCIES:
   - SkeletonView
   - SnapKit
   - SVProgressHUD
-  - SwiftyJSON (~> 5.0.0)
+  - SwiftyJSON (~> 4.2.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -32,13 +32,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   HandyJSON: 992f2d661716d6a91de82d0056927bc7813b5770
-  Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
-  MJExtension: 54dbbf6ee728f1a88e9aad904353d007831c7847
-  SkeletonView: c2523c3c8c6510e273e49a3bf364a434744c3914
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  Kingfisher: c7d211b54f1f30d8060aadab177d52b4349c825b
+  MJExtension: 74ec83124a68891619fb7ba9c5c811bbf1691076
+  SkeletonView: 7d7378731b708f8a6e6b1ffefb68cc3903f10a03
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 24fdfa3cecde8012c4e438881c728dd9429cc23d
+PODFILE CHECKSUM: a726c79d9d65edb1fe2c4b0abb5b1f237d3cbbff
 
 COCOAPODS: 1.7.0.rc.1

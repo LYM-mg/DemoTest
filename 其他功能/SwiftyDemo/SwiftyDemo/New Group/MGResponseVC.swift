@@ -40,10 +40,6 @@ class MGResponseVC: UIViewController {
             make.left.equalTo(view).offset(30)
         }
         btn1.showBadge(12)
-        let Arr:[String] = [String]()
-        for (i,dict) in Arr.enumerated() {
-            
-        }
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(self.rightClick))
     }
@@ -58,30 +54,9 @@ class MGResponseVC: UIViewController {
 
     @objc func requestJSON() {
         let parameters: [String: Any] = ["method":"baidu.ting.billboard.billCategory","kflag":"1","from":"ios","version":"5.5.6","channel":"appstore","operator":"1","format":"json"]
-
-        MGSessionManager.default.request("http://tingapi.ting.baidu.com/v1/restserver/ting", method: .post, parameters: parameters).responseDecodableObject { (response:DataResponse<MGSong>) in
-            switch response.result {
-            case .success(let value):
-                print(value)
-                break
-            case .failure(let error):
-                print(error)
-                break
-
-            }
+        MGSessionManager.default.request("http://tingapi.ting.baidu.com/v1/restserver/ting", method: .post, parameters: parameters).mgResponseDecodableObject() { (response: DataResponse<MGSong>) in
+            print(response)
         }
-        MGSessionManager.default.request("http://tingapi.ting.baidu.com/v1/restserver/ting", method: .post, parameters: parameters).mgResponseDecodableObject { (response:DataResponse<MGSong>) in
-            switch response.result {
-            case .success(let value):
-                print(value)
-                break
-            case .failure(let error):
-                print(error)
-                break
-
-            }
-        }
-
 
         API.Home.Base.getHomeList(parameters: parameters).progressTitle("正在加载。。。").perform(successed: { (reslut, err) in
             let song = LYMSong.mj_object(withKeyValues: reslut)

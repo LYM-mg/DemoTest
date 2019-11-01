@@ -47,7 +47,7 @@ extension NSObject {
             let met: Method = methods![index]
             debugPrint("m_name: \(method_getName(met))")
 //            debugPrint("m_returnType: \(String(utf8String: method_copyReturnType(met))!)")
-//            debugPrint("m_type: \(String(utf8String: method_getTypeEncoding(met))!)")
+//            debugPrint("m_type: \(String(utf8String: method_getTypeEncoding(met)!)!)")
         }
         
         debugPrint("属性=========================================================")
@@ -55,7 +55,7 @@ extension NSObject {
         let properties = class_copyPropertyList(cls, &propNum)
         for index in 0..<Int(propNum) {
             let prop: objc_property_t = properties![index]
-            debugPrint("p_name: \(String(utf8String: property_getName(prop))!)")
+            debugPrint("p_name: \(String(utf8String: property_getName(prop))!)"  + "   " + "m_type: \(String(describing: String(utf8String: property_getAttributes(prop)!)!))")
 //            debugPrint("p_Attr: \(String(utf8String: property_getAttributes(prop))!)")
         }
         
@@ -65,7 +65,7 @@ extension NSObject {
         for index in 0..<numericCast(ivarNum) {
             let ivar: objc_property_t = ivars![index]
             let name = ivar_getName(ivar)
-            debugPrint("ivar_name: \(String(cString: name!))")
+            debugPrint("ivar_name: \(String(cString: name!))" + "   " + "m_type: \(String(describing: String(utf8String: ivar_getTypeEncoding(ivar)!)!))")
         }
     }
     
@@ -101,7 +101,7 @@ extension NSObject {
         for index in 0..<numericCast(ivarNum) {
             let ivar: objc_property_t = ivars![index]
             if let name:UnsafePointer<Int8> = ivar_getName(ivar) {
-                debugPrint("ivar_name: \(String(cString: name))")
+                debugPrint("ivar_name: \(String(cString: name))" + "   " + "m_type: \(String(describing: String(utf8String: ivar_getTypeEncoding(ivar)!)!))")
                 if  let key = String(utf8String:name) {
                     array.append(key)
                     array.append("\n")

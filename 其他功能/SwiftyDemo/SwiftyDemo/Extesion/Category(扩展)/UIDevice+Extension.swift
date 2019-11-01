@@ -58,39 +58,19 @@ extension UIDevice {
 struct Platform {
     static let isSimulator: Bool = {
         var isSim = false
-        #if targetEnvironment(simulator)
+        #if arch(i386) || arch(x86_64)
             isSim = true
         #endif
         return isSim
     }()
 }
 
-struct DeviceTools {
-    static let isIphoneX: Bool = {
-        var isIphoneSeries = false
-        if UIDevice.isPhone(),#available(iOS 11,*) {
-            if  (UIApplication.shared.delegate!.window!!.safeAreaInsets.bottom > 0) {
-                isIphoneSeries = true
-                return isIphoneSeries
-            }
-        }
-
-        return isIphoneSeries
-    }()
-}
-
 public struct Simulator {
-
     public static var isRunning: Bool = {
-        #if targetEnvironment(simulator)
-        return true
+        #if (arch(i386) || arch(x86_64)) && os(iOS)
+            return true
         #else
-        return false
+            return false
         #endif
-//        #if (arch(i386) || arch(x86_64)) && os(iOS)
-//            return true
-//        #else
-//            return false
-//        #endif
     }()
 }

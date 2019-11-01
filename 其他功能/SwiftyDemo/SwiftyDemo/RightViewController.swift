@@ -116,4 +116,3 @@ extension RightViewController:UITableViewDataSource,UITableViewDelegate {
         return 44
     }
 }
-
