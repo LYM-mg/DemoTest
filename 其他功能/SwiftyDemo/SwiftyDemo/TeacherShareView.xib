@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TeacherShareView" customModule="TeacherModule" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teacherShare" translatesAutoresizingMaskIntoConstraints="NO" id="nWm-ic-gOr">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="480"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ad" translatesAutoresizingMaskIntoConstraints="NO" id="ZUt-PA-PZx">
+                    <rect key="frame" x="85" y="215" width="110" height="110"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="110" id="n3Z-Rx-pHB"/>
+                        <constraint firstAttribute="width" constant="110" id="z9c-zm-rIR"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="55"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TI5-io-eHF">
+                    <rect key="frame" x="155" y="285" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="f8e-qk-zjW"/>
+                        <constraint firstAttribute="width" constant="40" id="wbe-tz-OpJ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="辅导教师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPJ-Rh-23q">
+                    <rect key="frame" x="225" y="215" width="61.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72d-a9-XDM">
+                    <rect key="frame" x="225" y="258" width="20" height="27"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="0000 课时" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZ7-Ws-Jxx">
+                    <rect key="frame" x="225" y="307" width="71.5" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="oQg-N6-wan"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000 学生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azY-jC-7K6">
+                    <rect key="frame" x="316.5" y="307" width="71.5" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="yH2-mv-41n"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ZUt-PA-PZx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="30" id="1YA-tp-I0P"/>
+                <constraint firstItem="vZ7-Ws-Jxx" firstAttribute="bottom" secondItem="ZUt-PA-PZx" secondAttribute="bottom" id="5S3-Hk-Ats"/>
+                <constraint firstItem="azY-jC-7K6" firstAttribute="bottom" secondItem="vZ7-Ws-Jxx" secondAttribute="bottom" id="6fD-1s-mTH"/>
+                <constraint firstItem="72d-a9-XDM" firstAttribute="top" secondItem="sPJ-Rh-23q" secondAttribute="bottom" constant="25" id="Cfg-L7-Evo"/>
+                <constraint firstItem="72d-a9-XDM" firstAttribute="leading" secondItem="sPJ-Rh-23q" secondAttribute="leading" id="D19-Tq-K5X"/>
+                <constraint firstItem="TI5-io-eHF" firstAttribute="bottom" secondItem="ZUt-PA-PZx" secondAttribute="bottom" id="Fr1-wb-RZb"/>
+                <constraint firstItem="azY-jC-7K6" firstAttribute="leading" secondItem="vZ7-Ws-Jxx" secondAttribute="trailing" constant="20" id="Rpr-U0-cb0"/>
+                <constraint firstItem="sPJ-Rh-23q" firstAttribute="top" secondItem="ZUt-PA-PZx" secondAttribute="top" id="Ygu-UI-JG9"/>
+                <constraint firstItem="vZ7-Ws-Jxx" firstAttribute="leading" secondItem="sPJ-Rh-23q" secondAttribute="leading" id="hwo-8w-ZJn"/>
+                <constraint firstAttribute="bottom" secondItem="nWm-ic-gOr" secondAttribute="bottom" id="jEk-Gx-crx"/>
+                <constraint firstItem="nWm-ic-gOr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kzk-SI-VtX"/>
+                <constraint firstItem="ZUt-PA-PZx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="85" id="liU-dL-Ap7"/>
+                <constraint firstItem="ZUt-PA-PZx" firstAttribute="trailing" secondItem="TI5-io-eHF" secondAttribute="trailing" id="tQp-47-k3V"/>
+                <constraint firstItem="nWm-ic-gOr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="uqv-If-wOa"/>
+                <constraint firstItem="sPJ-Rh-23q" firstAttribute="leading" secondItem="ZUt-PA-PZx" secondAttribute="trailing" constant="30" id="waN-1B-hXv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nWm-ic-gOr" secondAttribute="trailing" id="yNV-eC-8T8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="avatarImage" destination="ZUt-PA-PZx" id="L6Z-KB-lYL"/>
+                <outlet property="flagImage" destination="TI5-io-eHF" id="GS0-bU-e3q"/>
+                <outlet property="lessonNum" destination="vZ7-Ws-Jxx" id="2Ch-Oa-SXN"/>
+                <outlet property="nickName" destination="72d-a9-XDM" id="6pI-1f-7j6"/>
+                <outlet property="studentsNum" destination="azY-jC-7K6" id="32m-Lt-1uD"/>
+                <outlet property="teacherType" destination="sPJ-Rh-23q" id="I9l-Fl-rk0"/>
+            </connections>
+            <point key="canvasLocation" x="-484.05797101449281" y="-70.3125"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ad" width="512" height="512"/>
+        <image name="teacherShare" width="375" height="300"/>
+    </resources>
+</document>

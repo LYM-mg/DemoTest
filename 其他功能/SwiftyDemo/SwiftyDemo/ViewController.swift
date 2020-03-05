@@ -18,7 +18,9 @@ import Alamofire
 #endif
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var tipLabel: UILabel!
+    
+    @IBOutlet weak var imageView: UIImageView!
     lazy var players: NSMutableArray = {
        var temporaryPlayers = NSMutableArray()
         temporaryPlayers.add("jiali,Mike Buss")
@@ -58,6 +60,9 @@ class ViewController: UIViewController {
         MGSessionManager.default.request("Room/GetNewRoomOnline?page=1", method: .get, parameters: nil).mgResponseDecodableObject { (response: DataResponse<MGServicelData1>) in
             print(response)
         }
+        self.tipLabel.sizeToFit()
+        self.tipLabel .text = "dsaaaaaaaaaahklhlfas"
+        self.imageView.image = MGCreatTiool().creatQRCode()
     }
 
     func setUpMainView() {
@@ -108,7 +113,20 @@ class ViewController: UIViewController {
 //            }
 //        }
 //        test()
-        print(isProtraitLockOn())
+        
+//        let shareView1 = TeacherShareView.loadFromNib();
+//        shareView1.updateUI()
+//        shareView1.center =  UIApplication.shared.keyWindow!.center
+//        UIApplication.shared.keyWindow?.addSubview(shareView1)
+        
+        let shareView1 = imageView.snapshotView(afterScreenUpdates: true) 
+        shareView1!.center =  UIApplication.shared.keyWindow!.center
+        UIApplication.shared.keyWindow?.addSubview(shareView1!)
+        if let shareView1  = shareView1 {
+            shareView1.center =  UIApplication.shared.keyWindow!.center
+            UIApplication.shared.keyWindow?.addSubview(shareView1)
+        }
+//        print(isProtraitLockOn())
     }
 
     func test() {

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -60,7 +60,12 @@
 		F494EF6122670739006E4792 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F494EF6022670739006E4792 /* SwiftyJSON.framework */; };
 		F494EF64226716BB006E4792 /* DataRequest+NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494EF63226716BB006E4792 /* DataRequest+NSObject.swift */; };
 		F494EF6622672D3D006E4792 /* MGSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494EF6522672D3D006E4792 /* MGSearchTableViewController.swift */; };
+		F49AEF142410A3550084D7BB /* MessageNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AEF132410A3550084D7BB /* MessageNetwork.swift */; };
+		F4B64F10240CF77C00BF8A42 /* MGImageCompressTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B64F0F240CF77C00BF8A42 /* MGImageCompressTool.swift */; };
+		F4B64F13240D407C00BF8A42 /* CIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B64F12240D407C00BF8A42 /* CIImage+Extension.swift */; };
 		F4D2D38B225F5A2700ADF674 /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D2D38A225F5A2600ADF674 /* BiometricService.swift */; };
+		F4FA3095240E36A800E699AE /* TeacherShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4FA3093240E36A700E699AE /* TeacherShareView.xib */; };
+		F4FA3096240E36A800E699AE /* TeacherShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA3094240E36A700E699AE /* TeacherShareView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,7 +126,12 @@
 		F494EF6022670739006E4792 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F494EF63226716BB006E4792 /* DataRequest+NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+NSObject.swift"; sourceTree = "<group>"; };
 		F494EF6522672D3D006E4792 /* MGSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSearchTableViewController.swift; sourceTree = "<group>"; };
+		F49AEF132410A3550084D7BB /* MessageNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageNetwork.swift; sourceTree = "<group>"; };
+		F4B64F0F240CF77C00BF8A42 /* MGImageCompressTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGImageCompressTool.swift; sourceTree = "<group>"; };
+		F4B64F12240D407C00BF8A42 /* CIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extension.swift"; sourceTree = "<group>"; };
 		F4D2D38A225F5A2600ADF674 /* BiometricService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricService.swift; sourceTree = "<group>"; };
+		F4FA3093240E36A700E699AE /* TeacherShareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeacherShareView.xib; sourceTree = "<group>"; };
+		F4FA3094240E36A700E699AE /* TeacherShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherShareView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +207,11 @@
 				F45AA629225AFA160061A0F0 /* TbaleViewContainTBController.swift */,
 				F45AA62D225B34790061A0F0 /* TBViewController.swift */,
 				F4D2D38A225F5A2600ADF674 /* BiometricService.swift */,
+				F4B64F0F240CF77C00BF8A42 /* MGImageCompressTool.swift */,
+				F4B64F12240D407C00BF8A42 /* CIImage+Extension.swift */,
+				F4FA3094240E36A700E699AE /* TeacherShareView.swift */,
+				F49AEF132410A3550084D7BB /* MessageNetwork.swift */,
+				F4FA3093240E36A700E699AE /* TeacherShareView.xib */,
 				F422AC962249D5B900DECC45 /* Main.storyboard */,
 				F422AC992249D5BB00DECC45 /* Assets.xcassets */,
 				F422AC9B2249D5BB00DECC45 /* LaunchScreen.storyboard */,
@@ -352,6 +367,7 @@
 				F422AC9D2249D5BB00DECC45 /* LaunchScreen.storyboard in Resources */,
 				F422AC9A2249D5BB00DECC45 /* Assets.xcassets in Resources */,
 				F422AC982249D5B900DECC45 /* Main.storyboard in Resources */,
+				F4FA3095240E36A800E699AE /* TeacherShareView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,17 +423,21 @@
 				F45D592E225DC0850082DCBE /* ClassroomNetworkListener.swift in Sources */,
 				F45AA62E225B34790061A0F0 /* TBViewController.swift in Sources */,
 				F422ACDA224A14EB00DECC45 /* String+Extension.swift in Sources */,
+				F4B64F13240D407C00BF8A42 /* CIImage+Extension.swift in Sources */,
 				F465B29F225D9F0600F69BB9 /* UIView+MGBadge.swift in Sources */,
 				F422ACE1224A14EB00DECC45 /* UIGestureRecognizer+Extension.swift in Sources */,
 				F40703B72264610900F7B9C5 /* NetWorkTools.swift in Sources */,
+				F4FA3096240E36A800E699AE /* TeacherShareView.swift in Sources */,
 				F494EF6622672D3D006E4792 /* MGSearchTableViewController.swift in Sources */,
 				F47DB12022606FCE004A7D2F /* MGResponseVC.swift in Sources */,
 				F47DB1222260B59C004A7D2F /* NSMutableAttributedString+Extension.swift in Sources */,
 				F422ACE0224A14EB00DECC45 /* UIDevice+Extension.swift in Sources */,
 				F45AA62A225AFA160061A0F0 /* TbaleViewContainTBController.swift in Sources */,
+				F4B64F10240CF77C00BF8A42 /* MGImageCompressTool.swift in Sources */,
 				F45AA62122548CD20061A0F0 /* DataRequestExtension.swift in Sources */,
 				F4D2D38B225F5A2700ADF674 /* BiometricService.swift in Sources */,
 				F422ACA72249E0FA00DECC45 /* View+MGExtension.swift in Sources */,
+				F49AEF142410A3550084D7BB /* MessageNetwork.swift in Sources */,
 				F45AA62C225B06500061A0F0 /* MGJSONSerializable.swift in Sources */,
 				F422ACD7224A14EB00DECC45 /* Array+Extension.swift in Sources */,
 				F422ACA52249DA3700DECC45 /* MGNameSpaceWrappable.swift in Sources */,
