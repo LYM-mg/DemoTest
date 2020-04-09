@@ -22,8 +22,15 @@
                                     <constraint firstAttribute="width" secondItem="SO1-X7-zOh" secondAttribute="height" multiplier="1:1" id="zHm-Ap-mCd"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lz1-DG-2UT">
-                                <rect key="frame" x="30" y="74" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lz1-DG-2UT">
+                                <rect key="frame" x="30" y="74" width="315" height="21"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.85018705989999999" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOV-zC-CBZ">
+                                <rect key="frame" x="30" y="115" width="315" height="21"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.85018705989999999" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -34,14 +41,19 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SO1-X7-zOh" secondAttribute="trailing" constant="68" id="4B6-gY-S8P"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SO1-X7-zOh" secondAttribute="bottom" constant="30" id="9cv-B7-nwK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lz1-DG-2UT" secondAttribute="trailing" constant="30" id="DeP-q8-lyq"/>
+                            <constraint firstItem="NOV-zC-CBZ" firstAttribute="trailing" secondItem="Lz1-DG-2UT" secondAttribute="trailing" id="MOI-9W-5hd"/>
+                            <constraint firstItem="NOV-zC-CBZ" firstAttribute="leading" secondItem="Lz1-DG-2UT" secondAttribute="leading" id="P2Y-Y5-OMU"/>
                             <constraint firstItem="SO1-X7-zOh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="PCs-jz-dtz"/>
                             <constraint firstItem="Lz1-DG-2UT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="VW5-M7-MGY"/>
+                            <constraint firstItem="NOV-zC-CBZ" firstAttribute="top" secondItem="Lz1-DG-2UT" secondAttribute="bottom" constant="20" id="eaX-hE-TkO"/>
                             <constraint firstItem="Lz1-DG-2UT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="xsU-4P-o3i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="zPs-MQ-L7l"/>
                     <connections>
+                        <outlet property="ceshiLabel" destination="NOV-zC-CBZ" id="FJR-Vf-Qum"/>
                         <outlet property="imageView" destination="SO1-X7-zOh" id="QLl-eO-d06"/>
                         <outlet property="tipLabel" destination="Lz1-DG-2UT" id="BDq-BL-eKx"/>
                     </connections>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UXN-EK-lgD">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="coreData01" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8WO-Yb-Mcw">
+                        <nil key="title"/>
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="add" id="v47-Qf-Md6">
+                                <connections>
+                                    <action selector="addClick:" destination="BYZ-38-t0r" id="YnO-aR-aU3"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="compose" id="0VV-Qd-0z6">
+                                <connections>
+                                    <action selector="creatDepart:" destination="BYZ-38-t0r" id="xhV-AC-evQ"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem title="下一页" id="tRi-hL-A8u">
+                                <connections>
+                                    <segue destination="QD2-Hf-mKW" kind="show" id="vt8-oP-EKp"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="搜索查询" id="awO-Qb-Idm">
+                                <connections>
+                                    <action selector="searchData:" destination="BYZ-38-t0r" id="D8n-dR-cEA"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="查询" id="pkU-i3-vfl">
+                                <connections>
+                                    <action selector="getAllData:" destination="BYZ-38-t0r" id="IY9-LD-LgZ"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056.8" y="122.78860569715144"/>
+        </scene>
+        <!--分页和模糊查询-->
+        <scene sceneID="ubU-Aq-mGf">
+            <objects>
+                <viewController id="QD2-Hf-mKW" customClass="NextViewController" customModule="coreData01" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IeA-7y-X1g"/>
+                        <viewControllerLayoutGuide type="bottom" id="h9g-K5-3CB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eOD-3D-elD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juH-6K-eVx">
+                                <color key="backgroundColor" red="0.59388108220000002" green="0.71586619129999995" blue="0.70422609059999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="分页查询"/>
+                                <connections>
+                                    <action selector="pageSearch:" destination="QD2-Hf-mKW" eventType="touchUpInside" id="jKL-jW-eiv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rem-i8-L2t">
+                                <color key="backgroundColor" red="0.59388108220000002" green="0.71586619129999995" blue="0.70422609059999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="开头查询"/>
+                                <connections>
+                                    <action selector="startSearch:" destination="QD2-Hf-mKW" eventType="touchUpInside" id="SLh-Ze-jPj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8J-sI-LYQ">
+                                <color key="backgroundColor" red="0.59388108220000002" green="0.71586619129999995" blue="0.70422609059999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="结尾查询"/>
+                                <connections>
+                                    <action selector="endSearch:" destination="QD2-Hf-mKW" eventType="touchUpInside" id="WRE-UA-1Dn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIO-DQ-ACL">
+                                <color key="backgroundColor" red="0.59388108220000002" green="0.71586619129999995" blue="0.70422609059999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="模糊查询"/>
+                                <connections>
+                                    <action selector="blurSearch:" destination="QD2-Hf-mKW" eventType="touchUpInside" id="cR5-8K-cjw"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Hh-Kn-GVx">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="QD2-Hf-mKW" id="yPc-35-2Zh"/>
+                                    <outlet property="delegate" destination="QD2-Hf-mKW" id="LZP-Bn-tpP"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h8J-sI-LYQ" firstAttribute="top" secondItem="rem-i8-L2t" secondAttribute="top" id="1TE-gG-aVa"/>
+                            <constraint firstItem="nIO-DQ-ACL" firstAttribute="width" secondItem="juH-6K-eVx" secondAttribute="width" id="6II-m1-Za4"/>
+                            <constraint firstItem="1Hh-Kn-GVx" firstAttribute="leading" secondItem="eOD-3D-elD" secondAttribute="leading" id="CSd-wH-lh8"/>
+                            <constraint firstItem="juH-6K-eVx" firstAttribute="top" secondItem="IeA-7y-X1g" secondAttribute="bottom" constant="20" id="EzI-Ur-IxI"/>
+                            <constraint firstAttribute="trailing" secondItem="1Hh-Kn-GVx" secondAttribute="trailing" id="FcN-v6-IWf"/>
+                            <constraint firstItem="rem-i8-L2t" firstAttribute="top" secondItem="juH-6K-eVx" secondAttribute="bottom" constant="10" id="HFI-zc-FY2"/>
+                            <constraint firstItem="h9g-K5-3CB" firstAttribute="top" secondItem="1Hh-Kn-GVx" secondAttribute="bottom" id="JG8-EU-lYa"/>
+                            <constraint firstItem="nIO-DQ-ACL" firstAttribute="top" secondItem="IeA-7y-X1g" secondAttribute="bottom" constant="20" id="JeY-Ot-KSs"/>
+                            <constraint firstItem="h8J-sI-LYQ" firstAttribute="leading" secondItem="nIO-DQ-ACL" secondAttribute="leading" id="Qcf-Lo-1YG"/>
+                            <constraint firstItem="1Hh-Kn-GVx" firstAttribute="top" secondItem="h8J-sI-LYQ" secondAttribute="bottom" constant="10" id="bp4-1U-sTV"/>
+                            <constraint firstAttribute="trailing" secondItem="nIO-DQ-ACL" secondAttribute="trailing" constant="10" id="eag-bV-obz"/>
+                            <constraint firstItem="nIO-DQ-ACL" firstAttribute="leading" secondItem="juH-6K-eVx" secondAttribute="trailing" constant="10" id="f4I-d0-5xQ"/>
+                            <constraint firstItem="juH-6K-eVx" firstAttribute="leading" secondItem="eOD-3D-elD" secondAttribute="leading" constant="10" id="pUu-b5-v0h"/>
+                            <constraint firstItem="rem-i8-L2t" firstAttribute="trailing" secondItem="juH-6K-eVx" secondAttribute="trailing" id="pX8-Vd-5iQ"/>
+                            <constraint firstItem="h8J-sI-LYQ" firstAttribute="trailing" secondItem="nIO-DQ-ACL" secondAttribute="trailing" id="uvb-tI-Sgq"/>
+                            <constraint firstItem="rem-i8-L2t" firstAttribute="leading" secondItem="juH-6K-eVx" secondAttribute="leading" id="yIJ-sy-Xrq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="分页和模糊查询" id="cvE-2h-AcX">
+                        <barButtonItem key="rightBarButtonItem" title="包含关系" id="vVA-RG-NbI">
+                            <connections>
+                                <action selector="containSearch:" destination="QD2-Hf-mKW" id="oX6-Vr-SaK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="1Hh-Kn-GVx" id="szj-99-vu3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ry9-13-hvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1748" y="122.78860569715144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2u1-OE-9Vx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UXN-EK-lgD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tuD-XM-ajg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UXH-tI-W2g"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hen-lk-5L9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="382" y="123"/>
+        </scene>
+    </scenes>
+</document>

@@ -60,7 +60,6 @@
 		F494EF6122670739006E4792 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F494EF6022670739006E4792 /* SwiftyJSON.framework */; };
 		F494EF64226716BB006E4792 /* DataRequest+NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494EF63226716BB006E4792 /* DataRequest+NSObject.swift */; };
 		F494EF6622672D3D006E4792 /* MGSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494EF6522672D3D006E4792 /* MGSearchTableViewController.swift */; };
-		F49AEF142410A3550084D7BB /* MessageNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AEF132410A3550084D7BB /* MessageNetwork.swift */; };
 		F4B64F10240CF77C00BF8A42 /* MGImageCompressTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B64F0F240CF77C00BF8A42 /* MGImageCompressTool.swift */; };
 		F4B64F13240D407C00BF8A42 /* CIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B64F12240D407C00BF8A42 /* CIImage+Extension.swift */; };
 		F4D2D38B225F5A2700ADF674 /* BiometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D2D38A225F5A2600ADF674 /* BiometricService.swift */; };
@@ -437,7 +436,6 @@
 				F45AA62122548CD20061A0F0 /* DataRequestExtension.swift in Sources */,
 				F4D2D38B225F5A2700ADF674 /* BiometricService.swift in Sources */,
 				F422ACA72249E0FA00DECC45 /* View+MGExtension.swift in Sources */,
-				F49AEF142410A3550084D7BB /* MessageNetwork.swift in Sources */,
 				F45AA62C225B06500061A0F0 /* MGJSONSerializable.swift in Sources */,
 				F422ACD7224A14EB00DECC45 /* Array+Extension.swift in Sources */,
 				F422ACA52249DA3700DECC45 /* MGNameSpaceWrappable.swift in Sources */,
@@ -621,15 +619,18 @@
 			baseConfigurationReference = EE0EF5014FC887481EB49466 /* Pods-SwiftyDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8Q5PM386TD;
 				INFOPLIST_FILE = SwiftyDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.firestonetmt.SwiftyDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = ios_development;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -640,15 +641,18 @@
 			baseConfigurationReference = B44C5E652823D29FBE6CCFC5 /* Pods-SwiftyDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8Q5PM386TD;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftyDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.firestonetmt.SwiftyDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

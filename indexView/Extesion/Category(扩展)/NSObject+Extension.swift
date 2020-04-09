@@ -130,3 +130,66 @@ extension NSObject {
         return array
     }
 }
+
+
+protocol SelfAware: class {
+    static func awake()
+    static func swizzlingForClass(_ forClass: AnyClass, originalSelector: Selector, swizzledSelector: Selector)
+}
+extension SelfAware {
+    
+    static func swizzlingForClass(_ forClass: AnyClass, originalSelector: Selector, swizzledSelector: Selector) {
+        let originalMethod = class_getInstanceMethod(forClass, originalSelector)
+        let swizzledMethod = class_getInstanceMethod(forClass, swizzledSelector)
+        guard (originalMethod != nil && swizzledMethod != nil) else {
+            return
+        }
+        if class_addMethod(forClass, originalSelector, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!)) {
+            class_replaceMethod(forClass, swizzledSelector, method_getImplementation(originalMethod!), method_getTypeEncoding(originalMethod!))
+        } else {
+            method_exchangeImplementations(originalMethod!, swizzledMethod!)
+        }
+    }
+}
+class NothingToSeeHere {
+    static func harmlessFunction() {
+        let typeCount = Int(objc_getClassList(nil, 0))
+        let types = UnsafeMutablePointer.allocate(capacity: typeCount)
+        let autoreleasingTypes = AutoreleasingUnsafeMutablePointer(types)
+        objc_getClassList(autoreleasingTypes, Int32(typeCount))
+        for index in 0 ..< typeCount {
+            (types[index] as? SelfAware.Type)?.awake()
+        }
+        types.deallocate()
+    }
+}
+extension UIApplication {
+    private static let runOnce: Void = {
+        NothingToSeeHere.harmlessFunction()
+    }()
+    override open var next: UIResponder? {
+        UIApplication.runOnce
+        return super.next
+    }
+}
+
+extension UIButton: SelfAware {
+    static func awake() {
+        UIButton.takeOnceTime
+    }
+    private static let takeOnceTime: Void = {
+        let originalSelector = #selector(sendAction)
+        let swizzledSelector = #selector(xxx_sendAction(action:to:forEvent:))
+        
+        swizzlingForClass(UIButton.self, originalSelector: originalSelector, swizzledSelector: swizzledSelector)
+    }()
+    
+    @objc public func xxx_sendAction(action: Selector, to: AnyObject!, forEvent: UIEvent!) {
+        struct xxx_buttonTapCounter {
+            static var count: Int = 0
+        }
+        xxx_buttonTapCounter.count += 1
+        print(xxx_buttonTapCounter.count)
+        xxx_sendAction(action: action, to: to, forEvent: forEvent)
+    }
+}
